@@ -66,3 +66,54 @@ exclude:
 # (Used only for GitHub deployments)
 # See https://help.github.com/en/articles/adding-a-jekyll-theme-to-your-github-pages-site
 #remote_theme: minicomp/ed
+
+
+# Syllabus
+
+blocks:
+    b1:
+        name: "Introduction"
+        lecture: "Introduction to the module"
+        lab: "Getting your laptop up to speed + CARTO"
+    b2:
+        name: "Good (Web) Maps"
+        lecture: "Designing good (web) maps"
+        lab: "CARTO sandbox"
+    b3:
+        name: "Data Backends I"
+        lecture: "APIs"
+        lab: "Acquiring data from the web in Python"
+    b4:
+        name: "Data Backends II"
+        lecture: "Data architechtures & formats"
+        lab: "Creating, manipulating, and integrating web geospatial data"
+    b5:
+        name: "Data Backends III"
+        lecture: "Building and deploying (web) platforms"
+        lab: "Assignment I clinic"
+    b6:
+        name: "Frontend Topics I"
+        lecture: "Designing for interactivity"
+        lab: "Mapbox Studio"
+    b7:
+        name: "Frontend Topics II"
+        lecture: "Maps as websites - Styling web maps"
+        lab: "CartoCSS in Mapbox Studio"
+    b8:
+        name: "Frontend Topics III"
+        lecture: "Dashboards"
+        lab: "Building dashboards"
+    b9:
+        name: "Web Maps in the Data Science Workflow"
+        lecture: "Web Maps in the Data Science Workflow"
+        lab: "Web maps in Jupyter and RStudio"
+    b10:
+        name: ""
+        lecture: "Technology gallery"
+        lab: "Assignment II clinic"
+assessment:
+    a1:
+        title: "Build a vector tileset from disparate sources"
+    a2:
+        title: "A dashboard of IMD"
+

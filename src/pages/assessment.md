@@ -3,5 +3,11 @@ layout: page
 title: "Assessment"
 ---
 
-Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
-[Head back home]({{ site.baseurl }}) to try finding it again.
+## Assignment I <a name="assignment1"> </a>
+
+- Title: *{{site.assessment.a1.title}}*
+
+## Assignment II
+
+- Title: *{{site.assessment.a2.title}}*
+
