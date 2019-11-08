@@ -1,11 +1,11 @@
 # Built with Jekyll 3.6.0
 
 # Setup
-title:               Web Mapping & Analysis
-tagline:             'Notes and materials'
-description:         'A module on Web Mapping & Analysis.'
-url:                 'http://minicomp.github.io'
-baseurl:             '/wma'
+title:               Web Mapping Notes
+tagline:             'Guide, materials & resources'
+description:         'An archive to teach Web Mapping & Analysis.'
+url:                 'https://darribas.org'
+baseurl:             '/wmn'
 
 # About/contact
 author:

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Web Mapping & Analysis</title>
- <link href="http://minicomp.github.io/wma/atom.xml" rel="self"/>
- <link href="http://minicomp.github.io/wma/"/>
- <updated>2019-11-08T12:21:57+00:00</updated>
- <id>http://minicomp.github.io</id>
+ <title>Web Mapping Notes</title>
+ <link href="https://darribas.org/wmn/atom.xml" rel="self"/>
+ <link href="https://darribas.org/wmn/"/>
+ <updated>2019-11-08T12:31:22+00:00</updated>
+ <id>https://darribas.org</id>
  <author>
    <name>Dani Arribas-Bel</name>
    <email>D.Arribas-Bel@liverpool.ac.uk</email>
