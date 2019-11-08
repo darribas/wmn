@@ -6,12 +6,18 @@ tagline:             'Guide, materials & resources'
 description:         'An archive to teach Web Mapping & Analysis.'
 url:                 'https://darribas.org'
 baseurl:             '/wmn'
+repository:          'https://github.com/darribas/wmn'
 
 # About/contact
 author:
   name:              Dani Arribas-Bel
+  twitter:           darribas
   url:               https://darribas.org
-  email:             D.Arribas-Bel@liverpool.ac.uk
+  email:             <code>D.Arribas-Bel [at] liverpool.ac.uk</code>
+  title:             Senior Lecturer in Geographic Data Science
+  add1:              Office 508, Roxby Building
+  add2:              University of Liverpool
+  add3:              Liverpool L69 3BX, United Kingdom
 
 # Color scheme. Options: red, orange, magenta, cyan, blue, brown
 color-scheme:
