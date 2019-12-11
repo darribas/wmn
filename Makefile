@@ -1,5 +1,6 @@
 lab:
-	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work gdsbook/stack:3.0
+	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work gds19
+
 compile_website:
 	rm -rf tmp
 	cp -r site_scaffolding tmp
@@ -22,6 +23,7 @@ website: compile_website
 	touch docs/.nojekyll
 	rm -rf tmp/
 
-lecture:
-	pandoc -t html5 --template=src/slidedecks/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" src/slides/lecture_01.md -o src/slidedecks/lecture_01.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/lecture_01.html src/slidedecks/lecture_01.pdf
+# Run for example as: `make slide name=lecture_01`
+slide: src/slides/$(name).md
+	pandoc -t html5 --template=src/slidedecks/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" src/slides/$(name).md -o src/slidedecks/$(name).html
+	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/$(name).html src/slidedecks/$(name).pdf
