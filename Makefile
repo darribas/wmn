@@ -1,3 +1,5 @@
+lab:
+	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work gdsbook/stack:3.0
 compile_website:
 	rm -rf tmp
 	cp -r site_scaffolding tmp
