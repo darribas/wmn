@@ -14,13 +14,66 @@
 #
 ## Visualisation
 
-## Requirements of visualisation (Kirk 2016)
+## *What?*
 
-Good data visualisation is:
+<CENTER>
+*"Visual representations of datasets designed to help people carry out
+tasks more effectively"*
+</CENTER>
 
-- Trustworthy
-- Accessible
-- Elegant
+Munzner (2016)
+
+## *When?*
+
+A human "superpower":
+
+- *Keep* the human in the loop
+- *Augment* memory/internal representation
+- *Ask* new questions rather than only *answer* existing ones
+
+## *Why?*
+
+- Bridges **human and machine**
+- Relies on **vision** (high-volume, parallel throughput)
+- External representations work around **limits** of **internal** cognition/memory
+
+## *How?*
+
+> `what-why-how`
+>
+<CENTER>$\downarrow$ </CENTER>
+>
+> `data-task-idiom`
+
+<div class='fragment'>
+Most ineffective designs are due to a poor match
+
+> Domain-specific $\rightarrow$ Abstract form
+</div>
+
+## *How?*
+
+Vis is <fragment class='hgl'>multi-use</fragment>: 
+
+- Exploring
+- Checking pre-conceived ideas
+- Long-term use in workflows/processes
+- Presentation
+
+A tool that serves well for one task can be poorly suited for another
+
+## Elements (and limitations)
+
+- Computer (time)
+- Human (memory & attention)
+- Display (capacity)
+
+## Design trade-off's
+
+- Beauty Vs Elegance
+- "No picture can communicate the truth, the whole truth, and nothing but the
+  truth" (Munzner, 2016)
+- ...
 
 #
 ## (Web) Maps
