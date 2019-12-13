@@ -1,4 +1,4 @@
-lab:
+server:
 	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work gds19
 
 compile_website:
@@ -29,13 +29,10 @@ slide: src/slides/lecture_$(no).md
 	pandoc -t html5 --template=src/slidedecks/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" src/slides/lecture_$(no).md -o src/slidedecks/lecture_$(no).html
 	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/lecture_$(no).html src/slidedecks/lecture_$(no).pdf
 
-lab: lab_html, lab_pdf
+lab_pdf: 
+	pandoc  -V documentclass=tufte-handout \
+			--template=src/labs/tufte-handout.tex \
+			--pdf-engine=xelatex \
+			-s src/labs/lab_$(no).md \
+			-o src/labs/lab_$(no).pdf
 
-lab_html: src/labs/lab_$(no).ipynb
-	cd src/labs && jupyter nbconvert --to markdown lab_$(no).ipynb --output lab_$(no)_tmp.md
-	echo "---\nlayout: notebook\nipynb: lab_$(no)\nblock: b$(no)\n---\n" > src/labs/lab_$(no).md
-	cat src/labs/lab_$(no)_tmp.md >> src/labs/lab_$(no).md
-	rm src/labs/lab_$(no)_tmp.md
-
-lab_pdf: src/labs/lab_$(no).ipynb
-	cd src/labs && jupyter nbconvert --to pdf lab_$(no).ipynb --output lab_$(no).pdf
