@@ -23,8 +23,8 @@ author:
 color-scheme:
 
 # Permalinks
-permalink: pretty
-permalink: /:title/
+#permalink: pretty
+permalink: /:title
 
 # Set encoding to UTF-8
 encoding: utf-8
@@ -76,32 +76,32 @@ blocks:
         lecture: "Introduction to the module"
         lab: "Getting your laptop up to speed + CARTO"
     b2:
-        name: "Good (Web) Maps"
-        lecture: "Designing good (web) maps"
-        lab: "CARTO sandbox"
+        name: "The context of Web Maps"
+        lecture: "The Web's architecture and Economy"
+        lab: "Powerful examples"
     b3:
         name: "Data Backends I"
-        lecture: "APIs"
-        lab: "Acquiring data from the web in Python"
-    b4:
-        name: "Data Backends II"
         lecture: "Data architechtures & formats"
         lab: "Creating, manipulating, and integrating web geospatial data"
+    b4:
+        name: "Data Backends II"
+        lecture: "APIs"
+        lab: "Acquiring data from the web in Python"    
     b5:
         name: "Data Backends III"
         lecture: "Building and deploying (web) platforms"
         lab: "Assignment I clinic"
     b6:
         name: "Frontend Topics I"
-        lecture: "Designing for interactivity"
-        lab: "Mapbox Studio"
+        lecture: "Good (Web) Maps"
+        lab: "CARTO sandbox"
     b7:
         name: "Frontend Topics II"
-        lecture: "Maps as websites - Styling web maps"
-        lab: "CartoCSS in Mapbox Studio"
+        lecture: "Maps as websites - Styling (interactive) web maps"
+        lab: "Mapbox Studio: CartoCSS + Style Components"
     b8:
         name: "Frontend Topics III"
-        lecture: "Dashboards"
+        lecture: "Dashboards: bringing analysis to the web"
         lab: "Building dashboards"
     b9:
         name: "Web Maps in the Data Science Workflow"

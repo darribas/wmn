@@ -30,9 +30,10 @@ slide: src/slides/lecture_$(no).md
 	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/lecture_$(no).html src/slidedecks/lecture_$(no).pdf
 
 lab_pdf: 
+	cd src/labs && \
 	pandoc  -V documentclass=tufte-handout \
-			--template=src/labs/tufte-handout.tex \
+			--template=tufte-handout.tex \
 			--pdf-engine=xelatex \
-			-s src/labs/lab_$(no).md \
-			-o src/labs/lab_$(no).pdf
+			-s lab_$(no).md \
+			-o lab_$(no).pdf
 
