@@ -1,9 +1,9 @@
 ---
 layout: notebook
-block: b02
+block: b06
 ---
 
-# Lab 2 - CARTO Sandbox
+# Lab 6 - CARTO Sandbox
 
 In this lab, we will play with a sandboxed web mapping platform. By sandboxed
 we mean that you will not have to think, for now, about getting your data,
