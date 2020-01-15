@@ -25,7 +25,7 @@ website: compile_website
 	rm -rf tmp/
 
 # Run for example as: `make slide no=01`
-slide: src/slides/lecture_$(no).md
+slide:
 	pandoc -t html5 --template=src/slidedecks/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" src/slides/lecture_$(no).md -o src/slidedecks/lecture_$(no).html
 	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/lecture_$(no).html src/slidedecks/lecture_$(no).pdf
 
