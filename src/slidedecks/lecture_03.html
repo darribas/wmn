@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Mapping &amp; Analysis</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                <h1>Web Mapping &amp; Analysis</h1>
+                <h3>Data Backends I - Data Architecture &amp; Formats</h3>
+                <p>
+                <h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+                </p>
+                </section>  
+                 
+                                 
+                <section id="today" class="level1">
+                <h1>Today</h1>
+                <ul>
+                <li>Spatial Data</li>
+                <li>Spatial Data Formats</li>
+                <li>Selecting the right format</li>
+                </ul>
+                </section>
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="spatial-data" class="level2">
+                <h2>Spatial Data</h2>
+                </section>
+                <section id="traditional-spatial-data" class="level2">
+                <h2><strong>Traditional</strong> Spatial Data</h2>
+                <p>In the “old days” only:</p>
+                <ul>
+                <li>Mapping agencies (e.g. OS)</li>
+                <li>Administrative organizations (e.g. Land Registry)</li>
+                <li>Military</li>
+                <li>Large companies (e.g. Google)</li>
+                <li>…</li>
+                </ul>
+                <p>could afford the generation of spatial dataset.</p>
+                </section>
+                <section id="new-spatial-data" class="level2">
+                <h2><strong>New</strong> Spatial Data</h2>
+                <p>Today, this list has <strong>expanded</strong> to essentially <strong>anyone</strong> with access to (cheap) geospatial technology</p>
+                </section>
+                <section id="section-1" class="level2" data-background="../slides/figs/ride.jpg" data-background-size="cover">
+                <h2></h2>
+                </section>
+                <section id="section-2" class="level2" data-background="../slides/figs/osm.jpg" data-background-size="cover">
+                <h2></h2>
+                <p><a href="http://openstreetmap.org">[Source]</a></p>
+                </section>
+                <section id="section-3" class="level2" data-background="../slides/figs/osm_lvl.jpg" data-background-size="cover">
+                <h2></h2>
+                <p><a href="https://www.mapbox.com/gallery/#map-1">[Source]</a></p>
+                </section>
+                <section id="section-4" class="level2" data-background="../slides/figs/tweets.jpg">
+                <h2></h2>
+                <p><a href="https://api.tiles.mapbox.com/v4/enf.c3a2de35/page.html?access_token=pk.eyJ1IjoiZW5mIiwiYSI6IkNJek92bnMifQ.xn2_Uj9RkYTGRuCGg4DXZQ#11/51.5049/-0.1576">[Source]</a></p>
+                </section>
+                <section id="section-5" class="level2" data-background="../slides/figs/facebook.png" data-background-size="contain">
+                <h2></h2>
+                <p><a href="https://code.facebook.com/posts/210838009040670/visualizing-friendships/">[Source]</a></p>
+                </section>
+                <section id="data-models" class="level2">
+                <h2>Data Models</h2>
+                <p><em>How</em> we represent the world in a computer</p>
+                <ul>
+                <li>Vector</li>
+                <li>Raster</li>
+                </ul>
+                </section>
+                <section id="vector" class="level2">
+                <h2>Vector</h2>
+                <p>Represent each entity with a shape or geometry. <a href="https://en.wikipedia.org/wiki/Simple_Features">Simple features</a>:</p>
+                <ul>
+                <li>(Multi-)Points</li>
+                <li>(Multi-)Lines</li>
+                <li>(Multi-)Polygons</li>
+                </ul>
+                <p>Divide space into a <strong>finite</strong> set of entities</p>
+                </section>
+                <section id="section-6" class="level2">
+                <h2></h2>
+                <iframe width="130%" height="620" frameborder="0" src="https://d9a.cartodb.com/viz/fe9751f0-6ced-11e4-98f3-0e9d821ea90d/embed_map">
+                </iframe>
+                </section>
+                <section id="section-7" class="level2" data-background="../slides/figs/lines.png" data-background-size="cover">
+                <h2></h2>
+                <p><a href="http://www.dvrpc.org/webmaps/CyclePhilly/">[Source]</a></p>
+                </section>
+                <section id="section-8" class="level2" data-background="../slides/figs/polygons.png" data-background-size="cover">
+                <h2></h2>
+                <p><a href="http://code.waag.org/buildings/#52.3733,4.8958,15">[Source]</a></p>
+                </section>
+                <section id="raster" class="level2">
+                <h2>Raster</h2>
+                <p>Use an <strong>image</strong> and control pixel colors to encode value</p>
+                <p>The value assigned for each cell represents the attribute of that cell</p>
+                <ul>
+                <li><strong>Continuous</strong> variables, surfaces (temperature, density, elevation…)</li>
+                <li>Satellite images (land cover, land use…)</li>
+                </ul>
+                </section>
+                <section id="section-9" class="level2" data-background="../slides/figs/shaded.jpg" data-background-size="contain">
+                <h2></h2>
+                <p><a href="http://shadedrelief.com/manual_relief/">[Source]</a></p>
+                </section>
+                <section id="section-10" class="level2" data-background="../slides/figs/cubesat.jpg" data-background-size="contain">
+                <h2></h2>
+                <p><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/CubeSat_in_hand.jpg">[Source]</a></p>
+                </section>
+                <section id="section-11" class="level2" data-background="../slides/figs/planet.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-12" class="level2" data-background="../slides/figs/strava_heatmap.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                </section>
+                <section id="section-13" class="level1">
+                <h1></h1>
+                <section id="spatial-data-formats" class="level2">
+                <h2>Spatial Data Formats</h2>
+                </section>
+                <section id="spatial-data-formats-1" class="level2">
+                <h2>Spatial Data Formats</h2>
+                <p>In principle…</p>
+                <ul>
+                <li>Points, lines, polygons –&gt; Vector formats</li>
+                <li>Images –&gt; Raster formats</li>
+                </ul>
+                <p>But new data generation is “blurring” these boundaries</p>
+                </section>
+                <section id="traditionally" class="level2">
+                <h2>Traditionally</h2>
+                <p><strong><code>Vector</code></strong></p>
+                <ul>
+                <li>Single files: shapefiles, etc.</li>
+                <li>Client-server (geo-)DBs: PostGIS, etc.</li>
+                </ul>
+                <p><strong><code>Raster</code></strong></p>
+                <ul>
+                <li>Mostly (single) image formats: GeoTIFF, etc.</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-14" class="level1">
+                <h1></h1>
+                <section id="selecting-the-right-format" class="level2">
+                <h2>Selecting the right format</h2>
+                </section>
+                </section>
+                <section id="section-15" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+                controlsTutorial: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
