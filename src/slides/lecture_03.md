@@ -101,7 +101,10 @@ In principle...
 - Points, lines, polygons --> Vector formats
 - Images, surfaces --> Raster formats
 
-But new data generation is "blurring" these boundaries
+But these boundaries are blur...
+
+## {data-background=../slides/figs/ghsl.png data-background-size=contain}
+## {data-background=../slides/figs/lucas.png data-background-size=contain}
 
 ## Traditionally
 
@@ -116,7 +119,27 @@ But new data generation is "blurring" these boundaries
 
 ## However...
 
-Many of these formats were designed for an *offline* world
+Many of these formats were designed for an *offline* world, so display some of the following:
+
+- Binary ("non-streamable")
+- "Unqueriable"
+- Complex format structures
+
+## {data-background=../slides/figs/lucas.png data-background-size=contain}
+
+## Modern formats
+
+New formats have appeared in part *"fixing"* those issues, but also responding to web needs:
+
+- Streamable (e.g. `GeoJSON`)
+- Queriable (e.g. `PostGIS`/`Geopackage`)
+- Single file (e.g. `.mbtiles`)
+
+Let's explore a bit more on a couple of them...
+
+## `GeoJSON`
+
+## `.mb/vtiles`
 
 #
 ## Selecting the right format
