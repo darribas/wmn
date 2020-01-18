@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Mapping &amp; Analysis</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                <h1>Web Mapping &amp; Analysis</h1>
+                <h3>Data Backends II - APIs</h3>
+                <p>
+                <h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+                </p>
+                </section>  
+                 
+                                 
+                <section id="today" class="level1">
+                <h1>Today</h1>
+                <ul>
+                <li>The Web as a source for data</li>
+                <li>Web APIs</li>
+                <li>API examples</li>
+                </ul>
+                </section>
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="the-web-as-a-source-for-data" class="level2">
+                <h2>The Web as a source for data</h2>
+                </section>
+                <section id="new-forms-of-data" class="level2">
+                <h2>New forms of data</h2>
+                <ul>
+                <li>New forms of data <span class="hlg">enabled</span> by <span class="hlg">web</span> technologies</li>
+                <li><span class="hlg">Digital</span> life, digital traces, digitalised life (Lazer &amp; Radford, 2017)</li>
+                <li>Much of these data are available as an <span class="hlg"><em>accident</em></span> (Arribas-Bel, 2014)</li>
+                </ul>
+                </section>
+                <section id="sources" class="level2">
+                <h2>Sources</h2>
+                <ul>
+                <li><em>Citizens as sensors</em></li>
+                <li>Businesses moving online</li>
+                <li>Open (government) data</li>
+                </ul>
+                </section>
+                <section id="citizens-as-sensors" class="level2">
+                <h2>“Citizens as sensors”</h2>
+                <ul>
+                <li>Web 2.0 –&gt; (data) consumers are <em>also</em> creators (Goodchild, 2007)</li>
+                <li>Much of everyday life now recorded in a database</li>
+                <li>(Parts of) these databases can be accessed</li>
+                </ul>
+                </section>
+                <section id="section-1" class="level2" data-background="../slides/figs/api_twitter.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-2" class="level2" data-background="../slides/figs/api_instagram.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-3" class="level2" data-background="../slides/figs/api_fitbit.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="businesses-moving-online" class="level2">
+                <h2>“Businesses moving <em>online</em>”</h2>
+                <ul>
+                <li><span class="hlg">Business</span> activities digitalised (or entirely <span class="hlg">digital</span>)</li>
+                <li>Records stored in databases, that can also be accessed</li>
+                <li><span class="hlg">Active/passive</span> collection (re. IoT)</li>
+                </ul>
+                </section>
+                <section id="section-4" class="level2" data-background="../slides/figs/gsv.jpg" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-5" class="level2" data-background="../slides/figs/uber.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-6" class="level2" data-background="../slides/figs/rightmove.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="governments-opening-up" class="level2">
+                <h2>Governments “opening up”</h2>
+                <ul>
+                <li><span class="hgl">Public</span> institutions releasing internal data under <span class="hgl">open licenses</span></li>
+                <li>Variety of reasons (transparency, economic value, service…)</li>
+                <li>Not to take for granted!</li>
+                </ul>
+                </section>
+                <section id="section-7" class="level2" data-background="../slides/figs/open_data_index.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-8" class="level2" data-background="../slides/figs/crime_data.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="section-9" class="level2" data-background="../slides/figs/os_open_data.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="challenges" class="level2">
+                <h2>Challenges</h2>
+                <ul>
+                <li>Bias</li>
+                <li>Licensing</li>
+                <li>Access</li>
+                </ul>
+                </section>
+                <section id="bias" class="level2">
+                <h2>Bias</h2>
+                <ul>
+                <li>Who’s represented?</li>
+                <li>Who’s missing?</li>
+                <li>How is the data used?</li>
+                </ul>
+                </section>
+                <section id="section-10" class="level2" data-background="../slides/figs/street_bump.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="licensing" class="level2">
+                <h2>Licensing</h2>
+                <ul>
+                <li>“Free beer”, not “free speech”</li>
+                <li>A</li>
+                <li>Evolving landscape</li>
+                </ul>
+                </section>
+                <section id="section-11" class="level2" data-background="../slides/figs/tac.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="access" class="level2">
+                <h2>Access</h2>
+                <p>Not a click download</p>
+                </section>
+                </section>
+                <section id="section-12" class="level1">
+                <h1></h1>
+                <section id="web-apis" class="level2">
+                <h2>Web APIs</h2>
+                <blockquote>
+                <p>Programmable interfaces to web services</p>
+                </blockquote>
+                <ul>
+                <li>Machine-to-machine communication over the web</li>
+                <li>Expose access to (parts of) databases, or output of computations</li>
+                <li>Bridge between <em>client</em> and <em>server</em></li>
+                </ul>
+                </section>
+                <section id="how-apis-work" class="level2">
+                <h2>How APIs work</h2>
+                <ul>
+                <li>[Optional] Authenticate (potentially linked to billing)</li>
+                <li>Send query as URL</li>
+                <li>Receive request (<code>(Geo)JSON</code>, <code>.csv</code>)</li>
+                </ul>
+                </section>
+                <section id="web-apis-an-example" class="level2">
+                <h2>Web APIs: an example</h2>
+                <p>Over HTTP (e.g. <code>REST</code>): the query is a URL:</p>
+                <pre><code>https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LSOA_DEC_2011_EW_BSC/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;outSR=4326&amp;f=json</code></pre>
+                <p><a href="http://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-ew-bsc/geoservice"><code>[URL]</code></a></p>
+                </section>
+                <section id="web-apis-language-bindings" class="level2">
+                <h2>Web APIs: language “bindings”</h2>
+                <ul>
+                <li>Library in a programming language (e.g. Javascript, Python, R) to interact with an API</li>
+                <li>Wrapper in the language around HTTP endpoints</li>
+                <li>Expose API in familiar form for developers of that language</li>
+                </ul>
+                </section>
+                <section id="web-apis-some-thoughts" class="level2">
+                <h2>Web APIs: some thoughts</h2>
+                <ul>
+                <li>Very <span class="hlg">useful</span> to access new forms of data</li>
+                <li>All different, but some <span class="hlg">patterns</span> are broadly <span class="hlg">general</span></li>
+                <li><span class="hlg">Programming</span></span> skills <span class="hlg">help</span> to automate data access</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-13" class="level1">
+                <h1></h1>
+                <section id="api-examples" class="level2">
+                <h2>API examples</h2>
+                </section>
+                <section id="api-examples-1" class="level2">
+                <h2>API examples</h2>
+                <ul>
+                <li>Data</li>
+                <li>Maps</li>
+                <li>Computations</li>
+                </ul>
+                </section>
+                <section id="phe-fingertips" class="level2">
+                <h2>PHE Fingertips</h2>
+                <p>[Data]</p>
+                </section>
+                <section id="xyz-basemaps" class="level2">
+                <h2>XYZ Basemaps</h2>
+                <p>[Maps]</p>
+                </section>
+                <section id="google-maps-api" class="level2">
+                <h2>Google Maps API</h2>
+                <p>[Computations]</p>
+                </section>
+                </section>
+                <section id="section-14" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+                controlsTutorial: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
