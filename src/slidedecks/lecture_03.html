@@ -179,7 +179,7 @@
                 <li>Complex format structures</li>
                 </ul>
                 </section>
-                <section id="section-16" class="level2" data-background="../slides/figs/lucas.png" data-background-size="contain">
+                <section id="section-16" class="level2" data-background="../slides/figs/hate_shp.png" data-background-size="contain">
                 <h2></h2>
                 </section>
                 <section id="modern-formats" class="level2">
@@ -195,17 +195,83 @@
                 <section id="geojson" class="level2">
                 <h2><code>GeoJSON</code></h2>
                 </section>
-                <section id="mbvtiles" class="level2">
-                <h2><code>.mb/vtiles</code></h2>
+                <section id="section-17" class="level2" data-background="../slides/figs/geojson.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="advantages" class="level2">
+                <h2>Advantages</h2>
+                <ul>
+                <li>Plain <span class="hlg">text</span>, (human) readable</li>
+                <li><span class="hlg">Streamable</span></li>
+                <li>Well integrated with web standards (<span class="hlg">JSON</span>)</li>
+                </ul>
+                <p>Excellent <span class="hgl">exchange</span> format</p>
+                </section>
+                <section id="disadvantages" class="level2">
+                <h2>Disadvantages</h2>
+                <ul>
+                <li>Plain <span class="hlg">text</span>, inefficient</li>
+                <li>Non-queriable</li>
+                <li>Vector only</li>
+                </ul>
+                </section>
+                <section id="tilesets-.mbvtiles" class="level2">
+                <h2>Tilesets (<code>.mb/vtiles</code>)</h2>
+                </section>
+                <section id="section-18" class="level2" data-background="../slides/figs/mbtiles.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="map-tiles" class="level2">
+                <h2>Map Tiles</h2>
+                <p><img src="../slides/figs/map_tiles.png" /></p>
+                </section>
+                <section id="section-19" class="level2" data-background="../slides/figs/map_tiles2.png" data-background-size="contain">
+                <h2></h2>
+                </section>
+                <section id="advantages-1" class="level2">
+                <h2>Advantages</h2>
+                <ul>
+                <li>Queriable (SQLite)</li>
+                <li>Fast access to large maps with limited resources (client/server model + queriable format)</li>
+                <li>Some (vector tiles) are stylable</li>
+                </ul>
+                </section>
+                <section id="disadvantages-1" class="level2">
+                <h2>Disadvantages</h2>
+                <ul>
+                <li>Designed for <em>serving</em> not <em>analysing</em></li>
+                <li>A dataset needs to be stored at several zoom levels</li>
+                <li>Once created, hard to modify (e.g. reproject)</li>
+                </ul>
                 </section>
                 </section>
-                <section id="section-17" class="level1">
+                <section id="section-20" class="level1">
                 <h1></h1>
                 <section id="selecting-the-right-format" class="level2">
                 <h2>Selecting the right format</h2>
                 </section>
+                <section id="selecting-the-right-format-1" class="level2">
+                <h2>Selecting the right format</h2>
+                <p>No silver bullet…</p>
+                <div class="fragment">
+                <ul>
+                <li><em>What</em> type of data do you want to store? Vector, raster</li>
+                <li><em>What</em> are you going to do with the file? Analysis, serving</li>
+                <li><em>What</em> environment are you working? Locally, web</li>
+                </ul>
+                </div>
                 </section>
-                <section id="section-18" class="level1">
+                <section id="quiz" class="level2">
+                <h2>Quiz</h2>
+                <ol type="1">
+                <li>Large dataset of tweets you want to analyse <span class="fragment"><code>PostGIS/Geopackage</code></span></li>
+                <li>Drone imagery to make available for workshop participants <span class="fragment"><code>MBTiles</code></span></li>
+                <li>Street basemap to provide context to a small dataset you want to make available on the web <span class="fragment"><code>Vector tiles</code></span></li>
+                <li>The small dataset from 3. <span class="fragment"><code>GeoJSON</code></span></li>
+                </ol>
+                </section>
+                </section>
+                <section id="section-21" class="level1">
                 <h1></h1>
                 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
                 </section>
