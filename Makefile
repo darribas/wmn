@@ -34,6 +34,7 @@ lab_pdf:
 	pandoc  -V documentclass=tufte-handout \
 			--template=tufte-handout.tex \
 			--pdf-engine=xelatex \
+			--highlight-style=kate \
 			-s lab_$(no).md \
 			-o lab_$(no).pdf
 
