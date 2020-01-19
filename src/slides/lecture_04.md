@@ -19,6 +19,8 @@
 
 ## Sources
 
+[Arribas-Bel (2014)](https://www.sciencedirect.com/science/article/abs/pii/S0143622813002178):
+
 - *Citizens as sensors*
 - Businesses moving online
 - Open (government) data
@@ -37,7 +39,7 @@
 
 - <span class='hlg'>Business</span> activities digitalised (or entirely <span class='hlg'>digital</span>)
 - Records stored in databases, that can also be accessed
-- <span class='hlg'>Active/passive</span> collection (re. IoT)
+- <span class='hlg'>Active/passive</span> collection (eg. IoT)
 
 ## {data-background=../slides/figs/gsv.jpg data-background-size=contain}
 ## {data-background=../slides/figs/uber.png data-background-size=contain}
@@ -69,17 +71,20 @@
 
 ## Licensing
 
+- How accessible data can be used, what for
 - "Free beer", not "free speech"
-- A
 - Evolving landscape
 
 ## {data-background=../slides/figs/tac.png data-background-size=contain}
 
 ## Access
 
-Not a click download
+- Vehicles used to make data available are <span class='hlg'>programmatic</span> (APIs)
+- Mostly based on <span class='hlg'>web</span> technologies
+- Additional set of <span class='hlg'>skills</span> required
 
 #
+## Web APIs
 ## Web APIs
 
 > Programmable interfaces to web services
@@ -90,7 +95,7 @@ Not a click download
 
 ## How APIs work
 
-- [Optional] Authenticate (potentially linked to billing)
+- Authenticate (potentially linked to billing) [Optional]
 - Send query as URL
 - Receive request (`(Geo)JSON`, `.csv`)
 
@@ -99,16 +104,23 @@ Not a click download
 Over HTTP (e.g. `REST`): the query is a URL:
 
 ```
-https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LSOA_DEC_2011_EW_BSC/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json
+https://services1.arcgis.com/
+ESMARspQHYMw9BZ9/arcgis/rest/services/
+LSOA_DEC_2011_EW_BSC/FeatureServer/0/
+query?
+where=1%3D1&
+outFields=*&
+outSR=4326&
+f=json
 ```
 
 [`[URL]`](http://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-ew-bsc/geoservice)
 
 ## Web APIs: language "bindings"
 
-- Library in a programming language (e.g. Javascript, Python, R) to interact with an API
-- Wrapper in the language around HTTP endpoints
-- Expose API in familiar form for developers of that language
+- <span class='hlg'>Library</span> in a programming language (e.g. Javascript, Python, R) to interact with an API
+- <span class='hlg'>Wrapper</span> in the language around HTTP endpoints
+- Expose API in <span class='hlg'>familiar</span> form for developers of that language
 
 ## Web APIs: some thoughts
 
@@ -120,21 +132,20 @@ https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LSOA_DEC_2011
 ## API examples
 ## API examples
 
+Access to:
+
 - Data
 - Maps
 - Computations
 
-## PHE Fingertips
+## {data-background=../slides/figs/phe_api.png data-background-size=contain}
+## {data-background=../slides/figs/stamen.png data-background-size=contain}
 
-[Data]
+<span class='fragment'><span class='hlg'>
+    `http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg`
+</span></span>
 
-## XYZ Basemaps
-
-[Maps]
-
-## Google Maps API
-
-[Computations]
+## {data-background=../slides/figs/google_routes.png data-background-size=contain}
 
 #
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping & Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

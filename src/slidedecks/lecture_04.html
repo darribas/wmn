@@ -58,6 +58,7 @@
                 </section>
                 <section id="sources" class="level2">
                 <h2>Sources</h2>
+                <p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0143622813002178">Arribas-Bel (2014)</a>:</p>
                 <ul>
                 <li><em>Citizens as sensors</em></li>
                 <li>Businesses moving online</li>
@@ -86,7 +87,7 @@
                 <ul>
                 <li><span class="hlg">Business</span> activities digitalised (or entirely <span class="hlg">digital</span>)</li>
                 <li>Records stored in databases, that can also be accessed</li>
-                <li><span class="hlg">Active/passive</span> collection (re. IoT)</li>
+                <li><span class="hlg">Active/passive</span> collection (eg. IoT)</li>
                 </ul>
                 </section>
                 <section id="section-4" class="level2" data-background="../slides/figs/gsv.jpg" data-background-size="contain">
@@ -137,8 +138,8 @@
                 <section id="licensing" class="level2">
                 <h2>Licensing</h2>
                 <ul>
+                <li>How accessible data can be used, what for</li>
                 <li>“Free beer”, not “free speech”</li>
-                <li>A</li>
                 <li>Evolving landscape</li>
                 </ul>
                 </section>
@@ -147,12 +148,19 @@
                 </section>
                 <section id="access" class="level2">
                 <h2>Access</h2>
-                <p>Not a click download</p>
+                <ul>
+                <li>Vehicles used to make data available are <span class="hlg">programmatic</span> (APIs)</li>
+                <li>Mostly based on <span class="hlg">web</span> technologies</li>
+                <li>Additional set of <span class="hlg">skills</span> required</li>
+                </ul>
                 </section>
                 </section>
                 <section id="section-12" class="level1">
                 <h1></h1>
                 <section id="web-apis" class="level2">
+                <h2>Web APIs</h2>
+                </section>
+                <section id="web-apis-1" class="level2">
                 <h2>Web APIs</h2>
                 <blockquote>
                 <p>Programmable interfaces to web services</p>
@@ -166,7 +174,7 @@
                 <section id="how-apis-work" class="level2">
                 <h2>How APIs work</h2>
                 <ul>
-                <li>[Optional] Authenticate (potentially linked to billing)</li>
+                <li>Authenticate (potentially linked to billing) [Optional]</li>
                 <li>Send query as URL</li>
                 <li>Receive request (<code>(Geo)JSON</code>, <code>.csv</code>)</li>
                 </ul>
@@ -174,15 +182,22 @@
                 <section id="web-apis-an-example" class="level2">
                 <h2>Web APIs: an example</h2>
                 <p>Over HTTP (e.g. <code>REST</code>): the query is a URL:</p>
-                <pre><code>https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/LSOA_DEC_2011_EW_BSC/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;outSR=4326&amp;f=json</code></pre>
+                <pre><code>https://services1.arcgis.com/
+                ESMARspQHYMw9BZ9/arcgis/rest/services/
+                LSOA_DEC_2011_EW_BSC/FeatureServer/0/
+                query?
+                where=1%3D1&amp;
+                outFields=*&amp;
+                outSR=4326&amp;
+                f=json</code></pre>
                 <p><a href="http://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-ew-bsc/geoservice"><code>[URL]</code></a></p>
                 </section>
                 <section id="web-apis-language-bindings" class="level2">
                 <h2>Web APIs: language “bindings”</h2>
                 <ul>
-                <li>Library in a programming language (e.g. Javascript, Python, R) to interact with an API</li>
-                <li>Wrapper in the language around HTTP endpoints</li>
-                <li>Expose API in familiar form for developers of that language</li>
+                <li><span class="hlg">Library</span> in a programming language (e.g. Javascript, Python, R) to interact with an API</li>
+                <li><span class="hlg">Wrapper</span> in the language around HTTP endpoints</li>
+                <li>Expose API in <span class="hlg">familiar</span> form for developers of that language</li>
                 </ul>
                 </section>
                 <section id="web-apis-some-thoughts" class="level2">
@@ -201,26 +216,25 @@
                 </section>
                 <section id="api-examples-1" class="level2">
                 <h2>API examples</h2>
+                <p>Access to:</p>
                 <ul>
                 <li>Data</li>
                 <li>Maps</li>
                 <li>Computations</li>
                 </ul>
                 </section>
-                <section id="phe-fingertips" class="level2">
-                <h2>PHE Fingertips</h2>
-                <p>[Data]</p>
+                <section id="section-14" class="level2" data-background="../slides/figs/phe_api.png" data-background-size="contain">
+                <h2></h2>
                 </section>
-                <section id="xyz-basemaps" class="level2">
-                <h2>XYZ Basemaps</h2>
-                <p>[Maps]</p>
+                <section id="section-15" class="level2" data-background="../slides/figs/stamen.png" data-background-size="contain">
+                <h2></h2>
+                <p><span class="fragment"><span class="hlg"> <code>http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg</code> </span></span></p>
                 </section>
-                <section id="google-maps-api" class="level2">
-                <h2>Google Maps API</h2>
-                <p>[Computations]</p>
+                <section id="section-16" class="level2" data-background="../slides/figs/google_routes.png" data-background-size="contain">
+                <h2></h2>
                 </section>
                 </section>
-                <section id="section-14" class="level1">
+                <section id="section-17" class="level1">
                 <h1></h1>
                 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
                 </section>
