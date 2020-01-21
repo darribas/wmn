@@ -1,0 +1,30 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"Nombre": "Roxby Building"},
+      "geometry": {"type": "Point", "coordinates": [-2.965112, 53.401534]}
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {"type": "Point", "coordinates": [-2.96604, 53.401377]}
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-2.96603, 53.401406],
+          [-2.965879, 53.401447],
+          [-2.965332, 53.401412],
+          [-2.965289, 53.40162],
+          [-2.96522, 53.401694],
+          [-2.965102, 53.4017]
+        ]
+      }
+    }
+  ]
+}

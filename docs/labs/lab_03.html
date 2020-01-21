@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  
+  
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="https://darribas.org/wmn/labs/lab_03" />
+
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+  <title>
+    
+      
+    
+  </title>
+
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="" />
+  <meta property="dc:creator" content="Dani Arribas-Bel" />
+  <meta property="dc:identifier" content="https://darribas.org/wmn/labs/lab_03" />
+  
+  
+  
+  <meta property="dc:source" content="Web Mapping Notes" />
+
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="https://darribas.org/wmn/labs/lab_03" />
+  <meta property="og:image" content="https://darribas.org/wmn/assets/open-graph-logo.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
+
+
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/wmn/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/wmn/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="/wmn/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://darribas.org/wmn/atom.xml" />
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!--
+  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for
+  behavior.
+-->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An archive to teach Web Mapping & Analysis.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/wmn/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/assessment">Assessment</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/setup">Setup</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/syllabus">Syllabus</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/search">Search</a>
+        
+      
+    
+
+    <!-- The code below is used for manually entered links 
+    <span style='cursor:pointer;' onclick="javascript:var hypothesis = document.createElement('script');
+      hypothesis.setAttribute('src','https://hypothes.is/embed.js');
+      document.head.appendChild(hypothesis);"><a class="sidebar-nav-item">Annotate me</a></span>
+    -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://via.hypothes.is/https://darribas.org/wmn/labs/lab_03/" data-proofer-ignore>Annotate me</a>
+    <script src="https://hypothes.is/embed.js" async></script>
+  -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://github.com/minicomp/ed" target="_blank">GitHub project</a>
+  </nav>
+  -->
+
+  <div class="sidebar-item">
+    <p>
+      Built with <a href="https://minicomp.github.io/ed/">Ed.</a> Distributed under an MIT license.
+    </p>
+  </div>
+</aside>
+
+    
+
+    <!--
+      Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS
+      collisions with our real content.
+    -->
+    <div class="wrap">
+      <header class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/wmn/" title="Home">Web Mapping Notes</a>
+            <br><small>Guide, materials & resources</small>
+          </h3>
+        </div>
+      </header>
+
+      <main class="container content" id="main">
+        <article class="page">
+  <p>
+  <a href="/wmn/blocks/b03/">
+    <code class="highlighter-rouge">[Back to Block]</code>
+  </a>
+  </p>
+
+  <h1 id="lab-3---creating-manipulating-and-integrating-web-geospatial-data">Lab 3 - Creating, manipulating, and integrating web geospatial data</h1>
+
+<p>In this lab, we will explore and familiarise with some of the most common data formats for web mapping: <code class="highlighter-rouge">GeoJSON</code> and <code class="highlighter-rouge">Mbtiles</code>. To follow this session, you will need to be able to access the following:</p>
+
+<ul>
+  <li>The internet</li>
+  <li><a href="https://qgis.org/en/site/">QGIS</a>. Any version should work in this context, but if you are installing it on your computer, QGIS 3.10 is recommended</li>
+  <li>A Python installation such as the “Geographic Data Science Stack 2019” in the University of Liverpool computers, or the <code class="highlighter-rouge">gds_env</code> Docker container in your own machine (see <a href="http://darribas.org/gds19/software.html">here</a> for instructions)</li>
+</ul>
+
+<h2 id="geojson"><code class="highlighter-rouge">GeoJSON</code></h2>
+
+<p>To get familiar with the format, we will start by creating a GeoJSON file from scratch. Head over to the following website:</p>
+
+<blockquote>
+  <p><a href="https://geojson.net">https://geojson.net</a></p>
+</blockquote>
+
+<p>In there, we will create together a small example to better understand the building blocks of this file format.</p>
+
+<p><img src="figs/geojson_roxby.png" alt="" /></p>
+
+<p>We will pay special attention to the following aspects:</p>
+
+<ul>
+  <li>Readability</li>
+  <li>Coordinate system</li>
+  <li>Ability to add non-spatial information attached to each record</li>
+  <li>How to save it as a file</li>
+</ul>
+
+<hr />
+<p><strong>EXERCISE</strong></p>
+
+<p>Create a <code class="highlighter-rouge">GeoJSON</code> file for the following data and save them to separate files:</p>
+
+<ol>
+  <li>Your five favorite spots in Liverpool</li>
+  <li>A polygon of what you consider to be the boundary of the neighbourhood where you live and the city centre of Liverpool. Name each</li>
+  <li>A route that captures one of your favorite walks around the Liverpool region</li>
+</ol>
+
+<p>If you are comfortable, upload the files to Microsoft Teams to share them with peers.</p>
+
+<hr />
+
+<p>With the files from the exercise at hand, we will then learn how to open them in Python. Start Jupyter Lab session and open a new notebook so you can keep record of what you do (rename it to something you will remember, like <code class="highlighter-rouge">web_mapping_lab_03.ipynb</code>).</p>
+
+<p>Then let’s start by importing <code class="highlighter-rouge">geopandas</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This ensures plots and maps render in the notebook</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">geopandas</span>
+</code></pre></div></div>
+
+<p>Now, place the <code class="highlighter-rouge">.geojson</code> files you have created in the same folder where you are storing the notebook, or somewhere reachable. For this example, we will assume that the file is called <code class="highlighter-rouge">test.geojson</code> and it is stored in the <code class="highlighter-rouge">figs</code> folder, accessible from the same location where the notebook is. We can read the file as:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s">"figs/test.geojson"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We can inspect the file to see what it contains:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           Nombre                                           geometry
+0  Roxby Building                        POINT (-2.965112 53.401534)
+1            None                         POINT (-2.96604 53.401377)
+2            None  LINESTRING (-2.96603 53.401406, -2.965879 53.4...
+</code></pre></div></div>
+
+<p>If you are familiar with <code class="highlighter-rouge">GeoDataFrame</code> objects, this is exactly it, read straight from a <code class="highlighter-rouge">GeoJSON</code> file (if you need a refresher, you can check out <a href="http://darribas.org/gds19/labs/Lab_03.html">Lab 3 of the GDS’19 course</a>).</p>
+
+<p>Because once read, it behaves exactly like any of <code class="highlighter-rouge">GeoDataFrame</code> objects, we can operate on it and tap into the functionality from <code class="highlighter-rouge">geopandas</code>. For example, we can inspect the Coordinate Reference System (CRS) in which it is expressed:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="o">.</span><span class="n">crs</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'init': 'epsg:4326'}
+</code></pre></div></div>
+
+<p>Using some of <a href="http://geopandas.org/">geopandas’ functionality</a>. We can reproject it to express it in metres:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db_prj</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">27700</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let us pay a bit of attention to how spatial data is stored in a <code class="highlighter-rouge">GeoDataFrame</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'POINT (-2.965112 53.401534)'
+</code></pre></div></div>
+
+<p>This is called “well known text” (<code class="highlighter-rouge">wkt</code>) and is a representation that spatial databases like PostGIS use as well. Another way to store spatial data as text for storage or transfer, less (human) readable but more efficient is the “well known blurb”(<code class="highlighter-rouge">wkb</code>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wkb</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'\x01\x01\x00\x00\x005\xd1\xe7\xa3\x8c\xb8\x07\xc0\xb4\x1dSwe\xb3J@'
+</code></pre></div></div>
+
+<p>But the underlying data (point coordinates) can also be extracted directly within Python. If we want to pull out the <code class="highlighter-rouge">x</code> coordinate for each point, we can access it under <code class="highlighter-rouge">geometry.x</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-2.965112
+</code></pre></div></div>
+
+<p>Another benefit of reading data into <code class="highlighter-rouge">geopandas</code> is we can use its analytical capabilities. For example, we can calculate the length of line in <code class="highlighter-rouge">db</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">line</span> <span class="o">=</span> <span class="n">db_prj</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">line</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">length</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>88.22374412204398
+</code></pre></div></div>
+
+<p>Given the the line is expressed in metres (check out <a href="http://epsg.io/27700"><code class="highlighter-rouge">EPSG:27700</code></a>), we can conclude the line spans about 88m.</p>
+
+<p>Once we are happy with the data as we will hypotehtically need it, we can write it out to any other file format supported by <code class="highlighter-rouge">geopandas</code>. For example, we can create a Geopackge file with the same information:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db_prj</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s">"figs/test.gpkg"</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s">"GPKG"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+<p><strong>EXERCISE</strong></p>
+
+<ul>
+  <li>Read the <code class="highlighter-rouge">GeoJSON</code> created for your favorite walks in Liverpool and calculate their length</li>
+  <li><strong>Pro</strong>: explore the <a href="http://geopandas.org/">geopandas documentation</a> and try to extract the area for the polygon covering your neighbourhood</li>
+</ul>
+
+<hr />
+
+<h2 id="tilesets-and-mbtiles">Tilesets and <code class="highlighter-rouge">Mbtiles</code></h2>
+
+<p>In this section we will dive into the concept of tiles to understand why they have been so transformative in the world of web mapping. We will learn how to prepare a map that is styled in QGIS and then saved as either an <code class="highlighter-rouge">.mbtiles</code> file of a structured folder with tiles that allows to serve it over the web in efficient ways. Finally we will explore the tileset built using the JavaScript library <a href="https://leafletjs.com/">Leaflet.js</a>.</p>
+
+<p>Before we get started, let’s get all the required pieces together:</p>
+
+<ol>
+  <li>Fire up QGIS 3</li>
+  <li>Make sure you have the <a href="https://github.com/lutraconsulting/qgis-xyz-tiles"><code class="highlighter-rouge">XYZ Tiles</code></a> plugin installed</li>
+  <li>Download <a href="https://data.cdrc.ac.uk/dataset/cdrc-2015-os-geodata-pack-liverpool-e08000012">OS GeoData Pack</a> from CDRC (<strong>NOTE</strong>: you might have to register) and unzip it in an accessible folder</li>
+</ol>
+
+<p><strong>Build your own basemap</strong></p>
+
+<p>Basemaps are maps that provide context to more specific spatial data you might want to present. For example, if you have a set of points that represent events in space, it might be hard to understand their distribution unless you put them in the context of a more complete geography. A basemap is a quick solution in this case.</p>
+
+<p>Explore the layers provided in the GeoData Pack and select those you want to use for your basemap. Once ready, go ahead and add them as layers in QGIS. Tweak colors, transparencies, linewidths, etc. until you get a map you are happy with.</p>
+
+<p><img src="figs/qgis_basemap.png" alt="" /></p>
+
+<p><strong>Create a tileset for your map</strong></p>
+
+<p>Once ready to build the basemap from your created map, head over to <code class="highlighter-rouge">Processing --&gt; Processing Toolbox</code> and select the <code class="highlighter-rouge">TilesXYZ --&gt; Generate XYZ Tiles</code>. You can start with the Directory option. Pick parameters and, when everything is ready, hit Run. Depending on your settings, this will take some time, be patient.</p>
+
+<p><img src="figs/qgis_tileset.png" alt="" /></p>
+
+<p>When finished, QGIS will have created a folder with a particular structure, that contains all the tiles required to serve your basemap. You can peak into them to find they are really just images of different parts of your map at different zoom levels.</p>
+
+<p><strong>Explore your basemap with <code class="highlighter-rouge">Leaflet.js</code></strong></p>
+
+<p>If you store your basemap in a folder, QGIS will also generate for you a HTML file with a bit of JavaScript code that will allow you to explore the tileset in a browser. Play with it a little bit and familiarise with the look and feel of it.</p>
+
+<p><img src="figs/leaflet_explorer.png" alt="" /></p>
+
+<p>If you feel adventurous, you can also peak into the code that makes the web map possible. To do that, you will need to either open the HTML file on a text editor, or inspect the source code from the browser (in Firefox, for example, this can be accessed through <code class="highlighter-rouge">Tools --&gt; Web Developer --&gt; Page Source</code>).</p>
+
+<p><strong>Create a <code class="highlighter-rouge">.mbtiles</code> file for easy transport</strong></p>
+
+<p>Finally, you can recreate the process above but in this case choosing the MBTiles instead of the Directory option. This will make QGIS generate the same tileset but, instead of storing it directly on a folder, it will save it as a SQLite database in with the <code class="highlighter-rouge">.mbtiles</code> format. This is easier to move from one environment to another and is also supported by most web mapping platforms, such as Mapbox.</p>
+
+
+  <hr>
+
+  <p>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    <br />
+  </p>
+  <p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+  </p>
+</article>
+
+      </main>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+      // Toggle sidebar
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             !sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+<!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>
