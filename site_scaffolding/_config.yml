@@ -74,7 +74,7 @@ blocks:
     b1:
         name: "Introduction"
         lecture: "Introduction to the module"
-        lab: "Getting your laptop up to speed + CARTO"
+        lab: "Getting up to speed for web mapping"
     b2:
         name: "The context of Web Maps"
         lecture: "The Web's architecture and Economy"
@@ -86,10 +86,10 @@ blocks:
     b4:
         name: "Data Backends II"
         lecture: "APIs"
-        lab: "Acquiring data from the web in Python"    
+        lab: "Acquiring data from the web"
     b5:
         name: "Data Backends III"
-        lecture: "Building and deploying (web) platforms"
+        lecture: "Building and deploying (web) platforms + Assignment details"
         lab: "Assignment I clinic"
     b6:
         name: "Frontend Topics I"
@@ -113,7 +113,7 @@ blocks:
         lab: "Assignment II clinic"
 assessment:
     a1:
-        title: "Build a vector tileset from disparate sources"
+        title: "Combining (geo-)data in an interactive map"
     a2:
         title: "A dashboard of IMD"
 
