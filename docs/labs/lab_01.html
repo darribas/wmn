@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  
+  
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="https://darribas.org/wmn/labs/lab_01" />
+
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+  <title>
+    
+      
+    
+  </title>
+
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="" />
+  <meta property="dc:creator" content="Dani Arribas-Bel" />
+  <meta property="dc:identifier" content="https://darribas.org/wmn/labs/lab_01" />
+  
+  
+  
+  <meta property="dc:source" content="Web Mapping Notes" />
+
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="https://darribas.org/wmn/labs/lab_01" />
+  <meta property="og:image" content="https://darribas.org/wmn/assets/open-graph-logo.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
+
+
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/wmn/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/wmn/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="/wmn/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://darribas.org/wmn/atom.xml" />
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!--
+  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for
+  behavior.
+-->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An archive to teach Web Mapping & Analysis.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/wmn/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/assessment">Assessment</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/setup">Setup</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/syllabus">Syllabus</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/search">Search</a>
+        
+      
+    
+
+    <!-- The code below is used for manually entered links 
+    <span style='cursor:pointer;' onclick="javascript:var hypothesis = document.createElement('script');
+      hypothesis.setAttribute('src','https://hypothes.is/embed.js');
+      document.head.appendChild(hypothesis);"><a class="sidebar-nav-item">Annotate me</a></span>
+    -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://via.hypothes.is/https://darribas.org/wmn/labs/lab_01/" data-proofer-ignore>Annotate me</a>
+    <script src="https://hypothes.is/embed.js" async></script>
+  -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://github.com/minicomp/ed" target="_blank">GitHub project</a>
+  </nav>
+  -->
+
+  <div class="sidebar-item">
+    <p>
+      Built with <a href="https://minicomp.github.io/ed/">Ed.</a> Distributed under an MIT license.
+    </p>
+  </div>
+</aside>
+
+    
+
+    <!--
+      Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS
+      collisions with our real content.
+    -->
+    <div class="wrap">
+      <header class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/wmn/" title="Home">Web Mapping Notes</a>
+            <br><small>Guide, materials & resources</small>
+          </h3>
+        </div>
+      </header>
+
+      <main class="container content" id="main">
+        <article class="page">
+  <p>
+  <a href="/wmn/blocks/b01/">
+    <code class="highlighter-rouge">[Back to Block]</code>
+  </a>
+  </p>
+
+  <p>[<strong>NOTE</strong>: you can download an <code class="highlighter-rouge">.ipynb</code> version of this file <a href="/wmn/labs/lab_01.ipynb">here</a>]</p>
+
+<h1 id="lab-1---getting-up-to-speed">Lab 1 - Getting up to speed</h1>
+
+<p>This lab has two main parts. In the first one, we will make sure you are signed up for all the services we will be using throughout the course. This way, when the time comes, you’ll be ready to go and will be able to jump into the task right away. In the second part, we will introduce/refresh the Jupyter Notebook, a file format that is common in scientific computing and that allows us to combine formatted text with code and rich content from the web such as image, video, or interactive maps.</p>
+
+<h2 id="sign-up-for-relevant-services">Sign up for relevant services</h2>
+
+<p>Much of the practical aspect of this course will rely on web products that provide functionality through the internet. Every service we will use in class has at least a free tier, but you will need to sign up before hand.</p>
+
+<p>Here is a list of the services you will need to register:</p>
+
+<ul>
+  <li><a href="http://data.cdrc.ac.uk/"><code class="highlighter-rouge">CDRC Data</code></a>: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.</li>
+  <li><a href="https://carto.com/"><code class="highlighter-rouge">CARTO</code></a>: CARTO provides an online platform for web mapping and location intelligence. They have a free tier that you can try for a limited amount of time, but the Geographic Data Science Lab has a subscription that will allow you to use it beyond the basic allowance. Do not sign up for the free account but instead make sure you have received the invite from the module leader.</li>
+  <li><a href="https://www.mapbox.com/"><code class="highlighter-rouge">Mapbox</code></a>: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account <a href="https://account.mapbox.com/auth/signup/">here</a>.</li>
+</ul>
+
+<p>In addition, below is a list of software we will also rely on during the course. They are all free and open-source, so you should be able to install them on your own laptop as well:</p>
+
+<ul>
+  <li><a href="https://qgis.org/en/site/"><code class="highlighter-rouge">QGIS</code></a>: the stable version (3.4 at the time of writing) is OK, any more recent version will also work. If you use a version older than 3.8, please make sure you also have installed the <a href="https://github.com/lutraconsulting/qgis-xyz-tiles"><code class="highlighter-rouge">XYZ Tiles</code> plugin</a>.</li>
+  <li><code class="highlighter-rouge">Python</code>: at parts of the course, we will rely on Python to read, manipulate and write geospatial data. There are several libraries required, all of them shared with the <a href="http://darribas.org/gds19/"><code class="highlighter-rouge">GDS'19</code></a> course so, if you have a stack installed for it, you should be fine. If not, checkout the <a href="http://darribas.org/gds19/software.html">install instructions</a>.</li>
+  <li><code class="highlighter-rouge">R</code>: we will not require it in the course but, if you are a fan of the statistical platform R, we will explore a bit how R can be linked to web mapping. This is an optional install.</li>
+</ul>
+
+<h2 id="the-jupyter-notebook">The Jupyter Notebook</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><em>Cells</em></strong></p>
+
+<p>The main building block of notebooks are cells. These are chunks of the same time of content which can be cut, pasted, and moved around in a notebook. Cells can be of two types:</p>
+
+<ul>
+  <li><strong>Text</strong>, like the one where this is written.</li>
+  <li><strong>Code</strong>, like the following one below:</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This is a code cell</span>
+</code></pre></div></div>
+
+<p>For example, you can create a new cell by searching for “Insert Cell”. By default, this will be a code cell, but you can change that on the <code class="highlighter-rouge">Cell</code> -&gt; <code class="highlighter-rouge">Cell Type</code> menu. Choose <code class="highlighter-rouge">Markdown</code> for a text cell. Once a new cell is created, you can edit it by clicking on it, which will create the cursor bar inside for you to start typing.</p>
+
+<p><strong>Pro tip!</strong>: cells can also be created with shortcuts. If you press <code class="highlighter-rouge">&lt;escape&gt;</code> and then <code class="highlighter-rouge">b</code> (<code class="highlighter-rouge">a</code>), a new cell will be created below (above). There is a whole bunch of shortcuts you can explore by pressing <code class="highlighter-rouge">&lt;escape&gt;</code> and <code class="highlighter-rouge">h</code> (press <code class="highlighter-rouge">&lt;escape&gt;</code> again to leave the help).</p>
+
+<hr />
+
+<p><strong><em>Code and its output</em></strong></p>
+
+<p>A particularly useful feature of notebooks is that you can save, in the same place, the code you use to generate any output (tables, figures, etc.). As an example, the cell below contains a snipet of Python that returns a printed statement. This statement is then printed below and recorded in the notebook as output:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hello world!!!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello world!!!
+</code></pre></div></div>
+
+<p>Note also how the notebook has automatic syntax highlighting support for Python. This makes the code much more readable and understandable. More on Python below.</p>
+
+<hr />
+
+<p><strong><em>Markdown</em></strong></p>
+
+<p>Text cells in a notebook use the <a href="https://help.github.com/articles/github-flavored-markdown/">Github Flavored Markdown</a> markup language. This means you can write plain text with some rules and the notebook renders a more visually appealing version of it. Let’s see some examples:</p>
+
+<ul>
+  <li><strong>BOLD</strong>:</li>
+</ul>
+
+<p><code class="highlighter-rouge">This is **bold**.</code></p>
+
+<p>Is rendered:</p>
+
+<p>This is <strong>bold</strong>.</p>
+
+<ul>
+  <li><strong>ITALIC</strong>:</li>
+</ul>
+
+<p><code class="highlighter-rouge">This is *italic*.</code></p>
+
+<p>Is rendered:</p>
+
+<p>This is <em>italic</em>.</p>
+
+<ul>
+  <li><strong>LISTS</strong>:</li>
+</ul>
+
+<p>You can create unnumbered lists:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Item 1
+* Item 2
+* ...
+</code></pre></div></div>
+
+<p>Which will produce:</p>
+
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>…</li>
+</ul>
+
+<p>Or you can create numbered lists:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. First element
+1. Second element
+1. ...
+</code></pre></div></div>
+
+<p>And get:</p>
+
+<ol>
+  <li>First element</li>
+  <li>Second element</li>
+  <li>…</li>
+</ol>
+
+<p>Note that you don’t have to write the actual number of the element, just using <code class="highlighter-rouge">1.</code> always produces a numbered list.</p>
+
+<p>You can also nest lists:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* First unnumbered element, which can be split into:
+
+    1. One numbered element
+    2. Another numbered element
+
+* Second element.
+* ...
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>First unnumbered element, which can be split into:</p>
+
+    <ol>
+      <li>One numbered element</li>
+      <li>Another numbered element</li>
+    </ol>
+  </li>
+  <li>Second element.</li>
+  <li>…</li>
+</ul>
+
+<p>This creates many oportunities to combine things nicely.</p>
+
+<ul>
+  <li><strong>LINKS</strong></li>
+</ul>
+
+<p><code class="highlighter-rouge">You can easily create hyperlinks, for example to [WikiPedia](https://www.wikipedia.org/). </code></p>
+
+<p>You can easily create hyperlinks, for example to <a href="https://www.wikipedia.org/">WikiPedia</a>.</p>
+
+<ul>
+  <li><strong>HEADINGS</strong>: including <code class="highlighter-rouge">#</code> before a line causes it to render a heading.</li>
+</ul>
+
+<hr />
+
+<p><code class="highlighter-rouge"># This is Header 1</code></p>
+
+<p>Turns into:</p>
+
+<h1 id="this-is-header-1">This is Header 1</h1>
+
+<hr />
+
+<p><code class="highlighter-rouge">## This is Header 2</code></p>
+
+<p>Turns into:</p>
+
+<h2 id="this-is-header-2">This is Header 2</h2>
+
+<p>And so on…</p>
+
+<hr />
+
+<p>You can see a more in detail introduction in the following links:</p>
+
+<blockquote>
+  <p>https://help.github.com/articles/markdown-basics/</p>
+</blockquote>
+
+<blockquote>
+  <p>https://help.github.com/articles/github-flavored-markdown/</p>
+</blockquote>
+
+<hr />
+
+<p><strong><em>Rich content in a notebook</em></strong></p>
+
+<p>Notebooks can also include rich content from the web. For that, we need to import the <code class="highlighter-rouge">display</code> module:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="n">display</span>
+</code></pre></div></div>
+
+<p>This makes available additional functionality that allows us to embed rich content. For example, we can include a YouTube clip easily by passing it’s ID:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">display</span><span class="o">.</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s">'iinQDhsdE9s'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
+        width="400"
+        height="300"
+        src="https://www.youtube.com/embed/iinQDhsdE9s"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>Or we can pass standard HTML code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s">"""&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Header 1&lt;/th&gt;
+&lt;th&gt;Header 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;row 1, cell 1&lt;/td&gt;
+&lt;td&gt;row 1, cell 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;row 2, cell 1&lt;/td&gt;
+&lt;td&gt;row 2, cell 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;"""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+<tr>
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<p>Note that this opens the door for including a large number of elements from the web, as an <code class="highlighter-rouge">iframe</code> is also allowed. For example, interactive maps can be included:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">osm</span> <span class="o">=</span> <span class="s">"""
+&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-2.9662737250328064</span><span class="si">%2</span><span class="s">C53.400500637844594</span><span class="si">%2</span><span class="s">C-2.964626848697662</span><span class="si">%2</span><span class="s">C53.402550738394034&amp;amp;layer=mapnik" style="border: 1px solid black"&gt;&lt;/iframe&gt;&lt;br/&gt;&lt;small&gt;&lt;a href="http://www.openstreetmap.org/#map=19/53.40153/-2.96545"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;
+"""</span>
+<span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">osm</span><span class="p">)</span>
+</code></pre></div></div>
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-2.9662737250328064%2C53.400500637844594%2C-2.964626848697662%2C53.402550738394034&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+<p><br /><small><a href="http://www.openstreetmap.org/#map=19/53.40153/-2.96545">View Larger Map</a></small></p>
+
+<p>Or sound content:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sound</span> <span class="o">=</span> <span class="s">'''
+&lt;iframe width="100</span><span class="si">%</span><span class="s">" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https</span><span class="si">%3</span><span class="s">A//api.soundcloud.com/tracks/327114763&amp;color=</span><span class="si">%23</span><span class="s">ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"&gt;&lt;/iframe&gt;'''</span>
+<span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">sound</span><span class="p">)</span>
+</code></pre></div></div>
+
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/327114763&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+
+<p>A more thorough exploration of them is available in <a href="http://jeffskinnerbox.me/notebooks/ipython's-rich-display-system.html">this</a> notebook.</p>
+
+<hr />
+
+<p><strong><em>Exercise to work on your own</em></strong></p>
+
+<p>Try to reproduce, using markdown and the different tools the notebook affords you, the following WikiPedia entry:</p>
+
+<blockquote>
+  <p>https://en.wikipedia.org/wiki/Chocolate_chip_cookie_dough_ice_cream</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">display</span><span class="o">.</span><span class="n">IFrame</span><span class="p">(</span><span class="s">'https://en.wikipedia.org/wiki/Chocolate_chip_cookie_dough_ice_cream'</span><span class="p">,</span> 
+              <span class="mi">700</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
+        width="700"
+        height="500"
+        src="https://en.wikipedia.org/wiki/Chocolate_chip_cookie_dough_ice_cream"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>Do not over think it. Focuse and pay special attention to getting the bold, italics, links, headlines and lists correctly formated, but don’t worry too much about the overall layout. Bonus if you manage to insert the image as well (it does not need to be properly placed as in the original page)!</p>
+
+
+  <hr>
+
+  <p>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    <br />
+  </p>
+  <p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+  </p>
+</article>
+
+      </main>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+      // Toggle sidebar
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             !sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+<!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>
