@@ -29,6 +29,12 @@ slide:
 	pandoc -t html5 --template=src/slidedecks/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" src/slides/lecture_$(no).md -o src/slidedecks/lecture_$(no).html
 	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 src/slidedecks/lecture_$(no).html src/slidedecks/lecture_$(no).pdf
 
+lab_md:
+	cd src/labs && \
+	jupyter nbconvert --to markdown --stdout lab_$(no).ipynb | \
+	sed '1s;^;---\nlayout: notebook\nblock: b$(no)\n---\n\n[**NOTE**: you can download an `.ipynb` version of this file [here]({{site.baseurl}}/labs/lab_$(no).ipynb)]\n;' > \
+    lab_$(no).md
+
 lab_pdf: 
 	cd src/labs && \
 	pandoc  -V documentclass=tufte-handout \
