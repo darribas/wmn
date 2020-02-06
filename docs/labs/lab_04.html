@@ -191,20 +191,618 @@
   </a>
   </p>
 
-  <h1 id="lab-4---acquiring-data-from-the-web-in-python">Lab 4 - Acquiring data from the web in Python</h1>
+  <p>[<strong>NOTE</strong>: you can download an <code class="highlighter-rouge">.ipynb</code> version of this file <a href="/wmn/labs/lab_04.ipynb">here</a>]</p>
+
+<h1 id="lab-4---acquiring-data-from-the-web-in-python">Lab 4 - Acquiring data from the web in Python</h1>
 
 <p>In this lab, we will interact with a few APIs to get a feel for how they work and how you can make the most of them when trying to access data on the web. To follow this session, you will need to be able to access the following:</p>
 
 <ul>
   <li>The internet</li>
   <li>A Python installation such as the “Geographic Data Science Stack 2019” in the University of Liverpool computers, or the <code class="highlighter-rouge">gds_env</code> Docker container in your own machine (see <a href="http://darribas.org/gds19/software.html">here</a> for instructions)</li>
+  <li>A Mapbox API token, which you can access through your Mapbox account</li>
 </ul>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="n">cx</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">mercantile</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div></div>
+
 <h2 id="uk-police-api">UK Police API</h2>
+
+<p><strong>First pass</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IFrame</span><span class="p">(</span><span class="s">"https://data.police.uk/docs/"</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
+        width="300"
+        height="150"
+        src="https://data.police.uk/docs/"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>Let’s look for crime events by location. For example, we can take December of 2019 on a given location (<code class="highlighter-rouge">53.40146</code> lat and <code class="highlighter-rouge">-2.96459</code> lon) and build the query:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s">'https://data.police.uk/api/outcomes-at-location?'</span>\
+       <span class="s">'date=2019-12&amp;lat=53.40146&amp;lng=-2.96459'</span><span class="p">)</span>
+<span class="n">url</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'https://data.police.uk/api/outcomes-at-location?date=2019-12&amp;lat=53.40146&amp;lng=-2.96459'
+</code></pre></div></div>
+
+<p>You can check on your browser manually if this works:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IFrame</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
+        width="300"
+        height="150"
+        src="https://data.police.uk/api/outcomes-at-location?date=2020-01&amp;lat=53.40146&amp;lng=-2.96459"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>Now we’ll access it programmatically using <code class="highlighter-rouge">requests</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">time</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># First 100 characters only</span>
+<span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'[{"category":{"code":"awaiting-court-result","name":"Awaiting court outcome"},"date":"2019-12","pers'
+</code></pre></div></div>
+
+<p>This is encoded in bytes, we need to decode it into a string and convert it into a data structure that we can work with.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">crimes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">crimes</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">crimes</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1337
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">crimes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'category': {'code': 'awaiting-court-result',
+  'name': 'Awaiting court outcome'},
+ 'date': '2019-12',
+ 'person_id': None,
+ 'crime': {'category': 'violent-crime',
+  'location_type': 'Force',
+  'location': {'latitude': '53.409256',
+   'street': {'id': 911941, 'name': 'On or near Norton Street'},
+   'longitude': '-2.974566'},
+  'context': '',
+  'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
+  'id': 79311446,
+  'location_subtype': 'ROAD',
+  'month': '2019-11'}}
+</code></pre></div></div>
+
+<p>Now this looks more Pythonic! Let’s convert it into a <code class="highlighter-rouge">pandas.DataFrame</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">crimes_db</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">crimes</span><span class="p">)</span>
+<span class="n">crimes_db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>date</th>
+      <th>person_id</th>
+      <th>crime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>{'code': 'awaiting-court-result', 'name': 'Awa...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'violent-crime', 'location_type':...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>{'code': 'no-further-action', 'name': 'Investi...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'burglary', 'location_type': 'For...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>{'code': 'no-further-action', 'name': 'Investi...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'other-theft', 'location_type': '...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>{'code': 'unable-to-prosecute', 'name': 'Unabl...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'violent-crime', 'location_type':...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>{'code': 'drugs-possession-warning', 'name': '...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'drugs', 'location_type': 'Force'...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Now, for some applications this might be fine and we’d be good to go. For mapping however, this does not give us a working location. The reason is that the output from the API is more complex than a flat dictionary.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">crimes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'category': {'code': 'awaiting-court-result',
+  'name': 'Awaiting court outcome'},
+ 'date': '2019-12',
+ 'person_id': None,
+ 'crime': {'category': 'violent-crime',
+  'location_type': 'Force',
+  'location': {'latitude': '53.409256',
+   'street': {'id': 911941, 'name': 'On or near Norton Street'},
+   'longitude': '-2.974566'},
+  'context': '',
+  'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
+  'id': 79311446,
+  'location_subtype': 'ROAD',
+  'month': '2019-11'}}
+</code></pre></div></div>
+
+<p>To pull out the lon/lat coordinates, we need to drill deeper into the <code class="highlighter-rouge">location</code> entry, which is within the <code class="highlighter-rouge">crime</code> bit:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">crimes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"crime"</span><span class="p">][</span><span class="s">"location"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'latitude': '53.409256',
+ 'street': {'id': 911941, 'name': 'On or near Norton Street'},
+ 'longitude': '-2.974566'}
+</code></pre></div></div>
+
+<hr />
+
+<p><strong>Parsing a single crime event</strong></p>
+
+<p>For convenience, let’s pull out a single crime:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cr</span> <span class="o">=</span> <span class="n">crimes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cr</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'category': {'code': 'awaiting-court-result',
+  'name': 'Awaiting court outcome'},
+ 'date': '2019-12',
+ 'person_id': None,
+ 'crime': {'category': 'violent-crime',
+  'location_type': 'Force',
+  'location': {'latitude': '53.409256',
+   'street': {'id': 911941, 'name': 'On or near Norton Street'},
+   'longitude': '-2.974566'},
+  'context': '',
+  'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
+  'id': 79311446,
+  'location_subtype': 'ROAD',
+  'month': '2019-11'}}
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cr</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dict_keys(['category', 'date', 'person_id', 'crime'])
+</code></pre></div></div>
+
+<p>Let’s say, for every crime event, we want to keep the following attributes:</p>
+
+<ul>
+  <li>Category code</li>
+  <li>Crime ID, category, and location (lon/lat, as a geometry)</li>
+  <li>Date</li>
+  <li>Location type and subtype</li>
+</ul>
+
+<p>Manually, we can extract those bits into a <code class="highlighter-rouge">Series</code> object:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cr_parsed</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+       <span class="s">'category_code'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'category'</span><span class="p">][</span><span class="s">'code'</span><span class="p">],</span>\
+       <span class="s">'crime_category'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'category'</span><span class="p">],</span> \
+       <span class="s">'cime_id'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'id'</span><span class="p">],</span>\
+       <span class="s">'cime_category'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'category'</span><span class="p">],</span> \
+       <span class="s">'longitude'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location'</span><span class="p">][</span><span class="s">'longitude'</span><span class="p">]),</span> \
+       <span class="s">'latitude'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location'</span><span class="p">][</span><span class="s">'latitude'</span><span class="p">]),</span> \
+       <span class="s">'date'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'month'</span><span class="p">],</span> \
+       <span class="s">'crime_location_type'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location_type'</span><span class="p">],</span> \
+       <span class="s">'crime_location_subtype'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location_subtype'</span><span class="p">]</span>
+                  <span class="p">})</span>
+<span class="n">cr_parsed</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>category_code             local-resolution
+crime_category                       drugs
+cime_id                           80013657
+cime_category                        drugs
+longitude                          -2.9654
+latitude                           53.3885
+date                               2019-12
+crime_location_type                  Force
+crime_location_subtype                ROAD
+dtype: object
+</code></pre></div></div>
+
+<p>One way to move into a more automated version is to turn the above into a small function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">parse_crime_event</span><span class="p">(</span><span class="n">cr</span><span class="p">):</span>
+    <span class="n">cr_parsed</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+           <span class="s">'category_code'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'category'</span><span class="p">][</span><span class="s">'code'</span><span class="p">],</span>\
+           <span class="s">'crime_category'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'category'</span><span class="p">],</span> \
+           <span class="s">'cime_id'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'id'</span><span class="p">],</span>\
+           <span class="s">'cime_category'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'category'</span><span class="p">],</span> \
+           <span class="s">'longitude'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location'</span><span class="p">][</span><span class="s">'longitude'</span><span class="p">]),</span> \
+           <span class="s">'latitude'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location'</span><span class="p">][</span><span class="s">'latitude'</span><span class="p">]),</span> \
+           <span class="s">'date'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'month'</span><span class="p">],</span> \
+           <span class="s">'crime_location_type'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location_type'</span><span class="p">],</span> \
+           <span class="s">'crime_location_subtype'</span><span class="p">:</span> <span class="n">cr</span><span class="p">[</span><span class="s">'crime'</span><span class="p">][</span><span class="s">'location_subtype'</span><span class="p">]</span>
+                      <span class="p">})</span>
+    <span class="k">return</span> <span class="n">cr_parsed</span>
+</code></pre></div></div>
+
+<p>Which means we can use it on any crime event with the same structure:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parse_crime_event</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>category_code             awaiting-court-result
+crime_category                    violent-crime
+cime_id                                79311446
+cime_category                     violent-crime
+longitude                             -2.974566
+latitude                              53.409256
+date                                    2019-11
+crime_location_type                       Force
+crime_location_subtype                     ROAD
+dtype: object
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parse_crime_event</span><span class="p">(</span><span class="n">crimes</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>category_code                 no-further-action
+crime_category            criminal-damage-arson
+cime_id                                79308783
+cime_category             criminal-damage-arson
+longitude                             -2.975044
+latitude                              53.389998
+date                                    2019-11
+crime_location_type                       Force
+crime_location_subtype                     ROAD
+dtype: object
+</code></pre></div></div>
+
+<p>To note:</p>
+
+<ul>
+  <li>It works because argument is <code class="highlighter-rouge">cr</code> and the <code class="highlighter-rouge">cr</code> object is used throughout</li>
+  <li>A function (method) can be applied in any context where the object passed as <code class="highlighter-rouge">cr</code> (it doesn’t need to be named that way) meets the expectations of the method (ie. has all the attributes it expects)</li>
+</ul>
+
+<hr />
+
+<p><strong>Extending to all crimes in the batch</strong></p>
+
+<p>Armed with the function above, we can apply it to all the crimes in our initial batch. For this, we will use a <code class="highlighter-rouge">for</code> loop:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start an empty list to store parsed crimes dynamically</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c"># Loop over each crime event in the list of crimes</span>
+<span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crimes</span><span class="p">:</span>
+    <span class="c"># Parse a single crime</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">parse_crime_event</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
+    <span class="c"># Store the parsed crime into the list created</span>
+    <span class="n">parsed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
+
+<span class="c"># Conver the list into a DataFrame</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category_code</th>
+      <th>crime_category</th>
+      <th>cime_id</th>
+      <th>cime_category</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>date</th>
+      <th>crime_location_type</th>
+      <th>crime_location_subtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>awaiting-court-result</td>
+      <td>violent-crime</td>
+      <td>79311446</td>
+      <td>violent-crime</td>
+      <td>-2.974566</td>
+      <td>53.409256</td>
+      <td>2019-11</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>no-further-action</td>
+      <td>burglary</td>
+      <td>80011089</td>
+      <td>burglary</td>
+      <td>-2.975439</td>
+      <td>53.408602</td>
+      <td>2019-12</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>no-further-action</td>
+      <td>other-theft</td>
+      <td>80015947</td>
+      <td>other-theft</td>
+      <td>-2.978599</td>
+      <td>53.409277</td>
+      <td>2019-12</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>unable-to-prosecute</td>
+      <td>violent-crime</td>
+      <td>79309151</td>
+      <td>violent-crime</td>
+      <td>-2.984887</td>
+      <td>53.408614</td>
+      <td>2019-11</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>drugs-possession-warning</td>
+      <td>drugs</td>
+      <td>80007412</td>
+      <td>drugs</td>
+      <td>-2.964395</td>
+      <td>53.390561</td>
+      <td>2019-12</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Now, to complete the job and be able to work with these data in a (web) mapping environment, we need to turn lon/lat coordinates into geometries. For that, we will rely on <code class="highlighter-rouge">geopandas</code> (see <a href="https://geopandas.readthedocs.io/en/latest/gallery/create_geopandas_from_pandas.html">here</a> for more detail).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">points</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s">"longitude"</span><span class="p">],</span>
+                                  <span class="n">parsed</span><span class="p">[</span><span class="s">"latitude"</span><span class="p">]</span>
+                                 <span class="p">)</span>
+<span class="n">geo_db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span>
+                                <span class="n">geometry</span><span class="o">=</span><span class="n">points</span><span class="p">,</span>
+                                <span class="n">crs</span><span class="o">=</span><span class="s">"EPSG:4326"</span>
+                               <span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geo_db</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb2d50fba90&gt;
+</code></pre></div></div>
+
+<p><img src="lab_04_files/lab_04_39_1.png" alt="png" /></p>
+
+<hr />
+
+<p><strong>Exercise</strong> Explore the API for <a href="https://data.police.uk/docs/method/stops-street/">“Stop and search” by area</a> data from the Police API and try to obtain data through it. Specifically try:</p>
+
+<ol>
+  <li>Request data using the “Specific point” endpoint to pull down a batch of data around the <a href="https://osm.org/go/euf9JF7EW?m=">Roxby Building</a>.</li>
+  <li>For the API ninjas out there (ie. optional), try to extract data using the “Custom area” endpoint. For example, create a polygon using <a href="https://osm.org/go/euf9JF7EW?m="><code class="highlighter-rouge">geojson.net</code></a> and query data available within the polygon.</li>
+</ol>
+
+<hr />
 
 <h2 id="basemaps-api">Basemaps API</h2>
 
 <p>This section will cover the access of basemaps served as tilesets through the standard XYZ protocol. For this, we will use the <code class="highlighter-rouge">contextily</code> library, first as end-users, and then we will peak a bit into its guts to get a better understanding of its inner workings.</p>
+
+<p>The XYZ protocol exposes maps as images for portions of the Earth we will call tiles. The XYZ name stands from the “coordinates” used to locate a given tile. This of the entire planet split up into squares, each of them available with a unique combination of X and Y numbers. Now add a third one (Z) for the zoom level: lower values use less tiles to cover the world, while higher resolution levels (higher Z) will cover progressively smaller areas, but with more detail.</p>
+
+<p>Most XYZ APIs expose tiles directly over HTTP, which means we can access them from the browser. A handy tool in this context is the <a href="https://github.com/mapbox/mercantile"><code class="highlighter-rouge">mercantile</code></a> library, which handles conversions from lon/lat coordinates into tiles. For example, to get the tile XYZ for the coordinates we used above, a zoom level 12, we can run:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mercantile</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="o">-</span><span class="mf">2.96459</span><span class="p">,</span> <span class="mf">53.40146</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Tile(x=1007, y=663, z=11)
+</code></pre></div></div>
+
+<p>We can access now the <a href="http://maps.stamen.com/terrain/#12/53.3937/-2.9503">Stamen Terrain</a> tile for that tile:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tile_url</span> <span class="o">=</span> <span class="p">(</span><span class="s">"http://tile.stamen.com/terrain/"</span>\
+            <span class="s">"11/1007/663.jpg"</span><span class="p">)</span>
+<span class="n">tile_url</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'http://tile.stamen.com/terrain/11/1007/663.jpg'
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IFrame</span><span class="p">(</span><span class="n">tile_url</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
+        width="300"
+        height="300"
+        src="http://tile.stamen.com/terrain/11/1007/663.jpg"
+        frameborder="0"
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>Now, to make a full basemap of an arbitrary extent at a given zoom level, we would need to identify all the tiles required, collect them, and compose a map that stitches them into a continuous mosaic. Luckily for us, the <code class="highlighter-rouge">contextily</code> library does exactly that for us. There are two different ways of using it.</p>
+
+<p>First, the easy way. The most straightforward way to make a basemap with <code class="highlighter-rouge">contextily</code> is to provide a <code class="highlighter-rouge">GeoDataFrame</code>, plot it, and the add a basemap in a given CRS. For example, let’s used the <code class="highlighter-rouge">geo_db</code> table from the Police API:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ax</span> <span class="o">=</span> <span class="n">geo_db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">markersize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">)</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">geo_db</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="lab_04_files/lab_04_47_0.png" alt="png" /></p>
+
+<hr />
+
+<p><strong>Exercise</strong> The <code class="highlighter-rouge">contextily.providers</code> module provides access to several tile providers:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dict_keys(['OpenStreetMap', 'OpenSeaMap', 'OpenPtMap', 'OpenTopoMap', 'OpenRailwayMap', 'OpenFireMap', 'SafeCast', 'Thunderforest', 'OpenMapSurfer', 'Hydda', 'MapBox', 'Stamen', 'Esri', 'OpenWeatherMap', 'HERE', 'FreeMapSK', 'MtbMap', 'CartoDB', 'HikeBike', 'BasemapAT', 'nlmaps', 'NASAGIBS', 'NLS', 'JusticeMap', 'Wikimedia', 'GeoportailFrance', 'OneMapSG'])
+</code></pre></div></div>
+
+<p>To swap the default for a particular provider, you need to use the <code class="highlighter-rouge">url</code> attribute. For example, to use CARTO instead of Stamen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ax</span> <span class="o">=</span> <span class="n">geo_db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">markersize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">)</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
+               <span class="n">crs</span><span class="o">=</span><span class="n">geo_db</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+               <span class="n">url</span><span class="o">=</span><span class="n">cx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">Voyager</span><span class="p">,</span>
+               <span class="n">zoom</span><span class="o">=</span><span class="mi">14</span>
+              <span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="lab_04_files/lab_04_51_0.png" alt="png" /></p>
+
+<p>Explore the different providers and create similar maps as above using them.</p>
+
+<hr />
+
+<p>Second, the flexible way. Sometimes, we don’t necessarily have a layer to plot under, or we want to have a bit more control over what we actually pull down. For these cases, we’ll swap <code class="highlighter-rouge">add_basemap</code> for <code class="highlighter-rouge">bounds2img</code>, which allows us to pass an arbitrary bounding box and retrieve a stitched up tile.</p>
+
+<p>For example, we will replicate the basemap above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geo_db</span><span class="o">.</span><span class="n">total_bounds</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([-2.98822 , 53.387346, -2.941042, 53.415206])
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">geo_db</span><span class="o">.</span><span class="n">total_bounds</span>
+</code></pre></div></div>
+
+<p>With the bounding box, we can pull down the image (and its extent):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">img</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">bounds2img</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ll</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">ext</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.image.AxesImage at 0x7fb2d49da908&gt;
+</code></pre></div></div>
+
+<p><img src="lab_04_files/lab_04_58_1.png" alt="png" /></p>
+
+<p>A final trick that <code class="highlighter-rouge">contextily</code> has under its hand is the ability to write a basemap into a <code class="highlighter-rouge">.tiff</code> file so we can access it in a standard GIS, such as QGIS. The interface is the same as in <code class="highlighter-rouge">bounds2img</code>, but in this case, we will be calling <code class="highlighter-rouge">bounds2raster</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">img</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">bounds2raster</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> 
+                            <span class="n">s</span><span class="p">,</span> 
+                            <span class="n">e</span><span class="p">,</span> 
+                            <span class="n">n</span><span class="p">,</span> 
+                            <span class="s">"my_basemap.tif"</span><span class="p">,</span> 
+                            <span class="n">ll</span><span class="o">=</span><span class="bp">True</span>
+                           <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Fire up QGIS and inspect the file we’ve just created (<code class="highlighter-rouge">my_basemap.tif</code>).</p>
+
+<h2 id="directions-api">Directions API</h2>
+
+<p>To finish this lab, we will explore an API that allows us to tap into the output of computations that take place in the cloud, rather than a direct database. In particular, we will play witht he <a href="https://docs.mapbox.com/api/navigation/#directions">Mapbox Directions API</a>. For</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong>Exercise</strong> Explore the documentation for the <a href="https://docs.mapbox.com/api/navigation/#isochrone">isochrone API</a> and try to obtain results. For example, retrieve the area that can be reached within 15 minutes of the Roxby Building.</p>
+
+<hr />
+
+<p><strong>Exercise (II)</strong> Explore the documentation for the <a href="https://docs.mapbox.com/api/search/#geocoding">geocoding API</a> and try to use it to automatically embed coordinates between addresses.</p>
+
+<hr />
 
 
   <hr>
