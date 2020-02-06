@@ -31,6 +31,7 @@ slide:
 
 lab_md:
 	cd src/labs && \
+	jupyter nbconvert --to markdown lab_$(no).ipynb && \
 	jupyter nbconvert --to markdown --stdout lab_$(no).ipynb | \
 	sed '1s;^;---\nlayout: notebook\nblock: b$(no)\n---\n\n[**NOTE**: you can download an `.ipynb` version of this file [here]({{site.baseurl}}/labs/lab_$(no).ipynb)]\n;' > \
     lab_$(no).md
