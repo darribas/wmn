@@ -249,7 +249,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;iframe
         width="300"
         height="150"
-        src="https://data.police.uk/api/outcomes-at-location?date=2020-01&amp;lat=53.40146&amp;lng=-2.96459"
+        src="https://data.police.uk/api/outcomes-at-location?date=2019-12&amp;lat=53.40146&amp;lng=-2.96459"
         frameborder="0"
         allowfullscreen
     &gt;&lt;/iframe&gt;
@@ -258,6 +258,10 @@
 <p>Now we’ll access it programmatically using <code class="highlighter-rouge">requests</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">time</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU times: user 20.5 ms, sys: 4.59 ms, total: 25.1 ms
+Wall time: 1.82 s
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># First 100 characters only</span>
@@ -461,15 +465,15 @@
 <span class="n">cr_parsed</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>category_code             local-resolution
-crime_category                       drugs
-cime_id                           80013657
-cime_category                        drugs
-longitude                          -2.9654
-latitude                           53.3885
-date                               2019-12
-crime_location_type                  Force
-crime_location_subtype                ROAD
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>category_code             awaiting-court-result
+crime_category                    violent-crime
+cime_id                                79311446
+cime_category                     violent-crime
+longitude                              -2.97457
+latitude                                53.4093
+date                                    2019-11
+crime_location_type                       Force
+crime_location_subtype                     ROAD
 dtype: object
 </code></pre></div></div>
 
@@ -499,8 +503,8 @@ dtype: object
 crime_category                    violent-crime
 cime_id                                79311446
 cime_category                     violent-crime
-longitude                             -2.974566
-latitude                              53.409256
+longitude                              -2.97457
+latitude                                53.4093
 date                                    2019-11
 crime_location_type                       Force
 crime_location_subtype                     ROAD
@@ -514,8 +518,8 @@ dtype: object
 crime_category            criminal-damage-arson
 cime_id                                79308783
 cime_category             criminal-damage-arson
-longitude                             -2.975044
-latitude                              53.389998
+longitude                              -2.97504
+latitude                                  53.39
 date                                    2019-11
 crime_location_type                       Force
 crime_location_subtype                     ROAD
@@ -660,7 +664,7 @@ dtype: object
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geo_db</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb2d50fba90&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f0649effcf8&gt;
 </code></pre></div></div>
 
 <p><img src="lab_04_files/lab_04_39_1.png" alt="png" /></p>
@@ -769,7 +773,7 @@ dtype: object
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">ext</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.image.AxesImage at 0x7fb2d49da908&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.image.AxesImage at 0x7f0649aada20&gt;
 </code></pre></div></div>
 
 <p><img src="lab_04_files/lab_04_58_1.png" alt="png" /></p>
@@ -789,10 +793,143 @@ dtype: object
 
 <h2 id="directions-api">Directions API</h2>
 
-<p>To finish this lab, we will explore an API that allows us to tap into the output of computations that take place in the cloud, rather than a direct database. In particular, we will play witht he <a href="https://docs.mapbox.com/api/navigation/#directions">Mapbox Directions API</a>. For</p>
+<p>To finish this lab, we will explore an API that allows us to tap into the output of computations that take place in the cloud, rather than a direct database. In particular, we will play witht he <a href="https://docs.mapbox.com/api/navigation/#directions">Mapbox Directions API</a>. For accesing Mapbox services, you will need your token handy. The way we read it in here assumes you have a file called <code class="highlighter-rouge">MAPBOX_TOKEN</code> in the same folder as this notebook:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TOKEN</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"MAPBOX_TOKEN"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div></div>
+
+<p>The Directions API allows us to retrieve routing directions for different travel modes from two points. The general structure of the call is as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dir_base</span> <span class="o">=</span> <span class="p">(</span><span class="s">"https://api.mapbox.com/directions/v5/mapbox/"</span>\
+            <span class="s">"XXXmodeXXX/"</span>\
+            <span class="s">"XXXorig_lonXXX,XXXorig_latXXX;"</span>\
+            <span class="s">"XXXdest_lonXXX,XXXdest_latXXX"</span>\
+            <span class="s">"?geometries=geojson"</span>\
+            <span class="s">"&amp;access_token=YOUR_MAPBOX_ACCESS_TOKEN"</span><span class="p">)</span>
+<span class="n">dir_base</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'https://api.mapbox.com/directions/v5/mapbox/XXXmodeXXX/XXXorig_lonXXX,XXXorig_latXXX;XXXdest_lonXXX,XXXdest_latXXX?geometries=geojson&amp;access_token=YOUR_MAPBOX_ACCESS_TOKEN'
+</code></pre></div></div>
+
+<p>Now to build an actual query, we need to replace each parameter by a value. There are several ways of doing this, one possible one is:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">query</span> <span class="o">=</span> <span class="n">dir_base</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"XXXmodeXXX"</span><span class="p">,</span> <span class="s">"walking"</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"XXXorig_lonXXX"</span><span class="p">,</span> <span class="s">"-2.8857242"</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"XXXorig_latXXX"</span><span class="p">,</span> <span class="s">"53.3803881"</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"XXXdest_lonXXX"</span><span class="p">,</span> <span class="s">"-2.9146053"</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"XXXdest_latXXX"</span><span class="p">,</span> <span class="s">"53.3882099"</span><span class="p">)</span>
+<span class="n">query</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'https://api.mapbox.com/directions/v5/mapbox/walking/-2.8857242,53.3803881;-2.9146053,53.3882099?geometries=geojson&amp;access_token=YOUR_MAPBOX_ACCESS_TOKEN'
+</code></pre></div></div>
+
+<p>For the real query, we will also include our own token stored in <code class="highlighter-rouge">TOKEN</code>. Other than that, we’re all set! We can ask for the data in similar ways as above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"YOUR_MAPBOX_ACCESS_TOKEN"</span><span class="p">,</span> <span class="n">TOKEN</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>We can examine the response:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Blurb too long, reading only first 100 characters</span>
+<span class="n">r</span><span class="o">.</span><span class="n">content</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'{"routes":[{"weight_name":"routability","legs":[{"summary":"A562, A5058","steps":[],"distance":2279.8,"duration":1609,"weight":1609}],"geometry":{"coordinates":[[-2.8856,53.380119],[-2.886148,53.379974],[-2.88919,53.381962],[-2.893808,53.384666],[-2.897625,53.385567],[-2.899884,53.386322],[-2.909303,53.388119],[-2.909477,53.388096],[-2.909854,53.38805],[-2.910888,53.387917],[-2.912312,53.388474],[-2.912442,53.388382],[-2.913922,53.388592],[-2.914619,53.388218]],"type":"LineString"},"distance":2279.8,"duration":1609,"weight":1609}],"waypoints":[{"distance":30.857,"name":"Beaconsfield Road","location":[-2.8856,53.380119]},{"distance":1.225,"name":"Carsdale Road","location":[-2.914619,53.388218]}],"code":"Ok","uuid":"cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=="}'
+</code></pre></div></div>
+
+<p>But, to make more sense, we can pass it through the <code class="highlighter-rouge">json</code> library:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">waypoints</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">waypoints</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'routes': [{'weight_name': 'routability',
+   'legs': [{'summary': 'A562, A5058',
+     'steps': [],
+     'distance': 2279.8,
+     'duration': 1609,
+     'weight': 1609}],
+   'geometry': {'coordinates': [[-2.8856, 53.380119],
+     [-2.886148, 53.379974],
+     [-2.88919, 53.381962],
+     [-2.893808, 53.384666],
+     [-2.897625, 53.385567],
+     [-2.899884, 53.386322],
+     [-2.909303, 53.388119],
+     [-2.909477, 53.388096],
+     [-2.909854, 53.38805],
+     [-2.910888, 53.387917],
+     [-2.912312, 53.388474],
+     [-2.912442, 53.388382],
+     [-2.913922, 53.388592],
+     [-2.914619, 53.388218]],
+    'type': 'LineString'},
+   'distance': 2279.8,
+   'duration': 1609,
+   'weight': 1609}],
+ 'waypoints': [{'distance': 30.857,
+   'name': 'Beaconsfield Road',
+   'location': [-2.8856, 53.380119]},
+  {'distance': 1.225,
+   'name': 'Carsdale Road',
+   'location': [-2.914619, 53.388218]}],
+ 'code': 'Ok',
+ 'uuid': 'cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=='}
+</code></pre></div></div>
+
+<p>Phew! That returns a fully formed, nicely formatted object with all the info we need. There is a lot of information there. For now, we will parse only the direction line that connects directions. For that, we need to do a bit of fiddling again. The basics are relatively straightforward, but “the devil is always in the details”!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">route</span> <span class="o">=</span> <span class="n">waypoints</span><span class="p">[</span><span class="s">'routes'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">route</span><span class="p">[</span><span class="s">'properties'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"distance"</span><span class="p">:</span> <span class="n">waypoints</span><span class="p">[</span><span class="s">"routes"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">"distance"</span><span class="p">],</span>
+                       <span class="s">"duration"</span><span class="p">:</span> <span class="n">waypoints</span><span class="p">[</span><span class="s">"routes"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">"duration"</span><span class="p">]</span>
+                      <span class="p">}</span>
+<span class="n">routes</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">([</span><span class="n">route</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="s">"EPSG:4326"</span><span class="p">)</span>
+<span class="n">routes</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>distance</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LINESTRING (-2.8856 53.380119, -2.886148 53.37...</td>
+      <td>2279.8</td>
+      <td>1609</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>With this, we can make a map just as above:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ax</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">"purple"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">routes</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">cx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">Stamen</span><span class="o">.</span><span class="n">TonerLite</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="lab_04_files/lab_04_77_0.png" alt="png" /></p>
 
 <hr />
 
