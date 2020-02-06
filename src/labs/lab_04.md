@@ -81,7 +81,7 @@ IFrame(url, 300, 150)
         <iframe
             width="300"
             height="150"
-            src="https://data.police.uk/api/outcomes-at-location?date=2020-01&lat=53.40146&lng=-2.96459"
+            src="https://data.police.uk/api/outcomes-at-location?date=2019-12&lat=53.40146&lng=-2.96459"
             frameborder="0"
             allowfullscreen
         ></iframe>
@@ -95,6 +95,10 @@ Now we'll access it programmatically using `requests`:
 ```python
 %time r = requests.get(url)
 ```
+
+    CPU times: user 20.5 ms, sys: 4.59 ms, total: 25.1 ms
+    Wall time: 1.82 s
+
 
 
 ```python
@@ -357,15 +361,15 @@ cr_parsed
 
 
 
-    category_code             local-resolution
-    crime_category                       drugs
-    cime_id                           80013657
-    cime_category                        drugs
-    longitude                          -2.9654
-    latitude                           53.3885
-    date                               2019-12
-    crime_location_type                  Force
-    crime_location_subtype                ROAD
+    category_code             awaiting-court-result
+    crime_category                    violent-crime
+    cime_id                                79311446
+    cime_category                     violent-crime
+    longitude                              -2.97457
+    latitude                                53.4093
+    date                                    2019-11
+    crime_location_type                       Force
+    crime_location_subtype                     ROAD
     dtype: object
 
 
@@ -403,8 +407,8 @@ parse_crime_event(cr)
     crime_category                    violent-crime
     cime_id                                79311446
     cime_category                     violent-crime
-    longitude                             -2.974566
-    latitude                              53.409256
+    longitude                              -2.97457
+    latitude                                53.4093
     date                                    2019-11
     crime_location_type                       Force
     crime_location_subtype                     ROAD
@@ -424,8 +428,8 @@ parse_crime_event(crimes[10])
     crime_category            criminal-damage-arson
     cime_id                                79308783
     cime_category             criminal-damage-arson
-    longitude                             -2.975044
-    latitude                              53.389998
+    longitude                              -2.97504
+    latitude                                  53.39
     date                                    2019-11
     crime_location_type                       Force
     crime_location_subtype                     ROAD
@@ -585,7 +589,7 @@ geo_db.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb2d50fba90>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f0649effcf8>
 
 
 
@@ -744,7 +748,7 @@ plt.imshow(img, extent=ext)
 
 
 
-    <matplotlib.image.AxesImage at 0x7fb2d49da908>
+    <matplotlib.image.AxesImage at 0x7f0649aada20>
 
 
 
@@ -769,12 +773,182 @@ Fire up QGIS and inspect the file we've just created (`my_basemap.tif`).
 
 ## Directions API
 
-To finish this lab, we will explore an API that allows us to tap into the output of computations that take place in the cloud, rather than a direct database. In particular, we will play witht he [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions). For 
+To finish this lab, we will explore an API that allows us to tap into the output of computations that take place in the cloud, rather than a direct database. In particular, we will play witht he [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions). For accesing Mapbox services, you will need your token handy. The way we read it in here assumes you have a file called `MAPBOX_TOKEN` in the same folder as this notebook:
 
 
 ```python
-
+TOKEN = open("MAPBOX_TOKEN").read()
 ```
+
+The Directions API allows us to retrieve routing directions for different travel modes from two points. The general structure of the call is as follows:
+
+
+```python
+dir_base = ("https://api.mapbox.com/directions/v5/mapbox/"\
+            "XXXmodeXXX/"\
+            "XXXorig_lonXXX,XXXorig_latXXX;"\
+            "XXXdest_lonXXX,XXXdest_latXXX"\
+            "?geometries=geojson"\
+            "&access_token=YOUR_MAPBOX_ACCESS_TOKEN")
+dir_base
+```
+
+
+
+
+    'https://api.mapbox.com/directions/v5/mapbox/XXXmodeXXX/XXXorig_lonXXX,XXXorig_latXXX;XXXdest_lonXXX,XXXdest_latXXX?geometries=geojson&access_token=YOUR_MAPBOX_ACCESS_TOKEN'
+
+
+
+Now to build an actual query, we need to replace each parameter by a value. There are several ways of doing this, one possible one is:
+
+
+```python
+query = dir_base.replace("XXXmodeXXX", "walking")\
+                .replace("XXXorig_lonXXX", "-2.8857242")\
+                .replace("XXXorig_latXXX", "53.3803881")\
+                .replace("XXXdest_lonXXX", "-2.9146053")\
+                .replace("XXXdest_latXXX", "53.3882099")
+query
+```
+
+
+
+
+    'https://api.mapbox.com/directions/v5/mapbox/walking/-2.8857242,53.3803881;-2.9146053,53.3882099?geometries=geojson&access_token=YOUR_MAPBOX_ACCESS_TOKEN'
+
+
+
+For the real query, we will also include our own token stored in `TOKEN`. Other than that, we're all set! We can ask for the data in similar ways as above:
+
+
+```python
+r = requests.get(query.replace("YOUR_MAPBOX_ACCESS_TOKEN", TOKEN))
+```
+
+We can examine the response:
+
+
+```python
+# Blurb too long, reading only first 100 characters
+r.content
+```
+
+
+
+
+    b'{"routes":[{"weight_name":"routability","legs":[{"summary":"A562, A5058","steps":[],"distance":2279.8,"duration":1609,"weight":1609}],"geometry":{"coordinates":[[-2.8856,53.380119],[-2.886148,53.379974],[-2.88919,53.381962],[-2.893808,53.384666],[-2.897625,53.385567],[-2.899884,53.386322],[-2.909303,53.388119],[-2.909477,53.388096],[-2.909854,53.38805],[-2.910888,53.387917],[-2.912312,53.388474],[-2.912442,53.388382],[-2.913922,53.388592],[-2.914619,53.388218]],"type":"LineString"},"distance":2279.8,"duration":1609,"weight":1609}],"waypoints":[{"distance":30.857,"name":"Beaconsfield Road","location":[-2.8856,53.380119]},{"distance":1.225,"name":"Carsdale Road","location":[-2.914619,53.388218]}],"code":"Ok","uuid":"cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=="}'
+
+
+
+But, to make more sense, we can pass it through the `json` library:
+
+
+```python
+waypoints = json.loads(r.content)
+waypoints
+```
+
+
+
+
+    {'routes': [{'weight_name': 'routability',
+       'legs': [{'summary': 'A562, A5058',
+         'steps': [],
+         'distance': 2279.8,
+         'duration': 1609,
+         'weight': 1609}],
+       'geometry': {'coordinates': [[-2.8856, 53.380119],
+         [-2.886148, 53.379974],
+         [-2.88919, 53.381962],
+         [-2.893808, 53.384666],
+         [-2.897625, 53.385567],
+         [-2.899884, 53.386322],
+         [-2.909303, 53.388119],
+         [-2.909477, 53.388096],
+         [-2.909854, 53.38805],
+         [-2.910888, 53.387917],
+         [-2.912312, 53.388474],
+         [-2.912442, 53.388382],
+         [-2.913922, 53.388592],
+         [-2.914619, 53.388218]],
+        'type': 'LineString'},
+       'distance': 2279.8,
+       'duration': 1609,
+       'weight': 1609}],
+     'waypoints': [{'distance': 30.857,
+       'name': 'Beaconsfield Road',
+       'location': [-2.8856, 53.380119]},
+      {'distance': 1.225,
+       'name': 'Carsdale Road',
+       'location': [-2.914619, 53.388218]}],
+     'code': 'Ok',
+     'uuid': 'cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=='}
+
+
+
+Phew! That returns a fully formed, nicely formatted object with all the info we need. There is a lot of information there. For now, we will parse only the direction line that connects directions. For that, we need to do a bit of fiddling again. The basics are relatively straightforward, but "the devil is always in the details"!
+
+
+```python
+route = waypoints['routes'][0]
+route['properties'] = {"distance": waypoints["routes"][0]["distance"],
+                       "duration": waypoints["routes"][0]["duration"]
+                      }
+routes = geopandas.GeoDataFrame.from_features([route], crs="EPSG:4326")
+routes
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>distance</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LINESTRING (-2.8856 53.380119, -2.886148 53.37...</td>
+      <td>2279.8</td>
+      <td>1609</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+With this, we can make a map just as above:
+
+
+```python
+ax = routes.plot(color="purple", linewidth=3, figsize=(14, 14))
+cx.add_basemap(ax, crs=routes.crs, url=cx.providers.Stamen.TonerLite)
+```
+
+
+![png](lab_04_files/lab_04_77_0.png)
+
 
 ---
 
