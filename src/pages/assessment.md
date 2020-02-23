@@ -39,17 +39,17 @@ should draw some inspiration from the first weeks of the course, where we
 looked for examples of web maps and spent time disussing what made them good
 and why.
 
-Second, the data. draft a list of potential data that would be ideal to use for
+Second, the data. Draft a list of potential data that would be ideal to use for
 your map, and try to find out whether they exist and are available. This will
 be a good guide for which data you will actually end up using. Do not worry
-about spending a significant amount of time on this aspect. Identifying good
+about spending a significant amount of time on this aspect; identifying good
 data takes time and is at the core of this task. Make sure you include both data
 you can access from direct downloads (e.g. CDRC) and those you download
 through an API. Once you know which datasets you need, go ahead and do the
 work required to download them for the map you want to build.
 
 Third, the assemblage. With all data you have at your disposal from the
-previous stage, create a tileset that allows to embed the map in an HTML tile
+previous stage, create a tileset that allows to embed the map in an HTML file
 and explore it through the browser. Pay attention to the design aspects
 involved in this step too. For example, what is the extent of your map (not
 necessarily the extent of each of your data)? What are the zoom levels your
@@ -60,9 +60,10 @@ successfully.
 Finally, presentation of your work. Once you have created your map, you will
 need to present it. An important aspect of this stage is that it is not really
 the map you need to present, but the _process_ of creation you have followed
-and the design choices you have made. Additionally, you will need to provide
-evidence that you understand the concepts behind some of the technologies you
-have used. Write up to 1,000 words and include the following:
+and the design choices you have made that should go into the text. Additionally,
+you will need to provide evidence that you understand the concepts behind some
+of the technologies you have used. Write up to 1,000 words and include the
+following:
 
 - Map brief
     - About 250 words introducing the map. This should cover what it tries to
