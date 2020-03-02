@@ -264,8 +264,8 @@
 Wall time: 1.82 s
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># First 100 characters only</span>
-<span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First 100 characters only
+</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 </code></pre></div></div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'[{"category":{"code":"awaiting-court-result","name":"Awaiting court outcome"},"date":"2019-12","pers'
@@ -539,18 +539,18 @@ dtype: object
 
 <p>Armed with the function above, we can apply it to all the crimes in our initial batch. For this, we will use a <code class="highlighter-rouge">for</code> loop:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start an empty list to store parsed crimes dynamically</span>
-<span class="n">parsed</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Start an empty list to store parsed crimes dynamically
+</span><span class="n">parsed</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c"># Loop over each crime event in the list of crimes</span>
-<span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crimes</span><span class="p">:</span>
-    <span class="c"># Parse a single crime</span>
-    <span class="n">pc</span> <span class="o">=</span> <span class="n">parse_crime_event</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
-    <span class="c"># Store the parsed crime into the list created</span>
-    <span class="n">parsed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
+<span class="c1"># Loop over each crime event in the list of crimes
+</span><span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crimes</span><span class="p">:</span>
+    <span class="c1"># Parse a single crime
+</span>    <span class="n">pc</span> <span class="o">=</span> <span class="n">parse_crime_event</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
+    <span class="c1"># Store the parsed crime into the list created
+</span>    <span class="n">parsed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
 
-<span class="c"># Conver the list into a DataFrame</span>
-<span class="n">parsed</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+<span class="c1"># Conver the list into a DataFrame
+</span><span class="n">parsed</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -832,8 +832,8 @@ dtype: object
 
 <p>We can examine the response:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Blurb too long, reading only first 100 characters</span>
-<span class="n">r</span><span class="o">.</span><span class="n">content</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Blurb too long, reading only first 100 characters
+</span><span class="n">r</span><span class="o">.</span><span class="n">content</span>
 </code></pre></div></div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'{"routes":[{"weight_name":"routability","legs":[{"summary":"A562, A5058","steps":[],"distance":2279.8,"duration":1609,"weight":1609}],"geometry":{"coordinates":[[-2.8856,53.380119],[-2.886148,53.379974],[-2.88919,53.381962],[-2.893808,53.384666],[-2.897625,53.385567],[-2.899884,53.386322],[-2.909303,53.388119],[-2.909477,53.388096],[-2.909854,53.38805],[-2.910888,53.387917],[-2.912312,53.388474],[-2.912442,53.388382],[-2.913922,53.388592],[-2.914619,53.388218]],"type":"LineString"},"distance":2279.8,"duration":1609,"weight":1609}],"waypoints":[{"distance":30.857,"name":"Beaconsfield Road","location":[-2.8856,53.380119]},{"distance":1.225,"name":"Carsdale Road","location":[-2.914619,53.388218]}],"code":"Ok","uuid":"cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=="}'

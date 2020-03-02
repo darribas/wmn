@@ -9,9 +9,6 @@
 - Choropleths
 
 #
-## Contributed Links
-
-#
 ## Visualisation
 
 ## *What?*
