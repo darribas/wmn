@@ -6,7 +6,7 @@ block: b06
 # Lab 6 - CARTO Sandbox
 
 In this lab, we will play with a sandboxed web mapping platform. By sandboxed
-we mean that you will not have to think, for now, about getting your data,
+we mean that you will not have to think about getting your data,
 processing, uploading or prepare them for mapping. It will all be ready for
 you to start mapping.
 
@@ -30,10 +30,24 @@ Let's walk through the basics of CARTO as a (web) GIS:
         - `POP-UP`
         - `LEGEND`
 
-## CARTO Mapping
+## Mapping with CARTO
 
-Now you now the very basics of CARTO, let's make a few maps! 
+Now you know the very basics of CARTO, let's make a few maps! 
 For this exercise, team up in **groups of two or three** students.
+
+While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:
+
+- Computer
+- Human
+- Display
+
+Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the _goal of the map_. When thinking through what aspects might be useful to keep, or prioritise, remember [MacEachren & Kraak (1997)'s "Map Cube"](https://darribas.org/wmn/slidedecks/lecture_06.html#/map-cube).
+
+Finally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):
+
+- How many bins?
+- How to assign values to each bin?
+- What colors to assign to bins?
 
 - ***Make the worst map you can***
 
