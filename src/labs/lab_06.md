@@ -16,9 +16,7 @@ meantime too!
 
 ## Explore the CARTO interface
 
-To get started, download the dataset for this tutorial from:
-
-> [http://darribas.org/wmn/labs/imd2019.gpkg.zip](http://darribas.org/wmn/labs/imd2019.gpkg.zip)
+We will use the 2019 IMD dataset, which has been uploaded to CARTO already.
 
 Let's walk through the basics of CARTO as a (web) GIS:
 
@@ -39,7 +37,7 @@ For this exercise, team up in **groups of two or three** students.
 
 - ***Make the worst map you can***
 
-Think of the [lecture on designing visualisations and maps](../../blocks/b02)
+Think of the [lecture on designing visualisations and maps]({{site.baseurl}}/blocks/b06)
 and try to actively
 ignore every piece of advice we've discussed in class. This of course means
 you can't ignore the advice but you have to actively not follow any aspects of
