@@ -97,16 +97,16 @@ blocks:
         lab: "CARTO sandbox"
     b7:
         name: "Frontend Topics II"
-        lecture: "Maps as websites - Styling (interactive) web maps"
-        lab: "Mapbox Studio: CartoCSS + Style Components"
+        lecture: "Map design"
+        lab: "Designing maps with Mapbox Studio and CARTO"
     b8:
         name: "Frontend Topics III"
-        lecture: "Dashboards: bringing analysis to the web"
-        lab: "Building dashboards"
+        lecture: "Interactivity"
+        lab: "Designing for interactivity"
     b9:
-        name: "Web Maps in the Data Science Workflow"
-        lecture: "Web Maps in the Data Science Workflow"
-        lab: "Web maps in Jupyter and RStudio"
+        name: "Dashboards"
+        lecture: "Dashboards: bringing analysis to the web"
+        lab: "Building Dashboards"
     b10:
         name: ""
         lecture: "Technology gallery"
