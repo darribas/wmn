@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  
+  
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="https://darribas.org/wmn/labs/lab_07" />
+
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+  <title>
+    
+      
+    
+  </title>
+
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="" />
+  <meta property="dc:creator" content="Dani Arribas-Bel" />
+  <meta property="dc:identifier" content="https://darribas.org/wmn/labs/lab_07" />
+  
+  
+  
+  <meta property="dc:source" content="Web Mapping Notes" />
+
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="https://darribas.org/wmn/labs/lab_07" />
+  <meta property="og:image" content="https://darribas.org/wmn/assets/open-graph-logo.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
+
+
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/wmn/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/wmn/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="/wmn/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://darribas.org/wmn/atom.xml" />
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!--
+  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for
+  behavior.
+-->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An archive to teach Web Mapping & Analysis.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/wmn/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/assessment">Assessment</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/setup">Setup</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/syllabus">Syllabus</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/search">Search</a>
+        
+      
+    
+
+    <!-- The code below is used for manually entered links 
+    <span style='cursor:pointer;' onclick="javascript:var hypothesis = document.createElement('script');
+      hypothesis.setAttribute('src','https://hypothes.is/embed.js');
+      document.head.appendChild(hypothesis);"><a class="sidebar-nav-item">Annotate me</a></span>
+    -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://via.hypothes.is/https://darribas.org/wmn/labs/lab_07/" data-proofer-ignore>Annotate me</a>
+    <script src="https://hypothes.is/embed.js" async></script>
+  -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://github.com/minicomp/ed" target="_blank">GitHub project</a>
+  </nav>
+  -->
+
+  <div class="sidebar-item">
+    <p>
+      Built with <a href="https://minicomp.github.io/ed/">Ed.</a> Distributed under an MIT license.
+    </p>
+  </div>
+</aside>
+
+    
+
+    <!--
+      Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS
+      collisions with our real content.
+    -->
+    <div class="wrap">
+      <header class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/wmn/" title="Home">Web Mapping Notes</a>
+            <br><small>Guide, materials & resources</small>
+          </h3>
+        </div>
+      </header>
+
+      <main class="container content" id="main">
+        <article class="page">
+  <p>
+  <a href="/wmn/blocks/b07">
+    <code class="highlighter-rouge">[Back to Block]</code>
+  </a>
+  </p>
+
+  <h1 id="lab-7---map-design">Lab 7 - Map Design</h1>
+
+<p>In this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using <a href="https://www.mapbox.com/mapbox-studio/">Mapbox Studio</a>, a tool that will allow us to control almost any thinkable aspect of a map.</p>
+
+<p>As we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the <a href="../slidedecks/lecture_07.html">lecture slides</a>. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.</p>
+
+<p>To complete this lab, you will require the following:</p>
+
+<ul>
+  <li>The internet</li>
+  <li>An active Mapbox account</li>
+</ul>
+
+<h2 id="mapbox-studio">Mapbox Studio</h2>
+
+<p>Let’s get starting by logging into our Mapbox account and opening up the Studio at:</p>
+
+<blockquote>
+  <p><a href="https://studio.mapbox.com/"><code class="highlighter-rouge">https://studio.mapbox.com/</code></a></p>
+</blockquote>
+
+<p>You should see something like this:</p>
+
+<p><img src="figs/mb_studio.png" alt="Studio" /></p>
+
+<p>To explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.</p>
+
+<p>The Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.</p>
+
+<p><img src="https://docs.mapbox.com/studio-manual/assets/reference-styles-introduction-style-editor-toc-960-eb1c1bdbf28b8b2d36e5e32d63e8f03d.png" alt="Studio panels" />
+<a href="https://docs.mapbox.com/studio-manual/reference/styles/#style-editor"><code class="highlighter-rouge">Source</code>: Mapbox</a></p>
+
+<p>Most of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:</p>
+
+<ul>
+  <li>Color</li>
+  <li>Texture</li>
+  <li>Labelling and typography</li>
+  <li>Iconography</li>
+</ul>
+
+<p>We will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.</p>
+
+<h2 id="exercise">Exercise</h2>
+
+<p>For this exercise, we will be using the “CLIWOC Slim and Routes” data product:</p>
+
+<blockquote>
+  <p><a href="https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224"><code class="highlighter-rouge">https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224</code></a></p>
+</blockquote>
+
+<p>Team in groups of two to four and pick one of the following options:</p>
+
+<ol>
+  <li>Global map of trade routes</li>
+  <li>Map of ship activity around South Africa</li>
+  <li>Map showing how important the island of Saint Helena was in this period</li>
+  <li>Map of shipping activity in the English Channel</li>
+  <li>Map of expeditions into the Arctic</li>
+  <li>Map of activity around the Caribbean</li>
+</ol>
+
+<p>Style a map according to its goal.</p>
+
+<h2 id="presentation">Presentation</h2>
+
+<p>Once you are happy with your final style, publish it and drop the link on the module’s Team. Designate one member of the group to present it. The presentation should cover the following:</p>
+
+<ul>
+  <li>What is the map about?</li>
+  <li>What design elements did you tweak? How? Why?</li>
+  <li>What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?</li>
+</ul>
+
+
+  <hr>
+
+  <p>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    <br />
+  </p>
+  <p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+  </p>
+</article>
+
+      </main>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+      // Toggle sidebar
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             !sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+<!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>
