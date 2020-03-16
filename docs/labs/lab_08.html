@@ -205,9 +205,90 @@
 
   <h1 id="lab-8---interactivity">Lab 8 - Interactivity</h1>
 
-<h2 id="interactivity-in-carto">Interactivity in CARTO</h2>
+<p>In this lab, we are going to get our hands dirty and play with different elements that allow us to make a map interactive. We will do so using <a href="https://carto.com/">CARTO</a>, which makes possible (and even fun!) to work interactivity into a map in different ways.</p>
 
-<h2 id="interactivity-in-mapbox-studio">Interactivity in Mapbox Studio</h2>
+<p>As we go through the hands-on aspect of this block, please keep the <a href="../slidedecks/lecture_08.html">lecture slides</a> handy and revisit them as much as you need to. As always, the real challenge is not to learn how to use a piece of software, but how to apply conceptual notions in a practical context.</p>
+
+<p>To complete this lab, you will require the following:</p>
+
+<ul>
+  <li>The internet</li>
+  <li>An active CARTO account</li>
+</ul>
+
+<h2 id="carto">CARTO</h2>
+
+<p>We used CARTO in <a href="../labs/lab_06.html">Lab 6</a> to quickly be able to make web maps and explore choropleths. That section the main elements of its interface. In this lab, we will build on those and explore how you can build interactivity in web maps.</p>
+
+<p>Let us start by logging into CARTO:</p>
+
+<blockquote>
+  <p><a href="https://carto.com"><code class="highlighter-rouge">carto.com</code></a></p>
+</blockquote>
+
+<p>Upon login, you should see a dashboard that looks more or less like:</p>
+
+<p><img src="figs/carto_db.png" alt="CARTO dashboard" /></p>
+
+<p>To see the main features, you can create a “New Map” (either from the dasboard or the “Maps” section, you will be able to find that button), and add the <code class="highlighter-rouge">imd2019</code> dataset we used for <a href="../labs/lab_06.html">Lab 6</a> (remember, you will find it on the “Shared with you” tab). This will take you to a new page that looks roughly like:</p>
+
+<p><img src="figs/carto_map.png" alt="CARTO map" /></p>
+
+<p>Now let’s remember the building blocks of interactivity we have learnt in the <a href="../slidedecks/lecture_08.html">lecture</a>:</p>
+
+<ul>
+  <li>Filtering
+    <ul>
+      <li><strong>Pan</strong></li>
+      <li><strong>Zoom</strong></li>
+      <li><strong>Subset</strong></li>
+    </ul>
+  </li>
+  <li>Perspective</li>
+  <li>Volume</li>
+  <li><strong>Tooltips</strong></li>
+  <li>Split</li>
+  <li><strong>Animate</strong></li>
+</ul>
+
+<p>In bold those that we will work through in this lab.</p>
+
+<p>To demonstrate animations, we will use another dataset we have enountered in the past, the CLIWOC ship logs:</p>
+
+<blockquote>
+  <p><a href="https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224"><code class="highlighter-rouge">https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224</code></a></p>
+</blockquote>
+
+<p>You should be able to find it also on your “Shared with you” section of the Data tab. We will work with individual logs (<code class="highlighter-rouge">cliwoc_slim</code>) to create an animation of the logs, for example grouping them by month, as in this example of expeditions into the North:</p>
+
+<p><img src="figs/north_pole.gif" alt="North Expeditions" /></p>
+
+<h2 id="exercise">Exercise</h2>
+
+<p>Now we know the mechanics of interactivity in CARTO, let’s show off! Pick whichever you want first, and have a go at the following maps:</p>
+
+<ol>
+  <li>An animation of global trade over time</li>
+  <li>A map that lets you pick a given country and display its main routes</li>
+  <li>A map that lets you identify the vesel ID (<code class="highlighter-rouge">id</code>), date, and country of ships around Cape Town</li>
+  <li>A choropleth where you can select routes by their length in days</li>
+  <li>An animation of each route in the region around Jakarta</li>
+  <li>A map that allows you to select a single route, zoom into its origin, and then pan throughout the route</li>
+</ol>
+
+<p>Once completed, select the one you like best, and post it on Teams.</p>
+
+<h2 id="presentation">Presentation</h2>
+
+<p>You will then have 30 seconds to present your favorite map and hit the following points:</p>
+
+<ul>
+  <li>What the map shows</li>
+  <li>What interactivity element(s) you have used</li>
+  <li>One thing you think is really effective about it</li>
+</ul>
+
+<p>Remember, 30 seconds. Short and sweet. Make them count!</p>
 
 
   <hr>
