@@ -47,63 +47,238 @@
                 <h1></h1>
                 <section id="interactivity" class="level2">
                 <h2>Interactivity</h2>
-                <p>Vis (and interactive vis in particular) helps “where seeing the dataset structure in detail is better than seeing only a brief summary of it” (Munzner, 2016)</p>
-                <p>Why use interactivity (Munzner, 2016):</p>
+                </section>
+                <section id="interactivity-what" class="level2">
+                <h2>Interactivity: <em>what</em></h2>
+                <CENTER>
+                <em>“[…] two-way flow of information, […] responding immediately to the latter’s [user’s] input”</em>
+                </CENTER>
+                <p><SMALL> (<a href="https://oed.com/view/Entry/97521?redirectedFrom=interactive#eid">OED</a>) </SMALL></p>
+                <div class="fragment">
                 <ul>
-                <li>Handle complexity</li>
-                <li>Cause the view to change (many maps/stories in one!)</li>
-                <li>Support investigation at multiple levels of detail</li>
-                <li>Expand the capabilities of vis (many idioms depend on it)</li>
+                <li>Ability to <span class="hlg">dynamically modify</span> a visualisation</li>
+                <li><span class="hlg">Action/response</span> as part of the experience</li>
                 </ul>
-                <p>From Andy Kirk’s chapter on interactivity:</p>
+                </div>
+                </section>
+                <section id="interactivity-why" class="level2">
+                <h2>Interactivity: <em>why</em></h2>
+                <p>Munzner (2016):</p>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Handle complexity</span></li>
+                <li><span class="fragment highlight-current-blue">Cause the view to change</span></li>
+                <li><span class="fragment highlight-current-blue">Support investigation at multiple levels of detail</span></li>
+                <li><span class="fragment highlight-current-blue">Expand the capabilities of vis (many <em>idioms</em> depend on it)</span></li>
+                </ul>
+                </section>
+                <section id="interactivity-when" class="level2">
+                <h2>Interactivity: <em>when</em></h2>
+                <p><em>“[when] seeing the dataset structure in detail is better than seeing only a brief summary of it”</em></p>
+                <p><SMALL> Munzner (2016) </SMALL></p>
+                <div class="fragment">
+                <ul>
+                <li>Too much to visualise all at once</li>
+                <li>Both “big picture” <em>and</em> “detail” matter</li>
+                </ul>
+                </div>
                 </section>
                 </section>
                 <section id="section-1" class="level1">
                 <h1></h1>
                 <section id="interactive-web-maps" class="level2">
                 <h2>Interactive (Web) Maps</h2>
-                <p>Maps as “windows” into large datasets that use space to structure information</p>
-                <p>Alessia’s graphic</p>
+                </section>
+                <section id="interactive-web-maps-1" class="level2">
+                <h2>Interactive (Web) Maps</h2>
+                <figure>
+                <img src="../slides/figs/interactivity_levels.png" alt="" /><figcaption><small>Image: A. Calafiore</small></figcaption>
+                </figure>
+                </section>
+                <section id="interactive-web-maps-2" class="level2">
+                <h2>Interactive (Web) Maps</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Efficient medium for high information throughput (Tufte)</span></li>
+                <li><span class="fragment highlight-current-blue"><em>Maps as “windows”</em> into large datasets</span></li>
+                <li><span class="fragment highlight-current-blue">“A map of many maps”</span></li>
+                </ul>
                 </section>
                 </section>
                 <section id="section-2" class="level1">
                 <h1></h1>
                 <section id="interactivity-building-blocks" class="level2">
                 <h2>Interactivity Building Blocks</h2>
-                <p>Card:</p>
+                </section>
+                <section id="interactivity-building-blocks-1" class="level2">
+                <h2>Interactivity Building Blocks</h2>
+                <table>
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                <td class="aligncenter">
                 <ul>
-                <li>What is it</li>
-                <li>Example</li>
-                <li>Use</li>
-                <li>Abuse</li>
+                <li>Filtering
+                <ul>
+                <li>Pan</li>
+                <li>Zoom</li>
+                <li>Subset</li>
+                </ul></li>
                 </ul>
-                </section>
-                <section id="pan" class="level2">
-                <h2>Pan</h2>
-                </section>
-                <section id="zoom" class="level2">
-                <h2>Zoom</h2>
-                </section>
-                <section id="perspective" class="level2">
-                <h2>Perspective</h2>
-                </section>
-                <section id="volume-3d" class="level2">
-                <h2>Volume (3D)</h2>
-                </section>
-                <section id="tooltips" class="level2">
-                <h2>Tooltips</h2>
-                </section>
-                <section id="animate" class="level2">
-                <h2>Animate</h2>
-                <p>Movie or slider</p>
+                </td>
+                <td class="aligncenter">
+                <ul>
+                <li>Perspective</li>
+                <li>Volume</li>
+                <li>Tooltips</li>
+                <li>Split</li>
+                <li>Animate</li>
+                </ul>
+                </td>
+                </tr>
+                </table>
                 </section>
                 <section id="filtering" class="level2">
                 <h2>Filtering</h2>
-                <p>Reduce items</p>
-                <p>Search as a particular case</p>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Widely used design choice in visualisation</span></li>
+                <li><span class="fragment highlight-current-blue">Reduction of the set of elements being displayed</span></li>
+                <li><span class="fragment highlight-current-blue">Discard geographically or attribute-based</span></li>
+                </ul>
                 </section>
-                <section id="splitting" class="level2">
-                <h2>Splitting</h2>
+                <section id="filtering-pan" class="level2">
+                <h2>Filtering: Pan</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> “Travel” <em>within</em> a single scale</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Segment a map geographically</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Map is meant to focus on a single region</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/pan.gif" /> <SMALL> <a href="https://www.mapbox.com/">Mapbox</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="filtering-zoom" class="level2">
+                <h2>Filtering: Zoom</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> “Travel” <em>across</em> scales</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Present different degrees of detail</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Map is meant to focus at a single scale</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/zoom.gif" /> <SMALL> <a href="https://www.mapbox.com/">Mapbox</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="filtering-subset" class="level2">
+                <h2>Filtering: Subset</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> Restrict data showed (by attribute)</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Explore patterns by value/category</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Focus is on the global pattern</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/subset.gif" /> <SMALL> <a href="http://darribas.org/explore_liv_students/">GDSL</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="perspective" class="level2">
+                <h2>Perspective</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> Modify the user’s point of reference</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Different perspective fits the purpose of the map (e.g. car navigation)</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Feature size matters</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/perspective.gif" /> <SMALL> <a href="https://kepler.gl/">Kepler.gl</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="volume-3d" class="level2">
+                <h2>Volume (3D)</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> Add a (pseudo-)third dimension for display</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Volume is relevant(e.g. height)</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Almost any other case</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/volume.gif" /> <SMALL> <a href="https://kepler.gl/">Kepler.gl</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="tooltips" class="level2">
+                <h2>Tooltips</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"> <code>What</code> Contextual (non-geo) information on-demand</span></p>
+                <p><span class="fragment highlight-current-blue"> <code>Use</code> Let the user explore feature (multi-media) attributes</span></p>
+                <p><span class="fragment highlight-current-blue"> <code>Abuse</code> Include more data than required in the tooltip</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/tooltip.gif" /> <SMALL> <a href="https://carto.com/">Carto</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="animate" class="level2">
+                <h2>Animate</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> Add temporal dimension through compilation of slices</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Explore space-time patterns</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> Communicate cross-sectional insights</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/animate.gif" /> <SMALL> <a href="https://carto.com/">Carto</a> </SMALL>
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="split" class="level2">
+                <h2>Split</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <p><span class="fragment highlight-current-blue"><code>What</code> Overlay two maps of the same location</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Use</code> Compare overall pattern changes</span></p>
+                <p><span class="fragment highlight-current-blue"><code>Abuse</code> When you need to view same location in both maps</span></p>
+                </td>
+                <td class="aligncenter" style="vertical-align:middle;">
+                <img src="../slides/gifs/split.gif" /> <SMALL> <a href="https://ipyleaflet.readthedocs.io/en/latest/"><code>ipyleaflet</code></a> </SMALL>
+                </td>
+                </tr>
+                </table>
                 </section>
                 </section>
                 <section id="section-3" class="level1">
@@ -111,9 +286,9 @@
                 <section id="general-tips" class="level2">
                 <h2>General tips</h2>
                 <ul>
-                <li>Think about the <span class="hlg">experience</span> first, then consider the <span class="hlg">technology</span></li>
-                <li>Avoid <span class="hlg"><em>feature creep</em></span></li>
-                <li></li>
+                <li><span class="fragment highlight-current-blue">Think about the <span class="hlg">experience</span> first, then consider the <span class="hlg">technology</span></span></li>
+                <li><span class="fragment highlight-current-blue">Avoid <span class="hlg"><em>feature creep</em></span></span></li>
+                <li><span class="fragment highlight-current-blue">“Interactive” is not a binary</span></li>
                 </ul>
                 </section>
                 </section>
