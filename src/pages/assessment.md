@@ -131,7 +131,98 @@ aspects of your web mapping skills:
 ## Assignment II <a name="assignment2"> </a>
 
 - `Title`: *{{site.assessment.a2.title}}*
-- `Due date`: Monday April 27th, Week 11
+- `Due date`: Monday May 4th, Week 12
+- 50% of the final mark
+- Chance to be reassessed
+- Electronic submission only
+
+This assignment requires you to build a dashboard for the Index of
+Multiple Deprivation. To be successful, you will need to demonstrate your
+understanding not only of technical elements, but of the design process
+required to create a product that can communicate complex ideas effectively.
+There are three core building blocks you will have to assemble to build your
+dashboard: basemap, main map(s), and widgets. Let us explore each of them more
+in detail.
+
+First, the basemap. Design your own basemap using Mapbox. Think about the
+data in the background, which colors, the zoom levels that will be allowed,
+and how it all comes together to create a backdrop for your main message that
+is conducent to the experience you want to create. The basemap is like a good
+side dish: it's there to make you like the main course even more.
+
+Second, the main map(s). One you have your own basemap from Mapbox, connect it
+to CARTO using [this trick](https://docs.mapbox.com/help/tutorials/carto/) and
+continue building there. This is where the core of your dashboard should come
+to shine. What you want to show, how, which interactive elements you will
+allow the user to access and how they will let them modify the experience of
+your dashboard. The main course of the meal, make it count!
+
+Third, additional widgets. One of the advantages of dashboards in
+comparison to standard web maps is that they allow to bring elements of
+analysis to a more finished product. Think about what you want your users to
+be able to analyse, why, and how that will modify the main map. This is the
+icing on the cake!
+
+---
+
+Once completed, you will submit a report through Turnitin that includes the
+following:
+
+- A link to the published dashboard, which needs to be reachable online
+- About 250 words for the overall idea of the dashboard. What do you want to
+  communicate? What is the story you want to tell?
+- About 250 words for the data used. Which datasets are you using? Why? What
+  new information do they bring and how they complement each other?
+- About 250 words to describe your design choices in the basemap and other
+  layers presented (e.g. choropleths).
+- About 250 words to describe your design choices around interactivity,
+  including both cartographic elements (e.g. zooming, panning) as well as
+  additional interactivity built around components such as widgets.
+
+---
+
+The assignment will be evaluated based on...
+
+1. *Overall design of the experience*. It is very important you think through
+   every step of preparing this assignment as if it was part of something
+   bigger towards which it contributes. Because that is exactly what it is.
+   Everything should have a reason to be there, and every aspect of the
+   dashboard should be connected to each other following a common thread. And,
+   of course, make this connection and holistic approach come alive in your
+   report.
+1. *(Base)map design*. Critically introduce every aspect you have thought about 
+   when designing the maps, and explicitly connect it to the overal aim of
+   the dashboard. Be clear in your descriptions and critical in how you engage
+   every design choice.
+1. *Interactivity design*. Your dashboard should use interactivity when
+   necessary to deliver a more compelling and fuller experience that better
+   gets your message across. Be sure to clearly lay out in your report which
+   elements are used and why.
+1. *Narrative around the description of the process*. Finally, the final mark
+   will also take into account not only how good your dashboard is, but how
+   well you are able to introduce it. Start with the key goals, and then
+   unpack every element in an integrated and compelling way.
+
+---
+
+*How is this assignment useful?*
+
+This assignment combines several elements that will help you improve critical
+aspects of web mapping:
+
+- _Design_: this is not about making maps, this is about making _good_ maps.
+  And behind every good map there is a set of conscious choices that you will
+  have to think throug to be successful (what map? what data? how to present
+  the data? etc.).
+- _Technology_: at the end of the day, building good web maps requires
+  familiarity with the state-of-the-art in terms of web mapping tools. In this
+  assignment, you will need to demonstrate your mastering of some of the key
+  tools that are leading both industry and academia.
+- _Presentation_: in many real-world contexts, your work is as good as it can
+  come across to the audience it is intended to. This means that it is vital
+  to be able to communicate not only what you are doing but why and on what
+  building blocks it is based on.
+
 
 ## Marking Criteria
 
