@@ -40,8 +40,8 @@ At this point, we are ready to get our feet wet into the dasboard ocean. After h
 
 Log in to your CARTO account and, under the "Shared Data" section, you will find the following datasets:
 
-- [`JHU COVID-19 worldwide data`](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data): the shared dataset corresponds to April 18th. 2020, but on the link you can find daily updates since January 22nd.
-- [`New York Times US county data`](https://github.com/nytimes/covid-19-data): these are two pre-processed datasets, prepared from the NYT source and including deaths and cases since March 25th. 2020. Code to generate the data is available [here](lab_09_prepare_data).
+- [JHU COVID-19 worldwide data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data) (`covid_19_jhu_daily_update_for_april_22nd_2020`): the shared dataset corresponds to April 18th. 2020, but on the link you can find daily updates since January 22nd.
+- [New York Times US county data](https://github.com/nytimes/covid-19-data) (`covid_county_cases/death`): these are two pre-processed datasets, prepared from the NYT source and including deaths and cases since March 25th. 2020. Code to generate the data is available [here](lab_09_prepare_data).
 
 Pick one dataset and spend around 45 minutes trying to create a dashboard that is effective at communicating some aspects your consider relevant of the dataset. As discussed in the lecture, start by thinking exactly what you want to communicate, and build from there.
 

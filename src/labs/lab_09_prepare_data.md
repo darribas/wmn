@@ -16,6 +16,10 @@ import pandas
 
 ## County boundaries
 
+Source:
+
+> [`https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html`](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html)
+
 - Pull counties
 
 
@@ -80,7 +84,7 @@ db["cases"]\
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f4e90e71c50>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f45de7c0890>
 
 
 
