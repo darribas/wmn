@@ -1,5 +1,5 @@
 server:
-	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work darribas/gds_dev:4.0
+	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work darribas/gds_dev:4.1
 
 compile_website:
 	rm -rf tmp
