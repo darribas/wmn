@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  
+  
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="https://darribas.org/wmn/labs/lab_09_prepare_data" />
+
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+  <title>
+    
+      
+    
+  </title>
+
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="" />
+  <meta property="dc:creator" content="Dani Arribas-Bel" />
+  <meta property="dc:identifier" content="https://darribas.org/wmn/labs/lab_09_prepare_data" />
+  
+  
+  
+  <meta property="dc:source" content="Web Mapping Notes" />
+
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="https://darribas.org/wmn/labs/lab_09_prepare_data" />
+  <meta property="og:image" content="https://darribas.org/wmn/assets/open-graph-logo.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
+
+
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/wmn/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/wmn/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="/wmn/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://darribas.org/wmn/atom.xml" />
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!--
+  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for
+  behavior.
+-->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>An archive to teach Web Mapping & Analysis.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/wmn/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/assessment">Assessment</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/setup">Setup</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/pages/syllabus">Syllabus</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/wmn/search">Search</a>
+        
+      
+    
+
+    <!-- The code below is used for manually entered links 
+    <span style='cursor:pointer;' onclick="javascript:var hypothesis = document.createElement('script');
+      hypothesis.setAttribute('src','https://hypothes.is/embed.js');
+      document.head.appendChild(hypothesis);"><a class="sidebar-nav-item">Annotate me</a></span>
+    -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://via.hypothes.is/https://darribas.org/wmn/labs/lab_09_prepare_data/" data-proofer-ignore>Annotate me</a>
+    <script src="https://hypothes.is/embed.js" async></script>
+  -->
+
+  <!--
+    <a class="sidebar-nav-item" href="https://github.com/minicomp/ed" target="_blank">GitHub project</a>
+  </nav>
+  -->
+
+  <div class="sidebar-item">
+    <p>
+      Built with <a href="https://minicomp.github.io/ed/">Ed.</a> Distributed under an MIT license.
+    </p>
+  </div>
+</aside>
+
+    
+
+    <!--
+      Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS
+      collisions with our real content.
+    -->
+    <div class="wrap">
+      <header class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/wmn/" title="Home">Web Mapping Notes</a>
+            <br><small>Guide, materials & resources</small>
+          </h3>
+        </div>
+      </header>
+
+      <main class="container content" id="main">
+        <article class="page">
+  <p>
+  <a href="/wmn/blocks/b09_prepare_data">
+    <code class="highlighter-rouge">[Back to Block]</code>
+  </a>
+  </p>
+
+  <p>[<strong>NOTE</strong>: you can download an <code class="highlighter-rouge">.ipynb</code> version of this file <a href="/wmn/labs/lab_09_prepare_data.ipynb">here</a>]</p>
+<h1 id="prepare-covid-data-for-us-counties">Prepare COVID data for US counties</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+</code></pre></div></div>
+
+<h2 id="county-boundaries">County boundaries</h2>
+
+<p>Source:</p>
+
+<blockquote>
+  <p><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html"><code class="highlighter-rouge">https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html</code></a></p>
+</blockquote>
+
+<ul>
+  <li>Pull counties</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">county_url</span> <span class="o">=</span> <span class="s">"https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_county_5m.zip"</span>
+<span class="n">counties</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">county_url</span><span class="p">)</span>
+<span class="n">counties</span><span class="p">[</span><span class="s">"fips"</span><span class="p">]</span> <span class="o">=</span> <span class="n">counties</span><span class="p">[</span><span class="s">"STATEFP"</span><span class="p">]</span> <span class="o">+</span> <span class="n">counties</span><span class="p">[</span><span class="s">"COUNTYFP"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Simplify table</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tokeep</span> <span class="o">=</span> <span class="p">[</span><span class="s">"GEOID"</span><span class="p">,</span> <span class="s">"fips"</span><span class="p">,</span> <span class="s">"geometry"</span><span class="p">]</span>
+<span class="n">counties_slim</span> <span class="o">=</span> <span class="n">counties</span><span class="p">[</span><span class="n">tokeep</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="covid-19-figures">COVID-19 figures</h2>
+
+<ul>
+  <li>Pull down data</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">covid_url</span> <span class="o">=</span> <span class="s">"https://github.com/nytimes/covid-19-data/raw/master/us-counties.csv"</span>
+<span class="n">covid</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">covid_url</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Remove entries without FIPS codes</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">covid_w_fips</span> <span class="o">=</span> <span class="n">covid</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Keep only newer than March 15th</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">recent_covid_w_fips</span> <span class="o">=</span> <span class="n">covid_w_fips</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">pdate</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_w_fips</span><span class="p">[</span><span class="s">"date"</span><span class="p">]))</span>\
+                                  <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">"pdate &gt; 'March 25th 2020'"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Index on everything but counts and widen by date</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span> <span class="o">=</span> <span class="n">recent_covid_w_fips</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">"fips"</span><span class="p">,</span> <span class="s">"county"</span><span class="p">,</span> <span class="s">"state"</span><span class="p">,</span> <span class="s">"date"</span><span class="p">])</span>\
+                        <span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Example of cases for the top ten counties on April 17th:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">[</span><span class="s">"cases"</span><span class="p">]</span>\
+  <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">"2020-04-17"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>\
+  <span class="o">.</span><span class="n">head</span><span class="p">()</span>\
+  <span class="o">.</span><span class="n">T</span>\
+  <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f45de7c0890&gt;
+</code></pre></div></div>
+
+<p><img src="lab_09_prepare_data_files/lab_09_prepare_data_17_1.png" alt="png" /></p>
+
+<ul>
+  <li>Clean FIPS</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db_clean</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">db_clean</span><span class="p">[</span><span class="s">"fips"</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_clean</span><span class="p">[</span><span class="s">"fips"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>\
+                                   <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>\
+                                   <span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">db_clean</span> <span class="o">=</span> <span class="n">db_clean</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">"fips"</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<h2 id="single-datasets-cases-and-deaths">Single datasets (cases and deaths)</h2>
+
+<ul>
+  <li>Join, keep only geoms with COVID data and write out to single file</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"cases"</span><span class="p">,</span> <span class="s">"deaths"</span><span class="p">]:</span>
+    <span class="n">f_path</span> <span class="o">=</span> <span class="n">f</span><span class="s">"covid_county_{d}.gpkg"</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Preparing {f_path}"</span><span class="p">)</span>
+    <span class="c1"># Keep geoms w/ any COVID data
+</span>    <span class="n">gdb_all</span> <span class="o">=</span> <span class="n">counties_slim</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">db_clean</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">county</span><span class="o">=</span><span class="n">db_clean</span><span class="p">[(</span><span class="s">"county"</span><span class="p">,</span> <span class="s">""</span><span class="p">)]),</span> 
+                                 <span class="n">on</span><span class="o">=</span><span class="s">"fips"</span>
+                                <span class="p">)</span>
+    <span class="n">gdb_all</span> <span class="o">=</span> <span class="n">gdb_all</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">gdb_all</span><span class="p">[</span><span class="n">gdb_all</span><span class="p">[</span><span class="s">"county"</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="c1"># Retain continental counties only
+</span>    <span class="n">gdb_all</span> <span class="o">=</span> <span class="n">gdb_all</span><span class="o">.</span><span class="n">cx</span><span class="p">[</span><span class="o">-</span><span class="mi">130</span><span class="p">:,</span> <span class="p">:</span><span class="mi">50</span><span class="p">]</span>
+    <span class="c1"># Write to GPKG
+</span>    <span class="n">gdb_all</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">f_path</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s">"GPKG"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Preparing covid_county_cases.gpkg
+Preparing covid_county_deaths.gpkg
+</code></pre></div></div>
+
+
+
+  <hr>
+
+  <p>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    <br />
+  </p>
+  <p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+  </p>
+</article>
+
+      </main>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+      // Toggle sidebar
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             !sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+<!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>
