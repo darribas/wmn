@@ -1,5 +1,8 @@
 # Web Mapping Notes
 
+[![DOI](https://zenodo.org/badge/220463137.svg)](https://zenodo.org/badge/latestdoi/220463137)
+
+
 - [Dani Arribas-Bel](http://darribas.org/) [[`darribas`](https://twitter.com/darribas)]
 
 This repository contains notes, materials and resources on web mapping and analysis for the module ENVS456-"Web Mapping and Analysis", from the MSc in Geographic Data Science at the University of Liverpool.
@@ -17,7 +20,8 @@ If you use materials from this course, you can give appropriate attribution by u
   author = {Dani Arribas-Bel},
   title = {Web Mapping Notes - Guide, Materials & Resources},
   year = 2020,
-  doi = {}
+  url = {\url{http://darribas.org/wmn/}},
+  doi = {10.5281/zenodo.3894360},
 }
 ```
 
