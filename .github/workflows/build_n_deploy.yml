@@ -1,0 +1,37 @@
+name: Build and Deploy Blog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-16.04 # can change this to ubuntu-latest if you prefer
+    steps:
+      - name: 📂 setup
+        uses: actions/checkout@v2
+
+      - name: 💎 setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6 # can change this to 2.7 or whatever version you prefer
+
+      - name: 🔨 install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        #with:
+          #enable_cache: true
+
+      - name: 🚀 deploy | commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ./docs
+          git commit -m "Bot build" --allow-empty
+
+      - name: 🚀 deploy | push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
