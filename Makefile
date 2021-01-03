@@ -1,5 +1,7 @@
+.PHONY: all website
+
 server:
-	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work darribas/gds_dev:4.1
+	docker run --rm -ti -p 8888:8888 -p 4000:4000 -v ${PWD}:/home/jovyan/work darribas/gds_dev:5.0
 
 compile_website:
 	rm -rf tmp
@@ -23,6 +25,10 @@ website: compile_website
 	mv tmp/_site docs
 	touch docs/.nojekyll
 	rm -rf tmp/
+
+website_reset:
+	rm -rf ./docs/
+	git checkout HEAD ./docs/
 
 # Run for example as: `make slide no=01`
 slide:
