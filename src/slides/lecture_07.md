@@ -1,288 +1,292 @@
 % Web Mapping & Analysis
-% Map Design
+% Interactivity
 %[Dani Arribas-Bel](http://darribas.org)
 
 # Today
 
-- Designing maps
-- Design Elements
-- Design Principles
-
-# {data-background=../slides/figs/mb_guide.png data-background-size=contain}
-
-<LEFT>
-Mapbox 
-
-Guide to Map Design
-
-[`https://www.mapbox.com/designers/`](https://www.mapbox.com/designers/)
-</LEFT>
+- Interactiviy
+- Interactive (Web) Maps
+- Interactivity building blocks
 
 #
-## Designing Maps
-
-## *What* is design?
-
-> *"To plan in the mind, intend"*
-
-<SMALL>
-    [Oxford English Dictionary](https://www.oed.com/view/Entry/50841)
-</SMALL>
-
-## *Why* is design relevant?
-
-- Explicitly consider the <span class='hlg'>purpose</span> of your map
-- Encode your <span class='hlg'>goals</span> in the final product
-- Influence <span class='hlg'>decisions</span> along the map making process
-
-## *How* to think about design?
-
-- <span class='hlg'>Elements</span>: building blocks
-- <span class='hlg'>Principles</span>: how to combine them 
-
-#
-## Design Elements
-
-## Color
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Grab attention 
-- Encoding similarity, meaning
-- Aesthetics, brand, tone, etc.
-
-</td>
-<td class='aligncenter'>
-    <span class='fragment'>
-![](../slides/figs/color_01.png)
-    </span>
-    
-    <span class='fragment'>
-![](../slides/figs/color_02.png)
-    </span>
-</td>
-</tr>
-</table>
-
-## Texture
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- *"Perceived surface"*
-- Contributes to look and feel, but can also encode information (e.g. rugosity)
-- Like color, without color
-
-</td>
-<td class='aligncenter'>
-![](../slides/figs/elevation.png)
-    <SMALL>
-    [`URL`: Nat. Geo.](https://www.nationalgeographic.com/news/2016/09/mountain-elevation-maps-illustration/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-## Labelling/typography
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Signal locations
-- Keep readability in mind
-- Typography communicates character, tone, style, etc.
-
-    <SMALL>
-    [Sources: [Helvetica](https://upload.wikimedia.org/wikipedia/commons/2/28/HelveticaSpecimenCH.svg),
-    [Palatino](https://upload.wikimedia.org/wikipedia/commons/1/1a/Palatino_font_sample.svg)]
-    </SMALL>
-   
-</td>
-<td class='aligncenter'>
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HelveticaSpecimenCH.svg" alt="Helvetica" style="width:200px;height:200px;"> 
-    
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palatino_font_sample.svg" alt="Palatino" style="width:200px;height:200px;"> 
-</td>
-</tr>
-</table>
-
-## Iconography/markers
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Mark a location
-- Encode category, etc.
-- Aesthetics
-
-</td>
-<td class='aligncenter'>
-![](../slides/figs/maki.png)
-    <SMALL>
-    [`URL`: Mapbox](https://labs.mapbox.com/maki-icons/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-#
-## Design Principles
-
-## Contrast
-
-<table>
-<col width="30%">
-<col width="70%">
-<tr>
-<td class='aligncenter'>
-    
-    <div class='fragment'>
-<img src="../slides/figs/low_contrast.png" alt="Low contrast" style="height:200px;"> 
-    
-<img src="../slides/figs/high_contrast.png" alt="High contrast" style="height:200px;"> 
-    </div>
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Wired to the human brain
-- Focus attention to areas of interest
-- May hinder readability
-
-</td>
-</tr>
-</table>
-
-## Visual Hierarchy
-
-- Priority order
-- Foreground Vs Background
-- How much each aspect is "abstracted"
-
-## Visual Hierarchy: *Content*
-<table>
-<col width="30%">
-<col width="70%">
-<tr>
-<td class='aligncenter'>
-    
-![](../slides/figs/hierarchy_01.png)
-    
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Do not clutter
-- Keep in mind cognitive load of each element
-- Align with the core message
-    
-</td>
-</tr>
-</table>
-
-
-## Visual Hierarchy: *Context*
-
-<table>
-<col width="30%">
-<col width="70%">
-<tr>
-<td class='aligncenter'>
-    
-    <div>
-<img src="../slides/figs/low_contrast.png" alt="Low contrast" style="height:200px;"> 
-    
-<img src="../slides/figs/high_contrast.png" alt="High contrast" style="height:200px;"> 
-    </div>
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Provide the "right" background
-- Ensure it does not have protagonism
-- Include *only* if it helps read the content better
-
-</td>
-</tr>
-</table>
-
-## Density
-
-<table>
-<col width="30%">
-<col width="70%">
-<tr>
-<td class='aligncenter'>
-    
-    <div>
-<img src="../slides/figs/low_contrast.png" alt="Low contrast" style="height:200px;"> 
-    
-<img src="../slides/figs/labels.png" alt="High contrast" style="height:200px;"> 
-    </div>
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-
-- Information Vs Clutter
-- Think of the purpose and audience
-- Consider: placement, size, readbility
-
-</td>
-</tr>
-</table>
-
-## Legibility
+## Interactivity
+## Interactivity: *what*
 
 <CENTER>
-*Is the message you try to get across getting across?*
+*"[...] two-way flow of information, [...] responding immediately to the latter's [user's] input"*
 </CENTER>
+<SMALL>
+([OED](https://oed.com/view/Entry/97521?redirectedFrom=interactive#eid))
+</SMALL>
 
-- Context-dependent
-- Combination of iconography, typography, proximity of features, etc.
+<div class='fragment'>
+- Ability to <span class='hlg'>dynamically modify</span> a visualisation
+- <span class='hlg'>Action/response</span> as part of the experience
+</div>
+
+## Interactivity: *why*
+
+Munzner (2016):
+
+- <span class='fragment highlight-current-blue'>Handle complexity</span>
+- <span class='fragment highlight-current-blue'>Cause the view to change</span>
+- <span class='fragment highlight-current-blue'>Support investigation at multiple levels of detail</span>
+- <span class='fragment highlight-current-blue'>Expand the capabilities of vis (many *idioms* depend on it)</span>
+
+## Interactivity: *when*
+
+*"[when] seeing the dataset
+structure in detail is better than seeing only a brief summary of it"*
+
+<SMALL>
+Munzner (2016)
+</SMALL>
+
+<div class='fragment'>
+- Too much to visualise all at once
+- Both "big picture" *and* "detail" matter
+</div>
 
 #
-## Other considerations
+## Interactive (Web) Maps
+## Interactive (Web) Maps
 
-## Projections
+![<small>Image: A. Calafiore</small>](../slides/figs/interactivity_levels.png)
+
+## Interactive (Web) Maps
+
+- <span class='fragment highlight-current-blue'>Efficient medium for high information throughput (Tufte)</span>
+- <span class='fragment highlight-current-blue'>*Maps as "windows"* into large datasets</span>
+- <span class='fragment highlight-current-blue'>"A map of many maps"</span>
+
+#
+## Interactivity Building Blocks
+## Interactivity Building Blocks
 
 <table>
-<col width="30%">
-<col width="70%">
+<col width="50%">
+<col width="50%">
 <tr>
 <td class='aligncenter'>
-   
-<img src="../slides/figs/map_projections.png" alt="Map Projections"
-     style="height:500px;"> 
-    
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
 
-*How do you want to be wrong about the Earth?*
-    
-<SMALL>
-Source: [XKCD](https://www.xkcd.com/977/) 
-</SMALL>
+- Filtering
+    - Pan
+    - Zoom
+    - Subset
+</td>
+<td class='aligncenter'>
+
+- Perspective
+- Volume
+- Tooltips
+- Split
+- Animate
 
 </td>
 </tr>
 </table>
 
-## Legend & other elements
+## Filtering
 
-*Do you really need it?*
+- <span class='fragment highlight-current-blue'>Widely used design choice in visualisation</span>
+- <span class='fragment highlight-current-blue'>Reduction of the set of elements being displayed</span>
+- <span class='fragment highlight-current-blue'>Discard geographically or attribute-based</span>
 
-- Auxilliary elements: legend, North arrow, scale...
-- May improve legibility, but also clutter
-- Sometimes, it is required (e.g. scientific publications)
+## Filtering: Pan
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` "Travel" *within* a single scale</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Segment a map geographically</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Map is meant to focus on a single region</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/pan.gif)
+    <SMALL>
+    [Mapbox](https://www.mapbox.com/)
+    </SMALL>
+</td>
+</tr>
+</table>
+## Filtering: Zoom
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` "Travel" *across* scales</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Present different degrees of detail</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Map is meant to focus at a single scale</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/zoom.gif)
+    <SMALL>
+    [Mapbox](https://www.mapbox.com/)
+    </SMALL>
+</td>
+</tr>
+</table>
+## Filtering: Subset
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` Restrict data showed (by attribute)</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Explore patterns by value/category</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Focus is on the global pattern</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/subset.gif)
+    <SMALL>
+    [GDSL](http://darribas.org/explore_liv_students/)
+    </SMALL>
+</td>
+</tr>
+</table>
+## Perspective
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` Modify the user's point of reference</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Different perspective fits the purpose of the map (e.g. car navigation)</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Feature size matters</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/perspective.gif)
+    <SMALL>
+    [Kepler.gl](https://kepler.gl/)
+    </SMALL>
+</td>
+</tr>
+</table>
+
+## Volume (3D)
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` Add a (pseudo-)third dimension for display</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Volume is relevant(e.g. height)</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Almost any other case</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/volume.gif)
+    <SMALL>
+    [Kepler.gl](https://kepler.gl/)
+    </SMALL>
+</td>
+</tr>
+</table>
+
+## Tooltips
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'> `What` Contextual (non-geo) information on-demand</span>
+    
+<span class='fragment highlight-current-blue'> `Use` Let the user explore feature (multi-media) attributes</span>
+    
+<span class='fragment highlight-current-blue'> `Abuse` Include more data than required in the tooltip</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/tooltip.gif)
+    <SMALL>
+    [Carto](https://carto.com/)
+    </SMALL>
+</td>
+</tr>
+</table>
+
+## Animate
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` Add temporal dimension through compilation of slices</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Explore space-time patterns</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` Communicate cross-sectional insights</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/animate.gif)
+    <SMALL>
+    [Carto](https://carto.com/)
+    </SMALL>
+</td>
+</tr>
+</table>
+
+## Split
+
+<table>
+<col width="70%">
+<col width="30%">
+<tr>
+<td class='aligncenter' style="vertical-align:middle;">
+
+<span class='fragment highlight-current-blue'>`What` Overlay two maps of the same location</span>
+    
+<span class='fragment highlight-current-blue'>`Use` Compare overall pattern changes</span>
+    
+<span class='fragment highlight-current-blue'>`Abuse` When you need to view same location in both maps</span>
+
+</td>
+<td class='aligncenter' style="vertical-align:middle;">
+![](../slides/gifs/split.gif)
+    <SMALL>
+    [`ipyleaflet`](https://ipyleaflet.readthedocs.io/en/latest/)
+    </SMALL>
+</td>
+</tr>
+</table>
+
+#
+## General tips
+
+- <span class='fragment highlight-current-blue'>Think about the <span class='hlg'>experience</span> first, then consider the <span class='hlg'>technology</span></span>
+- <span class='fragment highlight-current-blue'>Avoid <span class='hlg'>*feature creep*</span></span>
+- <span class='fragment highlight-current-blue'>"Interactive" is not a binary</span>
 
 #
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping & Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

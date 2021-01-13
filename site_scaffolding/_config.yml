@@ -76,33 +76,33 @@ blocks:
         lecture: "Introduction to the module"
         lab: "Getting up to speed for web mapping"
     b2:
-        name: "The context of Web Maps"
+        name: "Data Backends I"
         lecture: "The Web's architecture and Economy"
         lab: "Powerful examples"
     b3:
-        name: "Data Backends I"
+        name: "Data Backends II"
         lecture: "Data architechtures & formats"
         lab: "Creating, manipulating, and integrating web geospatial data"
     b4:
-        name: "Data Backends II"
+        name: "Data Backends III"
         lecture: "APIs"
         lab: "Acquiring data from the web"
     b5:
-        name: "Data Backends III"
-        lecture: "Building and deploying (web) platforms + Assignment details"
-        lab: "Assignment I clinic"
+        name: "Assignment I"
+        lecture: "Brief"
+        lab: "Clinic"
     b6:
         name: "Frontend Topics I"
-        lecture: "Good (Web) Maps"
-        lab: "CARTO sandbox"
-    b7:
-        name: "Frontend Topics II"
         lecture: "Map design"
         lab: "Designing maps with Mapbox Studio and CARTO"
-    b8:
-        name: "Frontend Topics III"
+    b7:
+        name: "Frontend Topics II"
         lecture: "Interactivity"
         lab: "Designing for interactivity"
+    b8:
+        name: "Frontend Topics III"
+        lecture: "Statistical visualisation"
+        lab: "Choropleths in CARTO"       
     b9:
         name: "Dashboards"
         lecture: "Dashboards: bringing analysis to the web"

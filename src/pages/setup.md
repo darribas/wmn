@@ -17,7 +17,10 @@ This course relies on software that runs on the cloud and you can use by signing
 
 ## Software
 
-- [`QGIS`](https://qgis.org/en/site/): the stable version (3.4 at the time of writing) is OK, any more recent version will also work. If you use a version older than 3.8, please make sure you also have installed the [`XYZ Tiles` plugin](https://github.com/lutraconsulting/qgis-xyz-tiles).
-- `Python`: at parts of the course, we will rely on Python to read, manipulate and write geospatial data. There are several libraries required, all of them available on the [`gds_env`](https://github.com/darribas/gds_env) containerised platform. The [`gds_env`](https://github.com/darribas/gds_env) container relies on [Docker](https://www.docker.com/), which you will need to [have installed](https://www.docker.com/products/docker-desktop) before you can access it.
-- `R`: we will not require it in the course but, if you are a fan of the statistical platform R, we will explore a bit how R can be linked to web mapping. This is an optional install.
+- [`QGIS`](https://qgis.org/en/site/): the stable version (3.10.13 at the time of writing) is OK, any more recent version will also work. If you use a version older than 3.8, please make sure you also have installed the [`XYZ Tiles` plugin](https://github.com/lutraconsulting/qgis-xyz-tiles).
+- `Python`: at parts of the course, we will rely on Python to read, manipulate and write geospatial data. There are several libraries required, all of them available on the [`gds_env`](https://github.com/darribas/gds_env) containerised platform. For a step-by-step guide for your platform to get up and running with all the Python stack required, please go to:
+
+    > [https://gdsl-ul.github.io/soft_install/](https://gdsl-ul.github.io/soft_install/)
+
+    Choose your system, and follow the steps required
 

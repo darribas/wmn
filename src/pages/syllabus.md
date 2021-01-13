@@ -8,12 +8,13 @@ title: "Syllabus"
 - Lecture: {{ site.blocks.b1.lecture }}
 - Lab: {{ site.blocks.b1.lab }}
 
+---
+
 ## [Block 2]({{ site.baseurl }}/blocks/b02) - *{{ site.blocks.b2.name }}*
 
 - Lecture: {{ site.blocks.b2.lecture }}
 - Lab: {{ site.blocks.b2.lab }}
 
----
 
 ## [Block 3]({{ site.baseurl }}/blocks/b03) - *{{ site.blocks.b3.name }}*
 
@@ -24,6 +25,8 @@ title: "Syllabus"
 
 - Lecture: {{ site.blocks.b4.lecture }}
 - Lab: {{ site.blocks.b4.lab }}
+
+---
 
 ## [Block 5]({{ site.baseurl }}/blocks/b05) - *{{ site.blocks.b5.name }}*
 

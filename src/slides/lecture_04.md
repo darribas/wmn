@@ -1,5 +1,5 @@
 % Web Mapping & Analysis
-% Data Backends II - APIs
+% APIs
 %[Dani Arribas-Bel](http://darribas.org)
 
 # Today

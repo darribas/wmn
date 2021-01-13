@@ -3,65 +3,64 @@ layout: notebook
 block: b06
 ---
 
-# Lab 6 - CARTO Sandbox
+# Lab 6 - Map Design
 
-In this lab, we will play with a sandboxed web mapping platform. By sandboxed
-we mean that you will not have to think about getting your data,
-processing, uploading or prepare them for mapping. It will all be ready for
-you to start mapping.
+In this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using [Mapbox Studio](https://www.mapbox.com/mapbox-studio/), a tool that will allow us to control almost any thinkable aspect of a map.
 
-The focus on this lab is on getting our hands dirty with some of the
-design principles we have seen in the lecture, and to explore CARTO in the
-meantime too!
+As we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the [lecture slides](../slidedecks/lecture_06.html). The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.
 
-## Explore the CARTO interface
+To complete this lab, you will require the following:
 
-We will use the 2019 IMD dataset, which has been uploaded to CARTO already.
+- The internet
+- An active Mapbox account
 
-Let's walk through the basics of CARTO as a (web) GIS:
+## Mapbox Studio
 
-- Data section: upload the file
-- Maps section
-    - New map
-    - Main/side pane
-    - Basemap: pick your background
-    - Main layer: focus on `style` for now
-        - `STYLE`
-        - `POP-UP`
-        - `LEGEND`
+Let's get starting by logging into our Mapbox account and opening up the Studio at:
 
-## Mapping with CARTO
+> [`https://studio.mapbox.com/`](https://studio.mapbox.com/)
 
-Now you know the very basics of CARTO, let's make a few maps! 
-For this exercise, team up in **groups of two or three** students.
+You should see something like this:
 
-While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:
+![Studio](figs/mb_studio.png)
 
-- Computer
-- Human
-- Display
+To explore what is possible, we will create a new style. Click on the "New Style" button and pick the "Monochrome" option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.
 
-Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the _goal of the map_. When thinking through what aspects might be useful to keep, or prioritise, remember [MacEachren & Kraak (1997)'s "Map Cube"](https://darribas.org/wmn/slidedecks/lecture_06.html#/map-cube).
+The Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.
 
-Finally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):
+![Studio panels](figs/mapbox_editor.png)
+[`Source`: Mapbox](https://docs.mapbox.com/studio-manual/reference/styles/#style-editor)
 
-- How many bins?
-- How to assign values to each bin?
-- What colors to assign to bins?
+Most of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:
 
-- ***Make the worst map you can***
+- Color
+- Texture
+- Labelling and typography
+- Iconography
 
-Think of the [lecture on designing visualisations and maps]({{site.baseurl}}/blocks/b06)
-and try to actively
-ignore every piece of advice we've discussed in class. This of course means
-you can't ignore the advice but you have to actively not follow any aspects of
-what makes a good map good.
+We will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.
 
-Once you're happy with your worst possible map, share it with class. Discuss
-what is *wrong* about those maps and how they could be improved.
+## Exercise
 
-- ***Make the best map you can***
+For this exercise, we will be using the "CLIWOC Slim and Routes" data product:
 
-Now you know how to make a bad map, try your best to make an awesome map. Once
-you hare happy with the results, share it with the group and explain what you
-think makes the maps great.
+> [`https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224`](https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224)
+
+Team in groups of two to four and pick one of the following options:
+
+1. Global map of trade routes
+2. Map of ship activity around South Africa 
+3. Map showing how important the island of Saint Helena was in this period
+4. Map of shipping activity in the English Channel
+5. Map of expeditions into the Arctic
+6. Map of activity around the Caribbean
+
+Style a map according to its goal.
+
+## Presentation
+
+Once you are happy with your final style, publish it and drop the link on the module's Team. Designate one member of the group to present it. The presentation should cover the following:
+
+- What is the map about?
+- What design elements did you tweak? How? Why?
+- What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?

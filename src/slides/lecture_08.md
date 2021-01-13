@@ -1,292 +1,186 @@
 % Web Mapping & Analysis
-% Interactivity
+% Statistical visualisation
 %[Dani Arribas-Bel](http://darribas.org)
 
 # Today
 
-- Interactiviy
-- Interactive (Web) Maps
-- Interactivity building blocks
+- Visualisation
+- (Web) Maps
+- Choropleths
 
 #
-## Interactivity
-## Interactivity: *what*
+## Visualisation
+
+## *What?*
 
 <CENTER>
-*"[...] two-way flow of information, [...] responding immediately to the latter's [user's] input"*
+*"Visual representations of datasets designed to help people carry out
+tasks more effectively"*
 </CENTER>
-<SMALL>
-([OED](https://oed.com/view/Entry/97521?redirectedFrom=interactive#eid))
-</SMALL>
 
-<div class='fragment'>
-- Ability to <span class='hlg'>dynamically modify</span> a visualisation
-- <span class='hlg'>Action/response</span> as part of the experience
-</div>
-
-## Interactivity: *why*
-
-Munzner (2016):
-
-- <span class='fragment highlight-current-blue'>Handle complexity</span>
-- <span class='fragment highlight-current-blue'>Cause the view to change</span>
-- <span class='fragment highlight-current-blue'>Support investigation at multiple levels of detail</span>
-- <span class='fragment highlight-current-blue'>Expand the capabilities of vis (many *idioms* depend on it)</span>
-
-## Interactivity: *when*
-
-*"[when] seeing the dataset
-structure in detail is better than seeing only a brief summary of it"*
-
-<SMALL>
 Munzner (2016)
-</SMALL>
+
+## *When?*
+
+A human "superpower":
+
+- *Keep* the human in the loop
+- *Augment* memory/internal representation
+- *Ask* new questions rather than only *answer* existing ones
+
+## *Why?*
+
+- Bridges **human and machine**
+- Relies on **vision** (high-volume, parallel throughput)
+- External representations work around **limits** of **internal** cognition/memory
+
+## *How?*
+
+> `what-why-how`
+>
+<CENTER>$\downarrow$ </CENTER>
+>
+> `data-task-idiom`
 
 <div class='fragment'>
-- Too much to visualise all at once
-- Both "big picture" *and* "detail" matter
+Most ineffective designs are due to a poor match
+
+> Domain-specific $\rightarrow$ Abstract form
 </div>
 
-#
-## Interactive (Web) Maps
-## Interactive (Web) Maps
+## *How?*
 
-![<small>Image: A. Calafiore</small>](../slides/figs/interactivity_levels.png)
+Vis is <fragment class='hgl'>multi-use</fragment>: 
 
-## Interactive (Web) Maps
+- Exploring
+- Checking pre-conceived ideas
+- Long-term use in workflows/processes
+- Presentation
 
-- <span class='fragment highlight-current-blue'>Efficient medium for high information throughput (Tufte)</span>
-- <span class='fragment highlight-current-blue'>*Maps as "windows"* into large datasets</span>
-- <span class='fragment highlight-current-blue'>"A map of many maps"</span>
+A tool that serves well for one task can be poorly suited for another
 
-#
-## Interactivity Building Blocks
-## Interactivity Building Blocks
+## Elements (and limitations)
 
-<table>
-<col width="50%">
-<col width="50%">
-<tr>
-<td class='aligncenter'>
+- Computer (time)
+- Human (memory & attention)
+- Display (capacity)
 
-- Filtering
-    - Pan
-    - Zoom
-    - Subset
-</td>
-<td class='aligncenter'>
+## Design trade-off's
 
-- Perspective
-- Volume
-- Tooltips
-- Split
-- Animate
-
-</td>
-</tr>
-</table>
-
-## Filtering
-
-- <span class='fragment highlight-current-blue'>Widely used design choice in visualisation</span>
-- <span class='fragment highlight-current-blue'>Reduction of the set of elements being displayed</span>
-- <span class='fragment highlight-current-blue'>Discard geographically or attribute-based</span>
-
-## Filtering: Pan
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` "Travel" *within* a single scale</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Segment a map geographically</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Map is meant to focus on a single region</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/pan.gif)
-    <SMALL>
-    [Mapbox](https://www.mapbox.com/)
-    </SMALL>
-</td>
-</tr>
-</table>
-## Filtering: Zoom
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` "Travel" *across* scales</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Present different degrees of detail</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Map is meant to focus at a single scale</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/zoom.gif)
-    <SMALL>
-    [Mapbox](https://www.mapbox.com/)
-    </SMALL>
-</td>
-</tr>
-</table>
-## Filtering: Subset
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` Restrict data showed (by attribute)</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Explore patterns by value/category</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Focus is on the global pattern</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/subset.gif)
-    <SMALL>
-    [GDSL](http://darribas.org/explore_liv_students/)
-    </SMALL>
-</td>
-</tr>
-</table>
-## Perspective
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` Modify the user's point of reference</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Different perspective fits the purpose of the map (e.g. car navigation)</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Feature size matters</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/perspective.gif)
-    <SMALL>
-    [Kepler.gl](https://kepler.gl/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-## Volume (3D)
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` Add a (pseudo-)third dimension for display</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Volume is relevant(e.g. height)</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Almost any other case</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/volume.gif)
-    <SMALL>
-    [Kepler.gl](https://kepler.gl/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-## Tooltips
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'> `What` Contextual (non-geo) information on-demand</span>
-    
-<span class='fragment highlight-current-blue'> `Use` Let the user explore feature (multi-media) attributes</span>
-    
-<span class='fragment highlight-current-blue'> `Abuse` Include more data than required in the tooltip</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/tooltip.gif)
-    <SMALL>
-    [Carto](https://carto.com/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-## Animate
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` Add temporal dimension through compilation of slices</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Explore space-time patterns</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` Communicate cross-sectional insights</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/animate.gif)
-    <SMALL>
-    [Carto](https://carto.com/)
-    </SMALL>
-</td>
-</tr>
-</table>
-
-## Split
-
-<table>
-<col width="70%">
-<col width="30%">
-<tr>
-<td class='aligncenter' style="vertical-align:middle;">
-
-<span class='fragment highlight-current-blue'>`What` Overlay two maps of the same location</span>
-    
-<span class='fragment highlight-current-blue'>`Use` Compare overall pattern changes</span>
-    
-<span class='fragment highlight-current-blue'>`Abuse` When you need to view same location in both maps</span>
-
-</td>
-<td class='aligncenter' style="vertical-align:middle;">
-![](../slides/gifs/split.gif)
-    <SMALL>
-    [`ipyleaflet`](https://ipyleaflet.readthedocs.io/en/latest/)
-    </SMALL>
-</td>
-</tr>
-</table>
+- Beauty Vs Elegance
+- "No picture can communicate the truth, the whole truth, and nothing but the
+  truth" (Munzner, 2016)
+- ...
 
 #
-## General tips
+## (Web) Maps
 
-- <span class='fragment highlight-current-blue'>Think about the <span class='hlg'>experience</span> first, then consider the <span class='hlg'>technology</span></span>
-- <span class='fragment highlight-current-blue'>Avoid <span class='hlg'>*feature creep*</span></span>
-- <span class='fragment highlight-current-blue'>"Interactive" is not a binary</span>
+## Tufte (1983)
+
+<CENTER>
+*“The most extensive data maps […] place millions of bits of information on a single page before our eyes. No other method for the display of statistical information is so powerful”*
+</CENTER>
+
+## Designing good maps
+
+Maps can fulfill several needs, looking very different depending on the end-goal
+
+MacEachren & Kraak (1997) identify three main dimensions:
+
+- Knowledge of what is being plotted
+- Target audience
+- Degree of interactivity
+
+## Map Cube
+
+<CENTER>
+![](../slides/figs/l01_map_cube.png)
+</CENTER>
+
+[`[Source]`](http://cartography.tuwien.ac.at/wordpress/wp-content/uploads/2013/01/cartotalk-corne-van-elzakker.pdf)
+
+
+#
+## Choropleths
+
+## Choropleths
+
+<center>
+*Thematic map in which values of a variable are encoded using a color
+gradient of some sort*
+</center>
+
+* Encode **value** using the **color** channel
+* Values are **classified** into **groups** (bins)
+* **Information loss** as a trade off for **simplicity**
+
+## Classification choices
+
+* N. of bins
+* How to bin?
+* Colors
+
+## How many bins?
+
+- Trade-off: detail Vs cognitive load
+- Exact number depends on purpose of the map
+- Usually not more than 12
+
+## How to bin?
+
+## Unique values
+
+* Categorical data
+* No gradient (reflect it with the color scheme!!!)
+* Examples: Religion, country of origin...
+
+## Unique values
+<center>
+![](../slides/figs/l01_unique_values.png)
+</center>
+
+## Equal interval
+
+* Take the **value** span of the data to represent and split it equally
+* **Splitting** happens based on the **numerical value**
+* Gives more weight to outliers if the distribution is skewed
+
+## {data-background=../slides/figs/l01_equal_interval.png data-background-size=contain}
+
+## Quantiles
+
+* Regardless of numerical values, split the distribution keeping the same
+  amount of values in each bin
+* **Splitting** based on the **rank** of the value
+* If distribution is skewed, it can put very different values in the same bin
+
+## {data-background=../slides/figs/l01_quantiles.png data-background-size=contain}
+
+## Other
+
+* Fisher-Jenks
+* Natural breaks
+* Outlier maps: box maps, std. maps...
+
+## Color schemes
+
+Align with your purpose
+
+* **Categories**, non-ordered [<img src="../slides/figs/l01_pal_qual.png" alt="Qualitative"
+style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/>](https://jiffyclub.github.io/palettable/wesanderson/#fantasticfox2_5)
+* Graduated, **sequential** [<img src="../slides/figs/l01_pal_seq.png" alt="Sequential"
+style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/>](https://jiffyclub.github.io/palettable/colorbrewer/sequential/#rdpu_5)
+* Graduated, **divergent** [<img src="../slides/figs/l01_pal_div.png" alt="Divergent"
+style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/>](https://jiffyclub.github.io/palettable/colorbrewer/diverging/#rdylgn_5)
+
+**TIP**: check [ColorBrewer](http://colorbrewer2.org/) for guidance
+
+#
+## Tips
+
+- Think of the purpose of the map
+- Explore by trying different classification alternatives
+- Combine (Geo)visualisation with other statistical devices
 
 #
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping & Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
