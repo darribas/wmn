@@ -1,5 +1,5 @@
 % Web Mapping & Analysis
-% Data Backends I - Data Architecture & Formats
+% Data Architecture & Formats
 %[Dani Arribas-Bel](http://darribas.org)
 
 # Today

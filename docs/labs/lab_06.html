@@ -221,83 +221,79 @@
   </a>
   </p>
 
-  <h1 id="lab-6---carto-sandbox">Lab 6 - CARTO Sandbox</h1>
+  <h1 id="lab-6---map-design">Lab 6 - Map Design</h1>
 
-<p>In this lab, we will play with a sandboxed web mapping platform. By sandboxed
-we mean that you will not have to think about getting your data,
-processing, uploading or prepare them for mapping. It will all be ready for
-you to start mapping.</p>
+<p>In this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using <a href="https://www.mapbox.com/mapbox-studio/">Mapbox Studio</a>, a tool that will allow us to control almost any thinkable aspect of a map.</p>
 
-<p>The focus on this lab is on getting our hands dirty with some of the
-design principles we have seen in the lecture, and to explore CARTO in the
-meantime too!</p>
+<p>As we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the <a href="../slidedecks/lecture_06.html">lecture slides</a>. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.</p>
 
-<h2 id="explore-the-carto-interface">Explore the CARTO interface</h2>
-
-<p>We will use the 2019 IMD dataset, which has been uploaded to CARTO already.</p>
-
-<p>Let’s walk through the basics of CARTO as a (web) GIS:</p>
+<p>To complete this lab, you will require the following:</p>
 
 <ul>
-  <li>Data section: upload the file</li>
-  <li>Maps section
-    <ul>
-      <li>New map</li>
-      <li>Main/side pane</li>
-      <li>Basemap: pick your background</li>
-      <li>Main layer: focus on <code class="highlighter-rouge">style</code> for now
-        <ul>
-          <li><code class="highlighter-rouge">STYLE</code></li>
-          <li><code class="highlighter-rouge">POP-UP</code></li>
-          <li><code class="highlighter-rouge">LEGEND</code></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li>The internet</li>
+  <li>An active Mapbox account</li>
 </ul>
 
-<h2 id="mapping-with-carto">Mapping with CARTO</h2>
+<h2 id="mapbox-studio">Mapbox Studio</h2>
 
-<p>Now you know the very basics of CARTO, let’s make a few maps! 
-For this exercise, team up in <strong>groups of two or three</strong> students.</p>
+<p>Let’s get starting by logging into our Mapbox account and opening up the Studio at:</p>
 
-<p>While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:</p>
+<blockquote>
+  <p><a href="https://studio.mapbox.com/"><code class="highlighter-rouge">https://studio.mapbox.com/</code></a></p>
+</blockquote>
+
+<p>You should see something like this:</p>
+
+<p><img src="figs/mb_studio.png" alt="Studio" /></p>
+
+<p>To explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.</p>
+
+<p>The Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.</p>
+
+<p><img src="figs/mapbox_editor.png" alt="Studio panels" />
+<a href="https://docs.mapbox.com/studio-manual/reference/styles/#style-editor"><code class="highlighter-rouge">Source</code>: Mapbox</a></p>
+
+<p>Most of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:</p>
 
 <ul>
-  <li>Computer</li>
-  <li>Human</li>
-  <li>Display</li>
+  <li>Color</li>
+  <li>Texture</li>
+  <li>Labelling and typography</li>
+  <li>Iconography</li>
 </ul>
 
-<p>Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the <em>goal of the map</em>. When thinking through what aspects might be useful to keep, or prioritise, remember <a href="https://darribas.org/wmn/slidedecks/lecture_06.html#/map-cube">MacEachren &amp; Kraak (1997)’s “Map Cube”</a>.</p>
+<p>We will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.</p>
 
-<p>Finally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):</p>
+<h2 id="exercise">Exercise</h2>
+
+<p>For this exercise, we will be using the “CLIWOC Slim and Routes” data product:</p>
+
+<blockquote>
+  <p><a href="https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224"><code class="highlighter-rouge">https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224</code></a></p>
+</blockquote>
+
+<p>Team in groups of two to four and pick one of the following options:</p>
+
+<ol>
+  <li>Global map of trade routes</li>
+  <li>Map of ship activity around South Africa</li>
+  <li>Map showing how important the island of Saint Helena was in this period</li>
+  <li>Map of shipping activity in the English Channel</li>
+  <li>Map of expeditions into the Arctic</li>
+  <li>Map of activity around the Caribbean</li>
+</ol>
+
+<p>Style a map according to its goal.</p>
+
+<h2 id="presentation">Presentation</h2>
+
+<p>Once you are happy with your final style, publish it and drop the link on the module’s Team. Designate one member of the group to present it. The presentation should cover the following:</p>
 
 <ul>
-  <li>How many bins?</li>
-  <li>How to assign values to each bin?</li>
-  <li>
-    <p>What colors to assign to bins?</p>
-  </li>
-  <li><strong><em>Make the worst map you can</em></strong></li>
+  <li>What is the map about?</li>
+  <li>What design elements did you tweak? How? Why?</li>
+  <li>What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?</li>
 </ul>
-
-<p>Think of the <a href="/wmn/blocks/b06">lecture on designing visualisations and maps</a>
-and try to actively
-ignore every piece of advice we’ve discussed in class. This of course means
-you can’t ignore the advice but you have to actively not follow any aspects of
-what makes a good map good.</p>
-
-<p>Once you’re happy with your worst possible map, share it with class. Discuss
-what is <em>wrong</em> about those maps and how they could be improved.</p>
-
-<ul>
-  <li><strong><em>Make the best map you can</em></strong></li>
-</ul>
-
-<p>Now you know how to make a bad map, try your best to make an awesome map. Once
-you hare happy with the results, share it with the group and explain what you
-think makes the maps great.</p>
 
 
   <hr>

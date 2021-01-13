@@ -221,79 +221,92 @@
   </a>
   </p>
 
-  <h1 id="lab-7---map-design">Lab 7 - Map Design</h1>
+  <h1 id="lab-7---interactivity">Lab 7 - Interactivity</h1>
 
-<p>In this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using <a href="https://www.mapbox.com/mapbox-studio/">Mapbox Studio</a>, a tool that will allow us to control almost any thinkable aspect of a map.</p>
+<p>In this lab, we are going to get our hands dirty and play with different elements that allow us to make a map interactive. We will do so using <a href="https://carto.com/">CARTO</a>, which makes possible (and even fun!) to work interactivity into a map in different ways.</p>
 
-<p>As we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the <a href="../slidedecks/lecture_07.html">lecture slides</a>. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.</p>
+<p>As we go through the hands-on aspect of this block, please keep the <a href="../slidedecks/lecture_07.html">lecture slides</a> handy and revisit them as much as you need to. As always, the real challenge is not to learn how to use a piece of software, but how to apply conceptual notions in a practical context.</p>
 
 <p>To complete this lab, you will require the following:</p>
 
 <ul>
   <li>The internet</li>
-  <li>An active Mapbox account</li>
+  <li>An active CARTO account</li>
 </ul>
 
-<h2 id="mapbox-studio">Mapbox Studio</h2>
+<h2 id="carto">CARTO</h2>
 
-<p>Let’s get starting by logging into our Mapbox account and opening up the Studio at:</p>
+<p>We will use CARTO to quickly be able to make web maps and explore how you can build interactivity in web maps.</p>
+
+<p>Let us start by logging into CARTO:</p>
 
 <blockquote>
-  <p><a href="https://studio.mapbox.com/"><code class="highlighter-rouge">https://studio.mapbox.com/</code></a></p>
+  <p><a href="https://carto.com"><code class="highlighter-rouge">carto.com</code></a></p>
 </blockquote>
 
-<p>You should see something like this:</p>
+<p>Upon login, you should see a dashboard that looks more or less like:</p>
 
-<p><img src="figs/mb_studio.png" alt="Studio" /></p>
+<p><img src="figs/carto_db.png" alt="CARTO dashboard" /></p>
 
-<p>To explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.</p>
+<p>To see the main features, you can create a “New Map” (either from the dasboard or the “Maps” section, you will be able to find that button), and add the <code class="highlighter-rouge">imd2019</code> dataset we used for <a href="../labs/lab_06.html">Lab 6</a> (remember, you will find it on the “Shared with you” tab). This will take you to a new page that looks roughly like:</p>
 
-<p>The Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.</p>
+<p><img src="figs/carto_map.png" alt="CARTO map" /></p>
 
-<p><img src="https://docs.mapbox.com/studio-manual/assets/reference-styles-introduction-style-editor-toc-960-eb1c1bdbf28b8b2d36e5e32d63e8f03d.png" alt="Studio panels" />
-<a href="https://docs.mapbox.com/studio-manual/reference/styles/#style-editor"><code class="highlighter-rouge">Source</code>: Mapbox</a></p>
-
-<p>Most of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:</p>
+<p>Now let’s remember the building blocks of interactivity we have learnt in the <a href="../slidedecks/lecture_07.html">lecture</a>:</p>
 
 <ul>
-  <li>Color</li>
-  <li>Texture</li>
-  <li>Labelling and typography</li>
-  <li>Iconography</li>
+  <li>Filtering
+    <ul>
+      <li><strong>Pan</strong></li>
+      <li><strong>Zoom</strong></li>
+      <li><strong>Subset</strong></li>
+    </ul>
+  </li>
+  <li>Perspective</li>
+  <li>Volume</li>
+  <li><strong>Tooltips</strong></li>
+  <li>Split</li>
+  <li><strong>Animate</strong></li>
 </ul>
 
-<p>We will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.</p>
+<p>In bold those that we will work through in this lab.</p>
 
-<h2 id="exercise">Exercise</h2>
-
-<p>For this exercise, we will be using the “CLIWOC Slim and Routes” data product:</p>
+<p>To demonstrate animations, we will use another dataset we have enountered in the past, the CLIWOC ship logs:</p>
 
 <blockquote>
   <p><a href="https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224"><code class="highlighter-rouge">https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224</code></a></p>
 </blockquote>
 
-<p>Team in groups of two to four and pick one of the following options:</p>
+<p>You should be able to find it also on your “Shared with you” section of the Data tab. We will work with individual logs (<code class="highlighter-rouge">cliwoc_slim</code>) to create an animation of the logs, for example grouping them by month, as in this example of expeditions into the North:</p>
+
+<p><img src="figs/north_pole.gif" alt="North Expeditions" /></p>
+
+<h2 id="exercise">Exercise</h2>
+
+<p>Now we know the mechanics of interactivity in CARTO, let’s show off! Pick whichever you want first, and have a go at the following maps:</p>
 
 <ol>
-  <li>Global map of trade routes</li>
-  <li>Map of ship activity around South Africa</li>
-  <li>Map showing how important the island of Saint Helena was in this period</li>
-  <li>Map of shipping activity in the English Channel</li>
-  <li>Map of expeditions into the Arctic</li>
-  <li>Map of activity around the Caribbean</li>
+  <li>An animation of global trade over time</li>
+  <li>A map that lets you pick a given country and display its main routes</li>
+  <li>A map that lets you identify the vesel ID (<code class="highlighter-rouge">id</code>), date, and country of ships around Cape Town</li>
+  <li>A choropleth where you can select routes by their length in days</li>
+  <li>An animation of each route in the region around Jakarta</li>
+  <li>A map that allows you to select a single route, zoom into its origin, and then pan throughout the route</li>
 </ol>
 
-<p>Style a map according to its goal.</p>
+<p>Once completed, select the one you like best, and post it on Teams.</p>
 
 <h2 id="presentation">Presentation</h2>
 
-<p>Once you are happy with your final style, publish it and drop the link on the module’s Team. Designate one member of the group to present it. The presentation should cover the following:</p>
+<p>You will then have 30 seconds to present your favorite map and hit the following points:</p>
 
 <ul>
-  <li>What is the map about?</li>
-  <li>What design elements did you tweak? How? Why?</li>
-  <li>What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?</li>
+  <li>What the map shows</li>
+  <li>What interactivity element(s) you have used</li>
+  <li>One thing you think is really effective about it</li>
 </ul>
+
+<p>Remember, 30 seconds. Short and sweet. Make them count!</p>
 
 
   <hr>
