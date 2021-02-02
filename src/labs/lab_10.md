@@ -38,7 +38,7 @@ Yes. There are three things you need to do before the day of the gallery:
 
   You can find the spreadsheet with projects and sign up at:
 
-  > [Teams link to gallery spreadsheet](https://teams.microsoft.com/l/file/A0733F56-545F-4E18-8D2A-CA410D47B387?tenantId=53255131-b129-4010-86e1-474bfd7e8076&fileType=xlsx&objectUrl=https%3A%2F%2Ftheuniversityofliverpool.sharepoint.com%2Fsites%2FENVS456%2FShared%20Documents%2FGeneral%2Fenvs456_technology_gallery20.xlsx&baseUrl=https%3A%2F%2Ftheuniversityofliverpool.sharepoint.com%2Fsites%2FENVS456&serviceName=teams&threadId=19:e07c2651246040f1b1837884ec80d812@thread.skype&groupId=7366c8f8-7aa7-486b-8988-5a5807709136)
+  > [Teams link to gallery spreadsheet](https://teams.microsoft.com/l/file/73053523-3357-4568-9FE0-835AB4A65B7A?tenantId=53255131-b129-4010-86e1-474bfd7e8076&fileType=xlsx&objectUrl=https%3A%2F%2Ftheuniversityofliverpool.sharepoint.com%2Fsites%2FWebMappingAnalysis21-O365-Team%2FShared%20Documents%2FGeneral%2FW10-Technology_gallery.xlsx&baseUrl=https%3A%2F%2Ftheuniversityofliverpool.sharepoint.com%2Fsites%2FWebMappingAnalysis21-O365-Team&serviceName=teams&threadId=19:eb38d73a8bb84b60a89d189617586e52@thread.tacv2&groupId=2ca0b47d-c111-4c30-8232-bbcac929dd0b)
 
   NOTE: you will need to be signed into the University of Liverpool Teams to be
   able to access it.
