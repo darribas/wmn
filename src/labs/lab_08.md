@@ -5,28 +5,8 @@ block: b08
 
 # Lab 8 - Choropleths in CARTO
 
-In this lab, we will play with CARTO, a web mapping platform.
-The focus on this lab is on getting our hands dirty with some of the
-design principles we have seen in the lecture, and to explore CARTO in the
-meantime too!
-
-## Explore the CARTO interface
-
-We will use the 2019 IMD dataset, which has been uploaded to CARTO already.
-
-Let's walk through the basics of CARTO as a (web) GIS:
-
-- Data section: upload the file
-- Maps section
-    - New map
-    - Main/side pane
-    - Basemap: pick your background
-    - Main layer: focus on `style` for now
-        - `STYLE`
-        - `POP-UP`
-        - `LEGEND`
-
-## Mapping with CARTO
+In this lab, we will revisit CARTO and explore its more advanced capabilities.
+The focus of this lab is on choropleths: creating them, and getting them "right".
 
 Now you know the very basics of CARTO, let's make a few maps! 
 For this exercise, team up in **groups of two or three** students.

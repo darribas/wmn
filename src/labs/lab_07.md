@@ -14,6 +14,7 @@ To complete this lab, you will require the following:
 - The internet
 - An active CARTO account
 
+
 ## CARTO
 
 We will use CARTO to quickly be able to make web maps and explore how you can build interactivity in web maps.
@@ -29,6 +30,24 @@ Upon login, you should see a dashboard that looks more or less like:
 To see the main features, you can create a "New Map" (either from the dasboard or the "Maps" section, you will be able to find that button), and add the `imd2019` dataset we used for [Lab 6](../labs/lab_06.html) (remember, you will find it on the "Shared with you" tab). This will take you to a new page that looks roughly like:
 
 ![CARTO map](figs/carto_map.png)
+
+## Explore the CARTO interface
+
+We will use the 2019 IMD dataset, which has been uploaded to CARTO already.
+
+Let's walk through the basics of CARTO as a (web) GIS:
+
+- Data section: upload the file
+- Maps section
+    - New map
+    - Main/side pane
+    - Basemap: pick your background
+    - Main layer: focus on `style` for now
+        - `STYLE`
+        - `POP-UP`
+        - `LEGEND`
+
+## Interactivity
 
 Now let's remember the building blocks of interactivity we have learnt in the [lecture](../slidedecks/lecture_07.html):
 
