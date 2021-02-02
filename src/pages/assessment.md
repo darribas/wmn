@@ -7,7 +7,7 @@ title: "Assessment"
 
 - Title: *{{site.assessment.a1.title}}*
 - Type: `Coursework`
-- Due date: **Monday March 9th, Week 7**
+- Due date: **Thursday March 18th, Week 6**
 - 50% of the final mark
 - Chance to be reassessed
 - Electronic submission only
@@ -131,7 +131,7 @@ aspects of your web mapping skills:
 ## Assignment II <a name="assignment2"> </a>
 
 - `Title`: *{{site.assessment.a2.title}}*
-- `Due date`: Monday May 4th, Week 12
+- `Due date`: Thursday May 13th, Week 11
 - 50% of the final mark
 - Chance to be reassessed
 - Electronic submission only

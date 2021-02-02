@@ -89,7 +89,7 @@ blocks:
         lab: "Acquiring data from the web"
     b5:
         name: "Assignment I"
-        lecture: "Brief"
+        lecture: "Q&A"
         lab: "Clinic"
     b6:
         name: "Frontend Topics I"
