@@ -73,7 +73,7 @@ A tool that serves well for one task can be poorly suited for another
 - ...
 
 #
-## (Web) Maps
+## Data (Web) Maps
 
 ## Tufte (1983)
 
@@ -83,7 +83,7 @@ A tool that serves well for one task can be poorly suited for another
 
 ## Designing good maps
 
-Maps can fulfill several needs, looking very different depending on the end-goal
+Maps fulfill several needs
 
 MacEachren & Kraak (1997) identify three main dimensions:
 

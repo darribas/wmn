@@ -73,30 +73,34 @@
 ## Content
 
 <LEFT>
-- `W1-2` Introduction & Context
+- `W1` Introduction & Context
 </LEFT>
 
----
+<LEFT>
+    - `W2-4`: <span class='hlg'>Data Backends</span>
+</LEFT>
 
 <LEFT>
-    - `W3-5`: <span class='hlg'>Data Backends</span>
+- `W5`: Assignment I
 </LEFT>
 
 <LEFT>
 - `W6-8`: <span class='hlg'>Frontend Topics</span>
 </LEFT>
 
----
+<LEFT>
+- `W9`: Dashboards
+</LEFT>
 
 <LEFT>
-- `W9-10`: Extensions
+- `W10`: Technology Gallery
 </LEFT>
 
 ## Assessment
 
 - Two pieces of <span class='hlg'>coursework</span> (50%/50%)
 - *Equivalent* to 2,500 words each
-- Due on <span class='hlg'>W-5</span> and <span class='hlg'>W-10</span>
+- Due on <span class='hlg'>W-6</span> and <span class='hlg'>W-11</span>
 - Description in lectures + lab clinics
 
 #
@@ -114,18 +118,17 @@
 
 ## Lecture/Labs
 
-**Lectures**: *Mondays* 9am-10am @`SCTH-SR9`
+**Lectures**: *Fridays* 1pm-2pm @`Teams`
 
 <LEFT>
-- Underlying concepts
+- Live streams + video archive
 </LEFT>
 
 <LEFT>
-- Context
+- Underlying concepts + Context
 </LEFT>
 
-
-**Labs**: *Mondays* 3pm-5pm @`502-PCTC-C`
+**Labs**: *Fridays* 3pm-5pm @`Teams`
 
 <LEFT>
 - Hands on
@@ -145,7 +148,6 @@
 ## Homework
 
 <div class='fragment'>
-For next week:
 
 - Bring at least one example of <span class='hlg'>web mapping</span> that you find <span class='hlg'>compelling</span>
 - Contribute the link to Teams
