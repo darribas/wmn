@@ -4,7 +4,6 @@ block: b04
 ---
 
 [**NOTE**: you can download an `.ipynb` version of this file [here]({{site.baseurl}}/labs/lab_04.ipynb)]
-
 # Lab 4 - Acquiring data from the web in Python
 
 In this lab, we will interact with a few APIs to get a feel for how they work and how you can make the most of them when trying to access data on the web. To follow this session, you will need to be able to access the following:
@@ -40,14 +39,14 @@ IFrame("https://data.police.uk/docs/", 300, 150)
 
 
 
-        <iframe
-            width="300"
-            height="150"
-            src="https://data.police.uk/docs/"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        
+<iframe
+    width="300"
+    height="150"
+    src="https://data.police.uk/docs/"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+
 
 
 
@@ -78,14 +77,14 @@ IFrame(url, 300, 150)
 
 
 
-        <iframe
-            width="300"
-            height="150"
-            src="https://data.police.uk/api/outcomes-at-location?date=2019-12&lat=53.40146&lng=-2.96459"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        
+<iframe
+    width="300"
+    height="150"
+    src="https://data.police.uk/api/outcomes-at-location?date=2019-12&lat=53.40146&lng=-2.96459"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+
 
 
 
@@ -96,8 +95,8 @@ Now we'll access it programmatically using `requests`:
 %time r = requests.get(url)
 ```
 
-    CPU times: user 20.5 ms, sys: 4.59 ms, total: 25.1 ms
-    Wall time: 1.82 s
+    CPU times: user 19.9 ms, sys: 5.66 ms, total: 25.6 ms
+    Wall time: 305 ms
 
 
 
@@ -109,7 +108,7 @@ r.content[:100]
 
 
 
-    b'[{"category":{"code":"awaiting-court-result","name":"Awaiting court outcome"},"date":"2019-12","pers'
+    b'[{"category":{"code":"no-further-action","name":"Investigation complete; no suspect identified"},"da'
 
 
 
@@ -140,7 +139,7 @@ len(crimes)
 
 
 
-    1337
+    1336
 
 
 
@@ -152,20 +151,20 @@ crimes[0]
 
 
 
-    {'category': {'code': 'awaiting-court-result',
-      'name': 'Awaiting court outcome'},
+    {'category': {'code': 'no-further-action',
+      'name': 'Investigation complete; no suspect identified'},
      'date': '2019-12',
      'person_id': None,
-     'crime': {'category': 'violent-crime',
+     'crime': {'category': 'theft-from-the-person',
       'location_type': 'Force',
-      'location': {'latitude': '53.409256',
-       'street': {'id': 911941, 'name': 'On or near Norton Street'},
-       'longitude': '-2.974566'},
+      'location': {'latitude': '53.403000',
+       'street': {'id': 910327, 'name': 'On or near Fleet Street'},
+       'longitude': '-2.980079'},
       'context': '',
-      'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
-      'id': 79311446,
+      'persistent_id': 'cc8b7d1a0c213a4c5233ce6b1021df38f19cd2a4faa3278d2d166f84cf5f6e32',
+      'id': 80010641,
       'location_subtype': 'ROAD',
-      'month': '2019-11'}}
+      'month': '2019-12'}}
 
 
 
@@ -207,38 +206,38 @@ crimes_db.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>{'code': 'awaiting-court-result', 'name': 'Awa...</td>
+      <td>{'code': 'no-further-action', 'name': 'Investi...</td>
       <td>2019-12</td>
       <td>None</td>
-      <td>{'category': 'violent-crime', 'location_type':...</td>
+      <td>{'category': 'theft-from-the-person', 'locatio...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>{'code': 'no-further-action', 'name': 'Investi...</td>
-      <td>2019-12</td>
-      <td>None</td>
-      <td>{'category': 'burglary', 'location_type': 'For...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>{'code': 'no-further-action', 'name': 'Investi...</td>
-      <td>2019-12</td>
-      <td>None</td>
-      <td>{'category': 'other-theft', 'location_type': '...</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>{'code': 'unable-to-prosecute', 'name': 'Unabl...</td>
       <td>2019-12</td>
       <td>None</td>
       <td>{'category': 'violent-crime', 'location_type':...</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>{'code': 'drugs-possession-warning', 'name': '...</td>
+      <th>2</th>
+      <td>{'code': 'court-result-unavailable', 'name': '...</td>
+      <td>2020-06</td>
+      <td>None</td>
+      <td>{'category': 'violent-crime', 'location_type':...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>{'code': 'unable-to-prosecute', 'name': 'Unabl...</td>
       <td>2019-12</td>
       <td>None</td>
-      <td>{'category': 'drugs', 'location_type': 'Force'...</td>
+      <td>{'category': 'public-order', 'location_type': ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>{'code': 'unable-to-prosecute', 'name': 'Unabl...</td>
+      <td>2019-12</td>
+      <td>None</td>
+      <td>{'category': 'shoplifting', 'location_type': '...</td>
     </tr>
   </tbody>
 </table>
@@ -256,20 +255,20 @@ crimes[0]
 
 
 
-    {'category': {'code': 'awaiting-court-result',
-      'name': 'Awaiting court outcome'},
+    {'category': {'code': 'no-further-action',
+      'name': 'Investigation complete; no suspect identified'},
      'date': '2019-12',
      'person_id': None,
-     'crime': {'category': 'violent-crime',
+     'crime': {'category': 'theft-from-the-person',
       'location_type': 'Force',
-      'location': {'latitude': '53.409256',
-       'street': {'id': 911941, 'name': 'On or near Norton Street'},
-       'longitude': '-2.974566'},
+      'location': {'latitude': '53.403000',
+       'street': {'id': 910327, 'name': 'On or near Fleet Street'},
+       'longitude': '-2.980079'},
       'context': '',
-      'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
-      'id': 79311446,
+      'persistent_id': 'cc8b7d1a0c213a4c5233ce6b1021df38f19cd2a4faa3278d2d166f84cf5f6e32',
+      'id': 80010641,
       'location_subtype': 'ROAD',
-      'month': '2019-11'}}
+      'month': '2019-12'}}
 
 
 
@@ -283,9 +282,9 @@ crimes[0]["crime"]["location"]
 
 
 
-    {'latitude': '53.409256',
-     'street': {'id': 911941, 'name': 'On or near Norton Street'},
-     'longitude': '-2.974566'}
+    {'latitude': '53.403000',
+     'street': {'id': 910327, 'name': 'On or near Fleet Street'},
+     'longitude': '-2.980079'}
 
 
 
@@ -304,20 +303,20 @@ cr
 
 
 
-    {'category': {'code': 'awaiting-court-result',
-      'name': 'Awaiting court outcome'},
+    {'category': {'code': 'no-further-action',
+      'name': 'Investigation complete; no suspect identified'},
      'date': '2019-12',
      'person_id': None,
-     'crime': {'category': 'violent-crime',
+     'crime': {'category': 'theft-from-the-person',
       'location_type': 'Force',
-      'location': {'latitude': '53.409256',
-       'street': {'id': 911941, 'name': 'On or near Norton Street'},
-       'longitude': '-2.974566'},
+      'location': {'latitude': '53.403000',
+       'street': {'id': 910327, 'name': 'On or near Fleet Street'},
+       'longitude': '-2.980079'},
       'context': '',
-      'persistent_id': '2fee8abfce463f0fd79844b4d4c630c0aacfdd5b127a9f77192eeeafde9433a7',
-      'id': 79311446,
+      'persistent_id': 'cc8b7d1a0c213a4c5233ce6b1021df38f19cd2a4faa3278d2d166f84cf5f6e32',
+      'id': 80010641,
       'location_subtype': 'ROAD',
-      'month': '2019-11'}}
+      'month': '2019-12'}}
 
 
 
@@ -361,13 +360,13 @@ cr_parsed
 
 
 
-    category_code             awaiting-court-result
-    crime_category                    violent-crime
-    cime_id                                79311446
-    cime_category                     violent-crime
-    longitude                              -2.97457
-    latitude                                53.4093
-    date                                    2019-11
+    category_code                 no-further-action
+    crime_category            theft-from-the-person
+    cime_id                                80010641
+    cime_category             theft-from-the-person
+    longitude                              -2.98008
+    latitude                                 53.403
+    date                                    2019-12
     crime_location_type                       Force
     crime_location_subtype                     ROAD
     dtype: object
@@ -403,13 +402,13 @@ parse_crime_event(cr)
 
 
 
-    category_code             awaiting-court-result
-    crime_category                    violent-crime
-    cime_id                                79311446
-    cime_category                     violent-crime
-    longitude                              -2.97457
-    latitude                                53.4093
-    date                                    2019-11
+    category_code                 no-further-action
+    crime_category            theft-from-the-person
+    cime_id                                80010641
+    cime_category             theft-from-the-person
+    longitude                              -2.98008
+    latitude                                 53.403
+    date                                    2019-12
     crime_location_type                       Force
     crime_location_subtype                     ROAD
     dtype: object
@@ -424,15 +423,15 @@ parse_crime_event(crimes[10])
 
 
 
-    category_code                 no-further-action
-    crime_category            criminal-damage-arson
-    cime_id                                79308783
-    cime_category             criminal-damage-arson
-    longitude                              -2.97504
-    latitude                                  53.39
-    date                                    2019-11
-    crime_location_type                       Force
-    crime_location_subtype                     ROAD
+    category_code             unable-to-prosecute
+    crime_category                  violent-crime
+    cime_id                              79309151
+    cime_category                   violent-crime
+    longitude                            -2.98489
+    latitude                              53.4086
+    date                                  2019-11
+    crime_location_type                     Force
+    crime_location_subtype                   ROAD
     dtype: object
 
 
@@ -504,7 +503,31 @@ parsed.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>awaiting-court-result</td>
+      <td>no-further-action</td>
+      <td>theft-from-the-person</td>
+      <td>80010641</td>
+      <td>theft-from-the-person</td>
+      <td>-2.980079</td>
+      <td>53.403000</td>
+      <td>2019-12</td>
+      <td>Force</td>
+      <td>ROAD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>unable-to-prosecute</td>
+      <td>violent-crime</td>
+      <td>77666055</td>
+      <td>violent-crime</td>
+      <td>-2.964809</td>
+      <td>53.409497</td>
+      <td>2019-09</td>
+      <td>Force</td>
+      <td>HOSPITALS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>court-result-unavailable</td>
       <td>violent-crime</td>
       <td>79311446</td>
       <td>violent-crime</td>
@@ -515,52 +538,28 @@ parsed.head()
       <td>ROAD</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>no-further-action</td>
-      <td>burglary</td>
-      <td>80011089</td>
-      <td>burglary</td>
-      <td>-2.975439</td>
-      <td>53.408602</td>
-      <td>2019-12</td>
-      <td>Force</td>
-      <td>ROAD</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>no-further-action</td>
-      <td>other-theft</td>
-      <td>80015947</td>
-      <td>other-theft</td>
-      <td>-2.978599</td>
-      <td>53.409277</td>
-      <td>2019-12</td>
-      <td>Force</td>
-      <td>ROAD</td>
-    </tr>
-    <tr>
       <th>3</th>
       <td>unable-to-prosecute</td>
-      <td>violent-crime</td>
-      <td>79309151</td>
-      <td>violent-crime</td>
-      <td>-2.984887</td>
-      <td>53.408614</td>
-      <td>2019-11</td>
+      <td>public-order</td>
+      <td>80005371</td>
+      <td>public-order</td>
+      <td>-2.946783</td>
+      <td>53.403259</td>
+      <td>2019-12</td>
       <td>Force</td>
-      <td>ROAD</td>
+      <td>SUPERMARKET CHAINS</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>drugs-possession-warning</td>
-      <td>drugs</td>
-      <td>80007412</td>
-      <td>drugs</td>
-      <td>-2.964395</td>
-      <td>53.390561</td>
+      <td>unable-to-prosecute</td>
+      <td>shoplifting</td>
+      <td>80012712</td>
+      <td>shoplifting</td>
+      <td>-2.985119</td>
+      <td>53.403704</td>
       <td>2019-12</td>
       <td>Force</td>
-      <td>ROAD</td>
+      <td>PARKING</td>
     </tr>
   </tbody>
 </table>
@@ -589,7 +588,7 @@ geo_db.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f0649effcf8>
+    <AxesSubplot:>
 
 
 
@@ -630,8 +629,9 @@ We can access now the [Stamen Terrain](http://maps.stamen.com/terrain/#12/53.393
 
 
 ```python
-tile_url = ("http://tile.stamen.com/terrain/"\
-            "11/1007/663.jpg")
+tile_url = (
+    "http://tile.stamen.com/terrain/11/1007/663.jpg"
+)
 tile_url
 ```
 
@@ -651,14 +651,14 @@ IFrame(tile_url, 300, 300)
 
 
 
-        <iframe
-            width="300"
-            height="300"
-            src="http://tile.stamen.com/terrain/11/1007/663.jpg"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        
+<iframe
+    width="300"
+    height="300"
+    src="http://tile.stamen.com/terrain/11/1007/663.jpg"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+
 
 
 
@@ -697,11 +697,12 @@ To swap the default for a particular provider, you need to use the `url` attribu
 
 ```python
 ax = geo_db.plot(markersize=0.5, color='red')
-cx.add_basemap(ax, 
-               crs=geo_db.crs,
-               url=cx.providers.CartoDB.Voyager,
-               zoom=14
-              )
+cx.add_basemap(
+    ax, 
+    crs=geo_db.crs,
+    source=cx.providers.CartoDB.Voyager,
+    zoom=14
+)
 ```
 
 
@@ -748,7 +749,7 @@ plt.imshow(img, extent=ext)
 
 
 
-    <matplotlib.image.AxesImage at 0x7f0649aada20>
+    <matplotlib.image.AxesImage at 0x7f7b055f0910>
 
 
 
@@ -760,13 +761,9 @@ A final trick that `contextily` has under its hand is the ability to write a bas
 
 
 ```python
-img, ext = cx.bounds2raster(w, 
-                            s, 
-                            e, 
-                            n, 
-                            "my_basemap.tif", 
-                            ll=True
-                           )
+img, ext = cx.bounds2raster(
+    w, s, e, n, "my_basemap.tif", ll=True
+)
 ```
 
 Fire up QGIS and inspect the file we've just created (`my_basemap.tif`).
@@ -777,19 +774,21 @@ To finish this lab, we will explore an API that allows us to tap into the output
 
 
 ```python
-TOKEN = open("MAPBOX_TOKEN").read()
+TOKEN = open("MAPBOX_TOKEN").read().strip("\n")
 ```
 
 The Directions API allows us to retrieve routing directions for different travel modes from two points. The general structure of the call is as follows:
 
 
 ```python
-dir_base = ("https://api.mapbox.com/directions/v5/mapbox/"\
-            "XXXmodeXXX/"\
-            "XXXorig_lonXXX,XXXorig_latXXX;"\
-            "XXXdest_lonXXX,XXXdest_latXXX"\
-            "?geometries=geojson"\
-            "&access_token=YOUR_MAPBOX_ACCESS_TOKEN")
+dir_base = (
+    "https://api.mapbox.com/directions/v5/mapbox/"\
+    "XXXmodeXXX/"\
+    "XXXorig_lonXXX,XXXorig_latXXX;"\
+    "XXXdest_lonXXX,XXXdest_latXXX"\
+    "?geometries=geojson"\
+    "&access_token=YOUR_MAPBOX_ACCESS_TOKEN"
+)
 dir_base
 ```
 
@@ -837,7 +836,7 @@ r.content
 
 
 
-    b'{"routes":[{"weight_name":"routability","legs":[{"summary":"A562, A5058","steps":[],"distance":2279.8,"duration":1609,"weight":1609}],"geometry":{"coordinates":[[-2.8856,53.380119],[-2.886148,53.379974],[-2.88919,53.381962],[-2.893808,53.384666],[-2.897625,53.385567],[-2.899884,53.386322],[-2.909303,53.388119],[-2.909477,53.388096],[-2.909854,53.38805],[-2.910888,53.387917],[-2.912312,53.388474],[-2.912442,53.388382],[-2.913922,53.388592],[-2.914619,53.388218]],"type":"LineString"},"distance":2279.8,"duration":1609,"weight":1609}],"waypoints":[{"distance":30.857,"name":"Beaconsfield Road","location":[-2.8856,53.380119]},{"distance":1.225,"name":"Carsdale Road","location":[-2.914619,53.388218]}],"code":"Ok","uuid":"cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=="}'
+    b'{"routes":[{"weight_name":"pedestrian","weight":1658.645,"duration":1615.194,"distance":2287.895,"legs":[{"admins":[{"iso_3166_1_alpha3":"GBR","iso_3166_1":"GB"}],"weight":1658.645,"duration":1615.194,"steps":[],"distance":2287.895,"summary":"A562, A5058"}],"geometry":{"coordinates":[[-2.885599,53.380121],[-2.886148,53.379975],[-2.889188,53.381962],[-2.893808,53.384666],[-2.898128,53.385703],[-2.899882,53.386321],[-2.909303,53.388118],[-2.909476,53.388095],[-2.909853,53.388049],[-2.910888,53.387915],[-2.911719,53.388324],[-2.913846,53.388725],[-2.91392,53.388593],[-2.91462,53.38822]],"type":"LineString"}}],"waypoints":[{"distance":30.89,"name":"Beaconsfield Road","location":[-2.885599,53.380121]},{"distance":1.46,"name":"Carsdale Road","location":[-2.91462,53.38822]}],"code":"Ok","uuid":"n4aPqd53fWqIAsFlzL2_cGsaahfXJqr8Dv1Lf3LMpMWyJ0LApljg1A=="}'
 
 
 
@@ -852,38 +851,39 @@ waypoints
 
 
 
-    {'routes': [{'weight_name': 'routability',
-       'legs': [{'summary': 'A562, A5058',
+    {'routes': [{'weight_name': 'pedestrian',
+       'weight': 1658.645,
+       'duration': 1615.194,
+       'distance': 2287.895,
+       'legs': [{'admins': [{'iso_3166_1_alpha3': 'GBR', 'iso_3166_1': 'GB'}],
+         'weight': 1658.645,
+         'duration': 1615.194,
          'steps': [],
-         'distance': 2279.8,
-         'duration': 1609,
-         'weight': 1609}],
-       'geometry': {'coordinates': [[-2.8856, 53.380119],
-         [-2.886148, 53.379974],
-         [-2.88919, 53.381962],
+         'distance': 2287.895,
+         'summary': 'A562, A5058'}],
+       'geometry': {'coordinates': [[-2.885599, 53.380121],
+         [-2.886148, 53.379975],
+         [-2.889188, 53.381962],
          [-2.893808, 53.384666],
-         [-2.897625, 53.385567],
-         [-2.899884, 53.386322],
-         [-2.909303, 53.388119],
-         [-2.909477, 53.388096],
-         [-2.909854, 53.38805],
-         [-2.910888, 53.387917],
-         [-2.912312, 53.388474],
-         [-2.912442, 53.388382],
-         [-2.913922, 53.388592],
-         [-2.914619, 53.388218]],
-        'type': 'LineString'},
-       'distance': 2279.8,
-       'duration': 1609,
-       'weight': 1609}],
-     'waypoints': [{'distance': 30.857,
+         [-2.898128, 53.385703],
+         [-2.899882, 53.386321],
+         [-2.909303, 53.388118],
+         [-2.909476, 53.388095],
+         [-2.909853, 53.388049],
+         [-2.910888, 53.387915],
+         [-2.911719, 53.388324],
+         [-2.913846, 53.388725],
+         [-2.91392, 53.388593],
+         [-2.91462, 53.38822]],
+        'type': 'LineString'}}],
+     'waypoints': [{'distance': 30.89,
        'name': 'Beaconsfield Road',
-       'location': [-2.8856, 53.380119]},
-      {'distance': 1.225,
+       'location': [-2.885599, 53.380121]},
+      {'distance': 1.46,
        'name': 'Carsdale Road',
-       'location': [-2.914619, 53.388218]}],
+       'location': [-2.91462, 53.38822]}],
      'code': 'Ok',
-     'uuid': 'cel998PNFts5OWRdRCOgD_nhJDlPqDXHwnUGXMAByHFFuQa73jqjYQ=='}
+     'uuid': 'n4aPqd53fWqIAsFlzL2_cGsaahfXJqr8Dv1Lf3LMpMWyJ0LApljg1A=='}
 
 
 
@@ -928,9 +928,9 @@ routes
   <tbody>
     <tr>
       <th>0</th>
-      <td>LINESTRING (-2.8856 53.380119, -2.886148 53.37...</td>
-      <td>2279.8</td>
-      <td>1609</td>
+      <td>LINESTRING (-2.88560 53.38012, -2.88615 53.379...</td>
+      <td>2287.895</td>
+      <td>1615.194</td>
     </tr>
   </tbody>
 </table>
@@ -943,7 +943,7 @@ With this, we can make a map just as above:
 
 ```python
 ax = routes.plot(color="purple", linewidth=3, figsize=(14, 14))
-cx.add_basemap(ax, crs=routes.crs, url=cx.providers.Stamen.TonerLite)
+cx.add_basemap(ax, crs=routes.crs, source=cx.providers.Stamen.TonerLite)
 ```
 
 
