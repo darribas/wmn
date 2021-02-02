@@ -11,39 +11,6 @@
 #
 ## Spatial Data
 
-## **Traditional** Spatial Data
-
-In the "old days" only:
-
-* Mapping agencies (e.g. OS)
-* Administrative organizations (e.g. Land Registry)
-* Military
-* Large companies (e.g. Google)
-* ...
-
-could afford the generation of spatial dataset.
-
-## **New** Spatial Data
-
-Today, this list has **expanded** to essentially **anyone** with access to
-(cheap) geospatial technology
-
-## {data-background=../slides/figs/ride.jpg data-background-size=cover}
-
-## {data-background=../slides/figs/osm.jpg data-background-size=cover}
-[[Source]](http://openstreetmap.org)
-
-## {data-background=../slides/figs/osm_lvl.jpg data-background-size=cover}
-[[Source]](https://www.mapbox.com/gallery/#map-1)
-
-## {data-background=../slides/figs/tweets.jpg}
-[[Source]](https://api.tiles.mapbox.com/v4/enf.c3a2de35/page.html?access_token=pk.eyJ1IjoiZW5mIiwiYSI6IkNJek92bnMifQ.xn2_Uj9RkYTGRuCGg4DXZQ#11/51.5049/-0.1576)
-
-## {data-background=../slides/figs/facebook.png data-background-size=contain}
-[[Source]](https://code.facebook.com/posts/210838009040670/visualizing-friendships/)
-
-## Data Models
-
 *How* we represent the world in a computer
 
 * Vector
@@ -89,7 +56,6 @@ The value assigned for each cell represents the attribute of that cell
 [[Source]](https://upload.wikimedia.org/wikipedia/commons/0/05/CubeSat_in_hand.jpg)
 
 ## {data-background=../slides/figs/planet.png data-background-size=contain}
-## {data-background=../slides/figs/strava_heatmap.png data-background-size=contain}
 
 #
 ## Spatial Data Formats
