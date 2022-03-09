@@ -7,7 +7,7 @@ title: "Assessment"
 
 - Title: *{{site.assessment.a1.title}}*
 - Type: `Coursework`
-- Due date: **Thursday March 10th, Week 6**
+- Due date: **Thursday March 17th, Week 7**
 - 50% of the final mark
 - Chance to be reassessed
 - Electronic submission only
@@ -101,7 +101,7 @@ have to be successful to achieve a good mark:
 2. Technical skills. This includes your ability to master technologies that
    allow you to create a compelling map, but also to access interesting
    and sophiticated data sources.
-3. Overall narrative. This assesses your aptitude to introduce, motivate and 
+3. Overall narrative. This assesses your aptitude to introduce, motivate and
    justify your map, as well as you ability to bring each component of the
    assignment into a coherent whole that "fits together".
 4. Conceptual understanding of key technologies presented in the course, in
@@ -190,7 +190,7 @@ The assignment will be evaluated based on...
    dashboard should be connected to each other following a common thread. And,
    of course, make this connection and holistic approach come alive in your
    report.
-1. *(Base)map design*. Critically introduce every aspect you have thought about 
+1. *(Base)map design*. Critically introduce every aspect you have thought about
    when designing the maps, and explicitly connect it to the overal aim of
    the dashboard. Be clear in your descriptions and critical in how you engage
    every design choice.
