@@ -9,7 +9,7 @@ block: b04
 In this lab, we will interact with a few APIs to get a feel for how they work and how you can make the most of them when trying to access data on the web. To follow this session, you will need to be able to access the following:
 
 - The internet
-- A Python installation such as the "Geographic Data Science Stack 2019" in the University of Liverpool computers, or the `gds_env` Docker container in your own machine (see [here](http://darribas.org/gds19/software.html) for instructions) 
+- A Python installation such as the "Geographic Data Science Stack 2019" in the University of Liverpool computers, or the `gds_env` Docker container in your own machine (see [here](http://darribas.org/gds19/software.html) for instructions)
 - A Mapbox API token, which you can access through your Mapbox account
 
 
@@ -698,7 +698,7 @@ To swap the default for a particular provider, you need to use the `url` attribu
 ```python
 ax = geo_db.plot(markersize=0.5, color='red')
 cx.add_basemap(
-    ax, 
+    ax,
     crs=geo_db.crs,
     source=cx.providers.CartoDB.Voyager,
     zoom=14
@@ -707,6 +707,15 @@ cx.add_basemap(
 
 
 ![png](lab_04_files/lab_04_51_0.png)
+
+TIP:  When adding the basemap, in newer versions you may get an error in loading the map,
+use:
+
+```url=cx.providers.CartoDB.Voyager```
+
+instead of
+
+``source=cx.providers.CartoDB.Voyager.``
 
 
 Explore the different providers and create similar maps as above using them.
